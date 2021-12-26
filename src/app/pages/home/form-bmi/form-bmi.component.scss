@@ -1,0 +1,64 @@
+@import '../../../../mediaqueries.scss';
+@import '../../../../variables.scss';
+@import '../../../../themes';
+
+
+
+// .temp {
+//   color: color(primary);
+// }
+
+// .hide-svg-login {
+//   background-color: #FFFFFF;
+//   display: flex;
+
+//   @include tablet {
+//     display: none;
+//   }
+// }
+
+:host {
+  display: block;
+  max-height: 250rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.card-row {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.card-col {
+  flex: 1 0 calc(50% - 1rem);
+  margin: 0 0.5rem;
+}
+
+nb-checkbox:not(:only-child) {
+  margin-right: 1.5rem;
+}
+
+nb-card-body.example-items-rows {
+  align-items: center;
+}
+
+.msg {
+  background-color: color(primary);
+  -webkit-transition: background 2s;
+  transition: background 2s;
+}
+
+.msg:hover {
+  background: color(primary-light);
+}
+
+.bmi {
+  color: color(primary-light);
+  font-size: 30px;
+  font-style: bold;
+  font-family: font(font-family-regular);
+}
+
+.fa {
+  font-size: 2rem;
+}

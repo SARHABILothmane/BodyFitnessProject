@@ -1,0 +1,110 @@
+<nb-layout>
+  <nb-layout-column>
+    <section id="formation-section1" #target class="position-relative">
+      <div class="container">
+        <h1 class="text-center text-uppercase titles-about m-5" data-aos="fade-down">Calcultor :</h1>
+        <div class="row align-items-center">
+          <div class="col-12 col-md-4 text-center about-card">
+            <a routerLink="/calcultor/body-mass-index" routerLinkActive="active">
+              <ng-lottie [options]="marathon" width="80%"></ng-lottie>
+            </a>
+            <h6 class="mt-1">Body mass index</h6>
+            <p class="px-5"> The Body Mass Index (BMI) Calculator can be used to calculate BMI value and
+              corresponding weight status while taking age into consideration.
+            </p>
+            <a routerLink="/calcultor/body-mass-index" routerLinkActive="active">Body Mass Index</a>
+          </div>
+          <div class="col-12 col-md-4 text-center about-card">
+            <ng-lottie [options]="weightLoss" width="100%"></ng-lottie>
+            <!-- <img class="mb-4" src="../../../assets/images/pexels.jpg" alt="fire fighter  icon"> -->
+            <h6 class="mb-2">Body fat porcentage</h6>
+            <p class="px-5">The Body Fat Calculator can be used to estimate your total body fat based on specific
+              measurements.</p>
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+          </div>
+          <div class="col-12 col-md-4 text-center about-card">
+            <div class="do">
+              <ng-lottie [options]="bodybuilder" width="60%"></ng-lottie>
+            </div>
+            <!-- <img class="mb-4" src="../../../assets/images/pexels.jpg" alt="internet icon"> -->
+            <h6 class="mt-5">Basal Metabolic Rate (BMR)</h6>
+            <p class="px-5"> The Basal Metabolic Rate (BMR) Calculator estimates your basal metabolic rate—the
+              amount of energy expended while at rest in a neutrally temperate environment.</p>
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+          </div>
+        </div>
+        <div class="row mb-5 align-items-center">
+          <div class="col-12 col-md-4 mx-auto text-center about-card">
+            <div class="do mt-5">
+              <ng-lottie [options]="fitness" width="70%"></ng-lottie>
+            </div>
+            <!-- <img class="mb-4" src="../../../assets/images/pexels.jpg" alt="translation icon"> -->
+            <h6 class="mt-3">Ideal Weight Calculator</h6>
+            <p class="px-5">The Ideal Weight Calculator computes ideal body weight (IBW) ranges based on height,
+              gender, and age</p>
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+          </div>
+          <div class="col-12 col-md-4 mx-auto text-center">
+            <div class="do">
+              <ng-lottie [options]="calorie" width="90%"></ng-lottie>
+            </div>
+            <!-- <img class="mb-4 " src="../../../assets/images/pexels.jpg" alt="web programming icon"> -->
+            <h6 class="mb-2">Formations informatiques</h6>
+            <p class="px-5">(Développeur web, word, excel, powerpoint, tests unitaires, etc …..) avec
+              différentes modalités</p>
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+</nb-layout>
+
+
+<!-- <nb-layout>
+  <nb-layout-column>
+    <section id="formation-section1" #target class="position-relative">
+      <div class="container pt-5">
+        <h4 class="text-center text-uppercase titles-about m-5" data-aos="fade-down">Calcultor :</h4>
+        <div class="row align-items-center">
+          <div class="col-12 col-md-4 text-center about-card" data-aos="flip-right">
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active"><img class="mb-4"
+                src="../../../assets/images/pexels.jpg" alt="hands icon"></a>
+            <h6 class="mb-2">Formations salarié sauveteur secouriste du stratégie </h6>
+            <p class="px-5 py-2"> Sauveteurs secouriste du travail (SST) (ssiap1, ssiap2 et ssiap3).</p>
+          </div>
+          <div class="col-12 col-md-4 text-center about-card" data-aos="fade-up">
+            <a routerLink="/calcultor/body-mass-index" routerLinkActive="active"> <img class="mb-4"
+                src="../../../assets/images/pexels-pixabay.jpg" alt="fire fighter  icon">
+            </a>
+            <h6 class="mb-2">Formations agent de sécurité incendie </h6>
+            <p class="px-5 py-2">Contrôle du matériel et Assurance
+              du système d'alarme et des extincteurs en cas d'incendie...</p>
+          </div>
+          <div class="col-12 col-md-4 text-center about-card" data-aos="flip-left">
+            <img class="mb-4" src="../../../assets/images/pexels.jpg" alt="internet icon">
+            <h6 class="mb-2">Formation fibre optique</h6>
+            <p class="px-5 py-2"> Raccordement d'un réseau
+              fibre optique et raccordements par épissure mécanique et par arc de fusion...</p>
+          </div>
+        </div>
+        <div class="row my-5 ">
+          <div class="col-12 col-md-4 mx-auto text-center about-card" data-aos="zoom-out-up">
+            <img class="mb-4" src="../../../assets/images/pexels.jpg" alt="translation icon">
+            <h6 class="mb-2">Formations de langues</h6>
+            <p class="px-5 py-2">Langue anglaise et passage de la certification TOEIC</p>
+          </div>
+          <div class="col-12 col-md-4 mx-auto text-center about-card" data-aos="zoom-out-down">
+            <img class="mb-4 " src="../../../assets/images/pexels.jpg" alt="web programming icon">
+            <h6 class="mb-2">Formations informatiques</h6>
+            <p class="px-5 py-2">(Développeur web, word, excel, powerpoint, tests unitaires, etc …..) avec
+              différentes modalités</p>
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+</nb-layout> -->

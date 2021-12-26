@@ -1,0 +1,46 @@
+@import '../../../../variables.scss';
+
+#course-section {
+  .course-container {
+    width: 100%;
+
+    .course-price {
+      color: color(primary);
+    }
+  }
+
+  .course-image {
+    width: 8rem;
+  }
+}
+
+.pres {
+  letter-spacing: 4px;
+  font-size: 15px;
+}
+
+.secondary {
+  font-size: 14px;
+
+  nb-icon {
+    margin-right: 5px;
+  }
+
+  margin-bottom: 3px !important;
+}
+
+// .info {
+//   background-image: url(../.../../../../../assets/images/undraw_working.svg);
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-size: 75%;
+// }
+
+// nb-accordion-item {
+//   background: none;
+// }
+
+nb-accordion-item-header {
+  color: color(blue-primary);
+  border-bottom-color: transparent;
+}

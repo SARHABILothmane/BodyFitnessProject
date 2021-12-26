@@ -1,0 +1,75 @@
+@import '../../../../mediaqueries.scss';
+@import '../../../../variables.scss';
+
+p {
+  font-family: font(font-family-regular);
+}
+
+.skeleton {
+  height: 62vh;
+}
+
+.not-active {
+  display: none;
+}
+
+.active {
+  display: unset;
+}
+
+.button-responsive {
+  display: none
+}
+
+.right-push {
+  margin-right: 20rem;
+
+  @include md-device {
+    margin-right: 7rem;
+  }
+
+  @include laptop {
+    margin-right: 1rem;
+  }
+}
+
+@include laptop-breakpoint {
+  .button-responsive {
+    display: inline-block
+  }
+
+  .menu-responsive {
+    display: none
+  }
+}
+
+@include tablet-sm {
+  .hero-responsive {
+    display: none;
+  }
+}
+
+.hero-title {
+  font-size: 35px;
+
+  @include laptop-breakpoint {
+    font-size: 28px;
+    padding-top: 10px;
+  }
+
+  @include tablet-sm {
+    padding: 50px 0 20px 0;
+  }
+
+  font-weight: bolder;
+  line-height: 1.4;
+}
+
+.hero-subtitle {
+  font-weight: bolder;
+  line-height: 1.5;
+
+  @include tablet-sm {
+    padding: 20px 0 10px 0;
+  }
+}

@@ -1,0 +1,83 @@
+<div id="section-about">
+  <section class="about-hero bg-white position-relative">
+    <div class="container section-one">
+      <div class="py-2">
+        <div class="broad"><a routerLink="/">home / </a><a routerLink="/about">About</a></div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-7 order-2 order-md-1 pb-5 d-flex justify-content-center align-items-center">
+          <div class="p-2" data-aos="fade-right">
+            <h3 class="mb-3">About </h3>
+            <p class="font-weight-bold about-text"> <strong>Breizh institut formation (BIF)</strong> est un organisme de
+              formation qui a pour mission de proposer des formations dans différents domaines :
+            </p>
+            <ul>
+              <li>Formation fibre optique (D3)</li>
+              <li>Formations agent de sécurité incendie</li>
+              <li>Formations salarié sauveteur secouriste du stratégie (MAC SST)</li>
+              <li>Formations de langues</li>
+              <li>Formations informatiques.</li>
+            </ul>
+            <button nbButton status="primary" class="mt-3" routerLink="/contact">
+              <nb-icon class="text-white" nbPrefix icon="email-outline" pack="eva"></nb-icon> Contactez
+              Nous
+            </button>
+          </div>
+        </div>
+        <div class="col-12 col-md-5 d-flex justify-content-center order-1 order-md-2 info">
+          <!-- <ng-lottie [options]="options" width="100%"></ng-lottie> -->
+          <!-- <img src="../../../assets/images/undraw.svg" alt=""> -->
+        </div>
+      </div>
+    </div>
+    <div class="voir-plus d-flex flex-column justify-content-center align-items-center">
+      <div class="text-center">
+        <p class="text-uppercase font-weight-bold">Voir plus</p>
+      </div>
+      <button class="rounded-circle circle-plus scrool-event p-3" (click)="scroll(target)">
+        <nb-icon class="text-white" nbPrefix icon="arrow-ios-downward-outline" pack="eva"></nb-icon>
+      </button>
+    </div>
+  </section>
+  <section id="formation-section1" #target class="position-relative">
+    <div class="container pt-5">
+      <div class="text-center mb-5 pb-3 mt-4 pt-5">
+        <p class="text-uppercase mb-0 pres">Body mass index</p>
+        <h3 class="text-secondary">Les cours online</h3>
+      </div>
+      <!-- <h4 class="text-center text-uppercase titles-about" data-aos="fade-down">Nos Formations :</h4> -->
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 text-center about-card" data-aos="flip-right">
+          <img class="mb-4" src="../../../../assets/images/icon/hands.png" alt="hands icon">
+          <h6 class="mb-4">Formations salarié sauveteur secouriste du stratégie </h6>
+          <p class="px-5 py-2"> Sauveteurs secouriste du travail (SST) (ssiap1, ssiap2 et ssiap3).</p>
+        </div>
+        <div class="col-12 col-md-4 text-center about-card" data-aos="fade-up">
+          <img class="mb-4" src="../../../../assets/images/icon/firefighter-helmet.png" alt="fire fighter  icon">
+          <h6 class="mb-4">Formations agent de sécurité incendie </h6>
+          <p class="px-5 py-2">Contrôle du matériel et Assurance
+            du système d'alarme et des extincteurs en cas d'incendie...</p>
+        </div>
+        <div class="col-12 col-md-4 text-center about-card" data-aos="flip-left">
+          <img class="mb-4" src="../../../../assets/images/icon/internet.png" alt="internet icon">
+          <h6 class="mb-4">Formation fibre optique</h6>
+          <p class="px-5 py-2"> Raccordement d'un réseau
+            fibre optique et raccordements par épissure mécanique et par arc de fusion...</p>
+        </div>
+      </div>
+      <div class="row my-5 ">
+        <div class="col-12 col-md-4 mx-auto text-center about-card" data-aos="zoom-out-up">
+          <img class="mb-4" src="../../../../assets/images/icon/translation.png" alt="translation icon">
+          <h6 class="mb-4">Formations de langues</h6>
+          <p class="px-5 py-2">Langue anglaise et passage de la certification TOEIC</p>
+        </div>
+        <div class="col-12 col-md-4 mx-auto text-center about-card" data-aos="zoom-out-down">
+          <img class="mb-4 " src="../../../../assets/images/icon/web-programming.png" alt="web programming icon">
+          <h6 class="mb-4">Formations informatiques</h6>
+          <p class="px-5 py-2">(Développeur web, word, excel, powerpoint, tests unitaires, etc …..) avec
+            différentes modalités</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

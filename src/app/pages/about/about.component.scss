@@ -1,0 +1,84 @@
+@import '../../../variables.scss';
+
+
+#section-about {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .button-text {
+    color: color(primary);
+    font-family: font(font-family-regular);
+  }
+
+  .broad {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: font(font-family-regular);
+  }
+
+  .about-hero {
+    position: relative;
+  }
+
+  .titles-about {
+    padding: 40px 0px 50px 0px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .about-text {
+    line-height: 31px;
+  }
+
+  .about-card {
+    margin: 20px 0;
+  }
+
+  .voir-plus {
+    position: absolute;
+    left: 48%;
+    bottom: -29px;
+  }
+
+  .circle-plus {
+    padding: 11px !important;
+    background-color: color(primary);
+    ;
+
+    nb-icon {
+      font-size: 30px;
+    }
+  }
+
+  .text-card {
+    padding: 35px 20px 50px 20px;
+  }
+
+  .img-card {
+    // background-image: url('../../../../assets/images/about_1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .scrool-event {
+    z-index: 10;
+    border: none;
+  }
+}
+
+:host ::ng-deep .owl-theme .owl-nav {
+  margin-top: 50px !important;
+}
+
+.info {
+  background-image: url(../.../../../../assets/images/undraw.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}

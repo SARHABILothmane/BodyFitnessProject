@@ -1,0 +1,14 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { BodyFatPorcentageRoutingModule } from './body-fat-porcentage-routing.module';
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    BodyFatPorcentageRoutingModule
+  ]
+})
+export class BodyFatPorcentageModule { }

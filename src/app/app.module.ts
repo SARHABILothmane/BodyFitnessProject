@@ -3,14 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbThemeModule, NbLayoutModule, NbProgressBarModule, NbButtonModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { TermsComponent } from './pages/termsPrivate/terms/terms.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'custom-theme' }),
+    NbLayoutModule,
+    NbEvaIconsModule,
+    // seperate component 1) jhon doe
+    // NbUserModule,
+    NbProgressBarModule,
+    NbButtonModule,
+    NbMenuModule.forRoot(),
+    NbSidebarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
