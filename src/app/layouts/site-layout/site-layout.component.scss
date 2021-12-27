@@ -1,7 +1,13 @@
+@import '../../../variables.scss';
+
 :host ::ng-deep nb-layout-column {
   padding: 0 !important;
 }
 
 :host ::ng-deep nb-layout-footer nav {
   padding: 0 !important;
+}
+
+.shadow-sm {
+  background: linear-gradient(90deg, color(primary) 0%, color(primary-light) 35%, color(blue-primary) 100%);
 }

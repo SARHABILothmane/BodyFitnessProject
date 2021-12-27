@@ -55,10 +55,22 @@ nb-card-body.example-items-rows {
 .bmi {
   color: color(primary-light);
   font-size: 30px;
-  font-style: bold;
+  // font-style: bold;
+  font-weight: bolder;
   font-family: font(font-family-regular);
 }
 
 .fa {
   font-size: 2rem;
+}
+
+.hero-subtitle {
+  font-weight: bolder;
+  font-family: font(font-family-regular);
+  line-height: 1.5;
+  font-size: 18px;
+
+  @include tablet-sm {
+    padding: 20px 0 10px 0;
+  }
 }

@@ -3,6 +3,7 @@
 
 p {
   font-family: font(font-family-regular);
+  font-size: 18px;
 }
 
 .skeleton {
@@ -51,6 +52,7 @@ p {
 
 .hero-title {
   font-size: 35px;
+  font-family: font(font-family-regular);
 
   @include laptop-breakpoint {
     font-size: 28px;
@@ -67,6 +69,7 @@ p {
 
 .hero-subtitle {
   font-weight: bolder;
+  font-family: font(font-family-regular);
   line-height: 1.5;
 
   @include tablet-sm {

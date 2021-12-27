@@ -1,5 +1,5 @@
 <nb-card status="success">
-  <nb-card-header>Calculate your BMI</nb-card-header>
+  <nb-card-header class="hero-subtitle text-center">Calculate your BMI</nb-card-header>
   <nb-card-body class="example-items-col">
     <nb-tabset (changeTab)="tabsSet($event)">
       <nb-alert status="danger" *ngIf="error">
@@ -134,7 +134,7 @@
 <!-- <button nbButton (click)="showToast('top-left')">Top Right</button> -->
 <!-- <button nbButton status="warning" (click)="showToast('bottom-end', 'success')">Bottom Start</button> -->
 <!-- <app-result-bmi></app-result-bmi> -->
-<table class="table" *ngIf="addCataloge && this.modelsBmi.age > 20">
+<table class="table" *ngIf="addCataloge && this.modelsBmi.age >= 20">
   <!-- <table class="table border"> -->
   <thead class="bg-secondary">
     <tr>
