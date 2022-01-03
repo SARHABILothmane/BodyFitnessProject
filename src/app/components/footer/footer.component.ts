@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faFacebook, faGooglePlus, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +11,10 @@ import { Router } from '@angular/router';
 export class FooterComponent implements OnInit {
   dt: any;
   constructor(private router: Router) { }
-
+  faFacebook = faFacebook;
+  faInstagram = faInstagram;
+  faGooglePlus = faGooglePlus;
+  faTwitter = faTwitter;
   ngOnInit(): void {
     this.dt = new Date().getFullYear();
 

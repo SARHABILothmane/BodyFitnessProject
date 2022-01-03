@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbProgressBarModule, NbButtonModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { TermsComponent } from './pages/termsPrivate/terms/terms.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TermsComponent
   ],
   imports: [
     BrowserModule,

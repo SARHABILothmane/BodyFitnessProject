@@ -22,7 +22,9 @@
             </div>
           </div> -->
           <nb-form-field class="mb-3">
-            <label for="">Age</label>
+            <label for="">Age <nb-icon nbTooltip="This is a tooltip" nbTooltipPlacement="right" nbTooltipStatus="basic"
+                icon="alert-circle-outline">
+              </nb-icon></label>
             <!-- <nb-icon nbSuffix icon="at-outline" pack="eva"></nb-icon> -->
             <input type="number" nbInput fullWidth formControlName="age" status="basic" placeholder="Age"
               [(ngModel)]="modelsBmi.age">
@@ -62,7 +64,8 @@
           <nb-form-field class="mb-3">
             <label for="">Age</label>
             <!-- <nb-icon nbSuffix icon="at-outline" pack="eva"></nb-icon> -->
-            <input type="number" nbInput fullWidth formControlName="age" status="basic" placeholder="Age">
+            <input type="number" nbInput fullWidth formControlName="age" status="basic" placeholder="Age"
+              [(ngModel)]="modelsBmi.age">
             <!-- <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
             !</small> -->
           </nb-form-field>
@@ -134,7 +137,7 @@
 <!-- <button nbButton (click)="showToast('top-left')">Top Right</button> -->
 <!-- <button nbButton status="warning" (click)="showToast('bottom-end', 'success')">Bottom Start</button> -->
 <!-- <app-result-bmi></app-result-bmi> -->
-<table class="table" *ngIf="addCataloge && this.modelsBmi.age >= 20">
+<table class="table" *ngIf="addCataloge && checkAge >= 20">
   <!-- <table class="table border"> -->
   <thead class="bg-secondary">
     <tr>
@@ -186,7 +189,7 @@
     </tr>
   </tbody>
 </table>
-<table class="table" *ngIf="addCataloge && this.modelsBmi.age < 20">
+<table class="table" *ngIf="addCataloge && checkAge < 20">
   <!-- <table class="table border"> -->
   <thead class="bg-secondary">
     <tr>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NbGlobalPhysicalPosition, NbToastrService } from '@nebular/theme';
+import { NbGlobalPhysicalPosition, NbIconConfig, NbToastrService } from '@nebular/theme';
 import { AnimationOptions } from 'ngx-lottie';
 import { Bmi } from 'src/app/models/bmi';
 @Component({
@@ -23,6 +23,7 @@ export class FormBmiComponent implements OnInit {
   message: string = "";
   addCataloge: boolean = false;
   tabTitle: string = "";
+  checkAge: number = 0;
   modelsBmi: Bmi = {
     age: 0,
     height: 0,
@@ -86,7 +87,8 @@ export class FormBmiComponent implements OnInit {
       this.heightCm = this.calculeForm.value.height / 100
       // this.bmi = this.calculeForm.value.weight / (this.calculeForm.value.height * this.calculeForm.value.height);
       this.bmi = this.calculeForm.value.weight / (this.heightCm * this.heightCm);
-      if (this.modelsBmi.age > 20) {
+      this.checkAge = this.modelsBmi.age;
+      if (this.checkAge >= 20) {
         if (this.bmi < 16) {
           this.message = "Severe thinness";
         }
@@ -111,7 +113,7 @@ export class FormBmiComponent implements OnInit {
         if (this.bmi >= 40) {
           this.message = "Obese class Ⅲ";
         }
-      } else {
+      } if (this.checkAge < 20) {
         if (this.bmi < 5) {
           this.message = "Underweight";
         }
@@ -147,9 +149,9 @@ export class FormBmiComponent implements OnInit {
       console.log(this.calculeFormImperial.value.hFeet * 12 + this.calculeFormImperial.value.heightImperial);
       console.log(this.square(heightRslt, 2));
       this.bmi = this.calculeFormImperial.value.weightImperial / (this.square(heightRslt, 2)) * 703
-      console.log(this.bmi);
+      this.checkAge = this.modelsBmi.age
       // this.bmi = this.calculeForm.value.weight / (this.calculeForm.value.height * this.calculeForm.value.height);
-      if (this.modelsBmi.age > 20) {
+      if (this.checkAge > 20) {
         if (this.bmi < 16) {
           this.message = "Severe thinness";
         }
@@ -174,7 +176,7 @@ export class FormBmiComponent implements OnInit {
         if (this.bmi >= 40) {
           this.message = "Obese class Ⅲ";
         }
-      } else {
+      } else if (this.checkAge < 20) {
         if (this.bmi < 5) {
           this.message = "Underweight";
         }
@@ -203,7 +205,8 @@ export class FormBmiComponent implements OnInit {
       this.modelsBmi.weightImperial = this.modelsBmi.weight * 2.205;
       this.modelsBmi.heightImperial = this.modelsBmi.height / 30.48;
       // console.log(this.modelsBmi.weightImperial);
-      this.showToast(this.positions.TOP_RIGHT, 'primary');
+      this.showToast(this.positions.BOTTOM_RIGHT);
+
     }
     if (e.tabTitle === "Metric") {
       this.modelsBmi.weight = this.modelsBmi.weightImperial / 2.205;
@@ -217,17 +220,9 @@ export class FormBmiComponent implements OnInit {
     //   this.modelsBmi.heightImperial = 10;
     // }
   }
-  showToast(position: any, status: string) {
-    this.toastrService.show(status || 'Success', `Toast ${this.index}`, { position, status });
-
-
-    // this.toastrService.show(
-    //   status || 'Success',
-    //   'This is super toast message',
-    // `This is toast number: ${++this.index}`,
-    // { status },
-    // { position }
-    // );
+  showToast(position: any) {
+    // const iconConfig: NbIconConfig = { icon: iconName, pack: 'eva' };
+    this.toastrService.info('Message Success!', 'Title Success!', { position });
   }
 
   calculateHeightImperial(heightImperial: number) {

@@ -2,6 +2,11 @@
 
 @import '~@nebular/theme/styles/globals';
 
+@import '~ngx-sharebuttons/themes/material/material-dark-theme';
+// @import '~ngx-sharebuttons/themes/modern/modern-light-theme';
+// @import '~ngx-sharebuttons/themes/circles/circles-dark-theme';
+
+
 @include nb-install() {
   @include nb-theme-global();
 }
@@ -11,4 +16,8 @@
 /* You can add global styles to this file, and also import other style files */
 html {
   scroll-behavior: smooth;
+}
+
+.nb-theme-custom-theme nb-tabset .tab-link {
+  padding: 1rem !important;
 }

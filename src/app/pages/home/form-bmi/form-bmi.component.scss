@@ -44,6 +44,8 @@ nb-card-body.example-items-rows {
 
 .msg {
   background-color: color(primary);
+  font-family: font(font-family-regular);
+  // font-size: 18px;
   -webkit-transition: background 2s;
   transition: background 2s;
 }
@@ -72,5 +74,26 @@ nb-card-body.example-items-rows {
 
   @include tablet-sm {
     padding: 20px 0 10px 0;
+  }
+}
+
+//responsive
+.bmi {
+  @include tablet-sm {
+    font-size: 25px;
+  }
+
+  @include mobile-l {
+    font-size: 16px;
+  }
+}
+
+p {
+  @include tablet-sm {
+    font-size: 14px;
+  }
+
+  @include mobile-l {
+    font-size: 12px;
   }
 }

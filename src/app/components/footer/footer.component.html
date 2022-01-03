@@ -6,7 +6,8 @@
         <div class="col-12 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
           <div class="mb-4">
             <a href="#">
-              <div class=""><span><img class="w-75" src="../../../assets/images/logo.png" alt="Body calculator"></span>
+              <div class="logo ml-5"><span><img src="../../../assets/images/logo/calculator.svg" width="80px"
+                    height="100%" alt="Body calculator"></span>
               </div>
             </a>
           </div>
@@ -14,29 +15,39 @@
             <!-- <p>Ask for help & give a hand The first collaborative platform for high school students.</p> -->
           </div>
           <div class="d-flex flex-colmun mt-3">
-            <div class="footer_social text-center mr-2"><a class="d-block" href="#"><i
-                  class="fa fa-facebook social-hover" aria-hidden="true"></i></a></div>
-            <div class="footer_social text-center mr-2"><a class="d-block" href="#"><i
-                  class="fa fa-google-plus social-hover " aria-hidden="true"></i></a></div>
-            <div class="footer_social text-center mr-2"><a class="d-block" href="#"><i
-                  class="fa fa-instagram social-hover" aria-hidden="true"></i></a></div>
-            <div class="footer_social text-center"><a class="d-block" href="#"><i class="fa fa-twitter social-hover"
-                  aria-hidden="true"></i></a></div>
+            <div class="footer_social text-center mr-3">
+              <a aria-label="facebook" class="d-block" href="https://www.facebook.com/">
+                <fa-icon class="social-icon" [icon]="faFacebook"></fa-icon>
+              </a>
+            </div>
+            <div class="footer_social text-center mr-3"><a aria-label="fa-google-plus" class="d-block"
+                href="https://www.facebook.com/">
+                <fa-icon class="social-icon" [icon]="faGooglePlus"></fa-icon>
+              </a>
+            </div>
+            <div class="footer_social text-center mr-3"><a aria-label="instagram" class="d-block"
+                href="https://www.facebook.com/">
+                <fa-icon class="social-icon" [icon]="faInstagram"></fa-icon>
+              </a>
+            </div>
+            <div class="footer_social text-center"><a aria-label="Twitter" class="d-block"
+                href="https://www.facebook.com/">
+                <fa-icon class="social-icon" [icon]="faTwitter"></fa-icon>
+              </a></div>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-          <h6 class="text-secondary mb-4">Contact</h6>
-
-          <div class="footer-text">
-            Email : contact@wazzta.com
+          <strong class="footer-title">Contact</strong>
+          <div class="footer-text mt-4">
+            Email : contact@bodycalculator.com
           </div>
           <div class="footer-text mt-4">
             Tele : +212610929672
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-4">
-          <h6 class="text-secondary mb-4">Des liens utiles</h6>
-          <a routerLink="/about" class="d-block mb-2 text-decoration-none footer-text ">About</a>
+          <strong class="footer-title">Links</strong>
+          <a routerLink="/about" class="d-block mb-2 text-decoration-none footer-text mt-4">About</a>
           <a href="/blog" class="d-block mb-2 text-decoration-none footer-text">Blog</a>
           <a routerLink="/contact" class="d-block mb-2 text-decoration-none footer-text">Contact</a>
         </div>
@@ -46,12 +57,12 @@
           <div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
             <div class="footer-text">
               Copyright &copy; {{dt}} All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                href="https://wazzta.com" target="_blank">Body calculator</a>
+                href="https://body-calculator.com" target="_blank" rel="noopener">Body calculator</a>
             </div>
             <div class="ml-lg-auto ">
               <div class="d-flex footer-text">
-                <a class="d-block text-decoration-none mr-4" routerLink="/Terms">Terms of Use</a>
-                <a class="d-block text-decoration-none" routerLink="/Private-Policy">Privacy Policy</a>
+                <a class="d-block text-decoration-none mr-4" routerLink="/terms">Terms of Use</a>
+                <a class="d-block text-decoration-none" routerLink="/private-policy">Privacy Policy</a>
               </div>
             </div>
           </div>

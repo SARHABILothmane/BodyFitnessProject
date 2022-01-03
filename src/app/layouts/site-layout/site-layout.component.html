@@ -4,6 +4,18 @@
   </nb-layout-header>
   <nb-layout-column>
     <router-outlet></router-outlet>
+    <div class="fixed">
+      <!-- [include]="['facebook','twitter','linkedin','pinterest','reddit','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']" -->
+      <!-- <share-buttons [theme]="'circles-dark'" -->
+      <div class="icon" id="arrow">
+        <div class="arrow"></div>
+      </div>
+      <share-buttons aria-label="share-buttons" [theme]="'material-dark'"
+        [include]="['facebook','twitter','linkedin','telegram','whatsapp','sms','email','copy']" [show]="5" [size]="0.2"
+        [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'"
+        [image]="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'" [autoSetMeta]="false">
+      </share-buttons>
+    </div>
   </nb-layout-column>
   <nb-layout-footer>
     <app-footer class="w-100"></app-footer>

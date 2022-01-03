@@ -6,7 +6,9 @@ import { CommonModule } from '@angular/common';
 import { SiteLayoutRoutingModule } from './site-layout-routing.module';
 import { SiteLayoutComponent } from './site-layout.component';
 import { NbButtonModule, NbCardModule, NbFormFieldModule, NbIconModule, NbInputModule, NbSpinnerModule, NbLayoutModule, NbSidebarModule } from '@nebular/theme';
-
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,12 @@ import { NbButtonModule, NbCardModule, NbFormFieldModule, NbIconModule, NbInputM
     NbLayoutModule,
     NbSidebarModule,
     NbSpinnerModule,
-    NbCardModule
+    NbCardModule,
+    FontAwesomeModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    }),
+    ShareIconsModule,
 
 
 

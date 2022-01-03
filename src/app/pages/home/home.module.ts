@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
-import { NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbFormFieldModule, NbIconModule, NbInputModule, NbLayoutModule, NbSelectModule, NbSpinnerModule, NbToastrModule, NbTabsetModule, NbAccordionModule } from '@nebular/theme';
+import { NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbFormFieldModule, NbIconModule, NbInputModule, NbLayoutModule, NbSelectModule, NbSpinnerModule, NbToastrModule, NbTabsetModule, NbAccordionModule, NbTooltipModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
 import { SkeletonModule } from 'src/app/shared/skeleton/skeleton.module';
@@ -12,7 +12,6 @@ import { FormComponent } from './form/form.component';
 import { ResultBmiComponent } from './result-bmi/result-bmi.component';
 import { InfoComponent } from './info/info.component';
 import { FormBmiComponent } from './form-bmi/form-bmi.component';
-
 // Note we need a separate function as it's required
 // by the AOT compiler.
 export function playerFactory() {
@@ -38,6 +37,7 @@ export function playerFactory() {
     NbInputModule,
     NbLayoutModule,
     NbAlertModule,
+    NbTooltipModule,
     NbSpinnerModule,
     NbFormFieldModule,
     NbCheckboxModule,

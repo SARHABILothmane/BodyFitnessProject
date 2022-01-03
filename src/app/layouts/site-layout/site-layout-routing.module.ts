@@ -10,6 +10,8 @@ const routes: Routes = [
       { path: "about", loadChildren: () => import("src/app/pages/about/about.module").then(mod => mod.AboutModule) },
       { path: "calcultor", loadChildren: () => import("src/app/pages/calcultor/calcultor.module").then(mod => mod.CalcultorModule) },
       { path: "blog", loadChildren: () => import("src/app/pages/blog/blog.module").then(mod => mod.BlogModule) },
+      { path: "", loadChildren: () => import("src/app/pages/terms-private/terms-private.module").then(mod => mod.TermsPrivateModule) },
+      { path: "", loadChildren: () => import("src/app/pages/terms-private/terms-private.module").then(mod => mod.TermsPrivateModule) },
       //   { path: "contact", component: ContactSectionComponent },
 
     ]

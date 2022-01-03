@@ -5,8 +5,8 @@
         <div class="p-2">
           <!-- <p class="hero-title"></p> -->
           <h1 class="hero-title">Body Mass Index BMI Calculator</h1>
-          <p class="hero-subtitle mt-3">Apprendre est un voyage qu'on n'arrive pas au terminus. Arrêtez de
-            chercher, et appreciez cette aventure.</p>
+          <p class="hero-subtitle mt-3">Calculate your body mass for free with differents types and genres for women,
+            men, children just put your info and click calculate will give you the result .</p>
           <button class="mt-3" routerLink="/calcultor" nbButton status="primary">
             <nb-icon icon="eye">
             </nb-icon>
@@ -28,17 +28,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-3">
+      <div class="col-md-3 hero-responsive">
         <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
           (animationCreated)="animationCreated($event)">
         </ng-lottie>
       </div>
-      <div class="col-6">
+      <div class="col-md-6 mt-4">
         <app-form-bmi class=""></app-form-bmi>
 
         <!-- <app-form class=""></app-form> -->
       </div>
-      <div class="col-3">
+      <div class="col-md-3 hero-responsive">
         <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
           (animationCreated)="animationCreated($event)">
         </ng-lottie>
