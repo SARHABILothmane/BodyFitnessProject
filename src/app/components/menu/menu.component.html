@@ -5,16 +5,16 @@
           src="../../../assets/images/logo/calculator.svg" alt="the body logo"></a>
       <ul class="d-flex  list pl-2 pl-xl-5">
         <li class="list-item">
-          <a routerLink="">Home</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="">Home</a>
         </li>
         <li class="list-item">
-          <a routerLink="/about">About</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/about">About</a>
         </li>
         <li class="list-item">
-          <a routerLink="/calcultor">Calcultor</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/calcultor">Calcultor</a>
         </li>
         <li class="list-item">
-          <a routerLink="/blog">Blog</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/blog">Blog</a>
         </li>
       </ul>
     </div>
@@ -22,15 +22,15 @@
       <a class="d-block logo" routerLink="/"><img width="40px" height="100%"
           src="../../../assets/images/logo/calculator.svg" alt="body calcultor logo"></a>
 
-      <button status="dark" (click)="toggle()" nbSuffix nbButton ghost>
+      <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
         <nb-icon icon="menu-outline"></nb-icon>
       </button>
     </div>
 
     <div #sidebar id="mySidebar" class="sidebar shadow">
       <div class="d-flex justify-content-end">
-        <button status="dark" (click)="toggle()" nbSuffix nbButton ghost>
-          <nb-icon icon="close-square-outline"></nb-icon>
+        <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
+          <nb-icon icon="close-outline"></nb-icon>
         </button>
       </div>
       <a class="d-block logo" (click)="toggle()" routerLink="/"><img width="60px" height="100%"

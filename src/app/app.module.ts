@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbProgressBarModule, NbButtonModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 
 @NgModule({
@@ -13,18 +14,17 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'custom-theme' }),
     NbLayoutModule,
     NbEvaIconsModule,
-    // seperate component 1) jhon doe
-    // NbUserModule,
     NbProgressBarModule,
     NbButtonModule,
     NbMenuModule.forRoot(),
-    NbSidebarModule.forRoot()
+    NbSidebarModule.forRoot(),
+    NgxJsonLdModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

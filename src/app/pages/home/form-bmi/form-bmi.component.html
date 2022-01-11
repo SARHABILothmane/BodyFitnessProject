@@ -1,12 +1,14 @@
 <nb-card status="success">
-  <nb-card-header class="hero-subtitle text-center">Calculate your BMI</nb-card-header>
+  <nb-card-header>
+    <h2 class="hero-subtitle text-center">Calculate your BMI</h2>
+  </nb-card-header>
   <nb-card-body class="example-items-col">
     <nb-tabset (changeTab)="tabsSet($event)">
       <nb-alert status="danger" *ngIf="error">
         {{error}}
       </nb-alert>
       <nb-tab tabTitle="Metric">
-        <form [formGroup]="calculeForm" (ngSubmit)="claculteBmi()">
+        <form [formGroup]="calculeForm" (ngSubmit)="claculteBmi(target)">
           <!-- <div class="mb-3 d-flex justify-content-center">
             <div class="d-flex flex-column">
               <nb-checkbox class="block" status="primary">Male</nb-checkbox>
@@ -22,9 +24,7 @@
             </div>
           </div> -->
           <nb-form-field class="mb-3">
-            <label for="">Age <nb-icon nbTooltip="This is a tooltip" nbTooltipPlacement="right" nbTooltipStatus="basic"
-                icon="alert-circle-outline">
-              </nb-icon></label>
+            <label for="">Age</label>
             <!-- <nb-icon nbSuffix icon="at-outline" pack="eva"></nb-icon> -->
             <input type="number" nbInput fullWidth formControlName="age" status="basic" placeholder="Age"
               [(ngModel)]="modelsBmi.age">
@@ -51,8 +51,8 @@
             <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
               !</small>
           </nb-form-field>
-          <button nbSpinnerStatus="danger" type="submit" nbButton class="mb-3" fullWidth
-            status="success">Calculate</button>
+          <button nbSpinnerStatus="danger" type="submit" nbButton class="mb-3" fullWidth status="success"><strong
+              class="hero-subtitle">Calculate</strong></button>
         </form>
       </nb-tab>
       <nb-alert status="danger" *ngIf="error">
@@ -60,7 +60,7 @@
       </nb-alert>
 
       <nb-tab tabTitle="Imperial">
-        <form [formGroup]="calculeFormImperial" (ngSubmit)="claculteBmiImperiale()">
+        <form [formGroup]="calculeFormImperial" (ngSubmit)="claculteBmiImperiale(target)">
           <nb-form-field class="mb-3">
             <label for="">Age</label>
             <!-- <nb-icon nbSuffix icon="at-outline" pack="eva"></nb-icon> -->
@@ -101,29 +101,8 @@
     </nb-tabset>
   </nb-card-body>
 </nb-card>
-<div class="d-flex justify-content-between my-3">
-  <!-- <p class="bmi" *ngIf="bmi">The Bmi of Age {{modelsBmi.age}} and height {{modelsBmi.height}} and {{modelsBmi.weight}}
-    is :</p> -->
-  <p class="bmi" *ngIf="bmi">Bmi = {{bmi | number}} kg/m<sup>2</sup></p>
-  <p class="bmi">{{message}}</p>
-</div>
-<!-- <div class="border p-4">
-  <h6 class="text-center">Body Parameters</h6>
-  <div class="row mt-4">
-    <div class="col-6">
-      <p>Age <em class="">: {{modelsBmi.age}} Year</em></p>
-      <p>Height <em class="">: {{modelsBmi.height}} Cm</em></p>
-      <p>Weight <em class="">: {{modelsBmi.height}} Kg</em></p>
-    </div>
-    <div class="col-6 text-center">
-      <p>Height <em class="">: Year</em></p>
-      <p>Weight <em class="">: {{modelsBmi.weight}} Kg</em></p>
-      <p>Height <em class="">: Year</em></p>
-    </div>
-  </div>
-</div> -->
-<div class="d-flex justify-content-center align-items-center">
-  <div class=" my-3">
+<div class="d-flex justify-content-center align-items-center" #target>
+  <div class="my-2">
     <ng-lottie *ngIf="message == 'Severe thinness'" [options]="emojiSevere" width="80%"></ng-lottie>
     <ng-lottie *ngIf="message == 'Moderate thinness'" [options]="emojiModerate" width="85%"></ng-lottie>
     <ng-lottie *ngIf="message == 'Mild thinness'" [options]="emojiMild" width="40%"></ng-lottie>
@@ -134,9 +113,10 @@
     <ng-lottie *ngIf="message == 'Obese class Ⅲ'" [options]="emojiObese3" width="50%"></ng-lottie>
   </div>
 </div>
-<!-- <button nbButton (click)="showToast('top-left')">Top Right</button> -->
-<!-- <button nbButton status="warning" (click)="showToast('bottom-end', 'success')">Bottom Start</button> -->
-<!-- <app-result-bmi></app-result-bmi> -->
+<div class="d-flex justify-content-between my-2">
+  <p class="bmi" *ngIf="bmi">Bmi = {{bmi | number}} kg/m<sup>2</sup></p>
+  <p class="bmi">{{message}}</p>
+</div>
 <table class="table" *ngIf="addCataloge && checkAge >= 20">
   <!-- <table class="table border"> -->
   <thead class="bg-secondary">

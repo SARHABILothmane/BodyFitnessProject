@@ -43,7 +43,7 @@ nb-card-body.example-items-rows {
 }
 
 .msg {
-  background-color: color(primary);
+  background-color: color(blue-primary);
   font-family: font(font-family-regular);
   // font-size: 18px;
   -webkit-transition: background 2s;
@@ -51,11 +51,11 @@ nb-card-body.example-items-rows {
 }
 
 .msg:hover {
-  background: color(primary-light);
+  background: color(primary);
 }
 
 .bmi {
-  color: color(primary-light);
+  color: color(primary);
   font-size: 30px;
   // font-style: bold;
   font-weight: bolder;
@@ -67,10 +67,14 @@ nb-card-body.example-items-rows {
 }
 
 .hero-subtitle {
-  font-weight: bolder;
+  letter-spacing: 2px;
   font-family: font(font-family-regular);
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 22px;
+  text-transform: none;
+  color: color(dark) !important;
+
+  // color: #d3265f !important;
 
   @include tablet-sm {
     padding: 20px 0 10px 0;

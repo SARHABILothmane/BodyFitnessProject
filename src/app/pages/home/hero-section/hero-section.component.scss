@@ -22,6 +22,7 @@ p {
   display: none
 }
 
+
 .right-push {
   margin-right: 20rem;
 
@@ -67,10 +68,18 @@ p {
   line-height: 1.4;
 }
 
+.button-title {
+  letter-spacing: 2px;
+  font-family: font(font-family-regular);
+  line-height: 1.5;
+  font-size: 18px;
+  text-transform: none;
+  color: color(dark) !important;
+}
+
 .hero-subtitle {
   font-weight: bolder;
   font-family: font(font-family-regular);
-  line-height: 1.5;
 
   @include tablet-sm {
     padding: 20px 0 10px 0;

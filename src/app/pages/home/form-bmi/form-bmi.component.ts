@@ -78,7 +78,7 @@ export class FormBmiComponent implements OnInit {
   get formBmi() { return this.calculeForm.controls; }
   get formBmiImeprial() { return this.calculeFormImperial.controls; }
 
-  claculteBmi() {
+  claculteBmi(el: HTMLElement) {
     this.submitted = true;
     if (this.calculeForm.valid) {
       this.error = "";
@@ -88,6 +88,7 @@ export class FormBmiComponent implements OnInit {
       // this.bmi = this.calculeForm.value.weight / (this.calculeForm.value.height * this.calculeForm.value.height);
       this.bmi = this.calculeForm.value.weight / (this.heightCm * this.heightCm);
       this.checkAge = this.modelsBmi.age;
+      el.scrollIntoView({ behavior: "smooth" });
       if (this.checkAge >= 20) {
         if (this.bmi < 16) {
           this.message = "Severe thinness";
@@ -131,12 +132,12 @@ export class FormBmiComponent implements OnInit {
     } else {
       this.error = "Merci de verifiers les champs";
     }
-    this.calculeForm.reset();
+    // this.calculeForm.reset();
   }
   square(firstNumber: number, secondNumber: number): number {
     return firstNumber ** secondNumber
   }
-  claculteBmiImperiale() {
+  claculteBmiImperiale(el: HTMLElement) {
     this.submitted = true;
     if (this.calculeFormImperial.valid) {
       this.error = "";
@@ -150,6 +151,7 @@ export class FormBmiComponent implements OnInit {
       console.log(this.square(heightRslt, 2));
       this.bmi = this.calculeFormImperial.value.weightImperial / (this.square(heightRslt, 2)) * 703
       this.checkAge = this.modelsBmi.age
+      el.scrollIntoView({ behavior: "smooth" });
       // this.bmi = this.calculeForm.value.weight / (this.calculeForm.value.height * this.calculeForm.value.height);
       if (this.checkAge > 20) {
         if (this.bmi < 16) {
@@ -194,7 +196,6 @@ export class FormBmiComponent implements OnInit {
     } else {
       this.error = "Merci de verifiers les champs";
     }
-    this.calculeForm.reset();
   }
   tabsSet(e: any) {
     console.log(e.tabTitle)
@@ -204,9 +205,6 @@ export class FormBmiComponent implements OnInit {
     if (e.tabTitle === "Imperial") {
       this.modelsBmi.weightImperial = this.modelsBmi.weight * 2.205;
       this.modelsBmi.heightImperial = this.modelsBmi.height / 30.48;
-      // console.log(this.modelsBmi.weightImperial);
-      this.showToast(this.positions.BOTTOM_RIGHT);
-
     }
     if (e.tabTitle === "Metric") {
       this.modelsBmi.weight = this.modelsBmi.weightImperial / 2.205;
@@ -220,11 +218,6 @@ export class FormBmiComponent implements OnInit {
     //   this.modelsBmi.heightImperial = 10;
     // }
   }
-  showToast(position: any) {
-    // const iconConfig: NbIconConfig = { icon: iconName, pack: 'eva' };
-    this.toastrService.info('Message Success!', 'Title Success!', { position });
-  }
-
   calculateHeightImperial(heightImperial: number) {
     return heightImperial;
   }

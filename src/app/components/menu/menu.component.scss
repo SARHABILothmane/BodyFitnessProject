@@ -26,6 +26,21 @@
     }
   }
 
+  .list li a:hover,
+  .list li.active a {
+    font-family: font(font-family-regular);
+    border-bottom: 3.5px solid color(title-color);
+    padding-bottom: 4px;
+    color: color(title-color);
+  }
+
+  .active {
+    font-family: font(font-family-regular);
+    color: color(title-color);
+    border-bottom: 3.5px solid color(title-color);
+    padding-bottom: 4px;
+  }
+
   .candidat-btn {
     @include md-device {
       font-size: 10px !important;
