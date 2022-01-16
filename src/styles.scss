@@ -3,6 +3,7 @@
 @import '~@nebular/theme/styles/globals';
 
 @import '~ngx-sharebuttons/themes/material/material-dark-theme';
+@import 'mediaqueries.scss';
 // @import '~ngx-sharebuttons/themes/modern/modern-light-theme';
 // @import '~ngx-sharebuttons/themes/circles/circles-dark-theme';
 
@@ -22,4 +23,9 @@ html {
   padding: 1rem !important;
   color: #6c757d !important;
   font-weight: bolder;
+
+  @include mobile-l {
+    padding: 0rem !important;
+    font-size: 10px;
+  }
 }

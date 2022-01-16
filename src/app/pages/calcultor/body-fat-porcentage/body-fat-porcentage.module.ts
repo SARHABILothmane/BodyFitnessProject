@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,7 +9,10 @@ import { BodyFatPorcentageRoutingModule } from './body-fat-porcentage-routing.mo
   declarations: [],
   imports: [
     CommonModule,
-    BodyFatPorcentageRoutingModule
+    BodyFatPorcentageRoutingModule,
+    ReactiveFormsModule,
+
+
   ]
 })
 export class BodyFatPorcentageModule { }

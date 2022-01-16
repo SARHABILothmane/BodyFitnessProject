@@ -1,1 +1,13 @@
+@import '../../../../mediaqueries.scss';
+@import '../../../../variables.scss';
 
+.social-icon {
+  line-height: 45px;
+  font-size: 40px;
+  color: color(primary-light);
+}
+
+.social-icon:hover {
+  color: color(dark);
+  transform: scale(1.1);
+}

@@ -4,12 +4,12 @@ import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-home',
-  template: `<ngx-json-ld [json]="schema"></ngx-json-ld>`,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   jsonLD!: SafeHtml;
+  schema!: any;
   constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
@@ -20,19 +20,27 @@ export class HomeComponent implements OnInit {
     ]);
     this.canonical.createCanonicalLink();
     //shema
-    const json = {
-      '@context': 'http://schema.org',
-      '@type': 'Organization',
-      url: 'https://google.com',
-      name: 'Google',
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+1-000-000-0000',
-        contactType: 'Customer service'
-      }
-    };
-
-    this.jsonLD = this.getSafeHTML(json);
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "free online body mass index bmi calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://www.body-calculator.com/",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "Body mass index (bmi) calculator",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
   }
   getSafeHTML(value: {}) {
     // If value convert to JSON and escape / to prevent script tag in JSON

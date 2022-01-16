@@ -24,7 +24,6 @@ import { NgxJsonLdModule } from '@ngx-lite/json-ld';
     NbButtonModule,
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
-    NgxJsonLdModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: BodyMassIndexComponent },
+  { path: "men", component: BodyMassIndexComponent },
+  { path: "women", component: BodyMassIndexComponent },
 ];
 
 @NgModule({

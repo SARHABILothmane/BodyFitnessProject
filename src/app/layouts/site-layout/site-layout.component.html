@@ -5,10 +5,8 @@
   <nb-layout-column>
     <router-outlet></router-outlet>
     <div class="fixed">
-      <!-- [include]="['facebook','twitter','linkedin','pinterest','reddit','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']" -->
-      <!-- <share-buttons [theme]="'circles-dark'" -->
       <share-buttons aria-checked="true" aria-label="share-buttons" [theme]="'material-dark'"
-        [include]="['facebook','twitter','linkedin','telegram','whatsapp','sms','email','copy']" [show]="5" [size]="0.2"
+        [include]="['facebook','twitter','linkedin','telegram','whatsapp','email','copy']" [show]="5" [size]="0.2"
         [url]="'http://www.body-calculator.com/'"
         [image]="'http://www.body-calculator.com/assets/images/logo/calculator.svg'" [autoSetMeta]="false">
       </share-buttons>

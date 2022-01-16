@@ -147,8 +147,6 @@ export class FormBmiComponent implements OnInit {
       // Example: Weight = 150 lbs, Height = 5’5″ (65″)
       // Calculation: [150 ÷ (65)2] x 703 = 24.96
       let heightRslt = this.calculeFormImperial.value.hFeet * 12 + this.calculeFormImperial.value.heightImperial
-      console.log(this.calculeFormImperial.value.hFeet * 12 + this.calculeFormImperial.value.heightImperial);
-      console.log(this.square(heightRslt, 2));
       this.bmi = this.calculeFormImperial.value.weightImperial / (this.square(heightRslt, 2)) * 703
       this.checkAge = this.modelsBmi.age
       el.scrollIntoView({ behavior: "smooth" });

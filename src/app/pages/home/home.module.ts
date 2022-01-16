@@ -1,3 +1,5 @@
+import { FormBmiModule } from './form-bmi/form-bmi.module';
+import { FormBmiComponent } from './form-bmi/form-bmi.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,46 +10,40 @@ import { NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbFormFi
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
 import { SkeletonModule } from 'src/app/shared/skeleton/skeleton.module';
-import { FormComponent } from './form/form.component';
-import { ResultBmiComponent } from './result-bmi/result-bmi.component';
-import { InfoComponent } from './info/info.component';
-import { FormBmiComponent } from './form-bmi/form-bmi.component';
-// Note we need a separate function as it's required
-// by the AOT compiler.
+import { InfoModule } from './info/info.module';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+
 export function playerFactory() {
-  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web/build/player/lottie_svg');
+  return import('lottie-web/build/player/lottie_svg');
 }
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeroSectionComponent,
-    FormComponent,
-    ResultBmiComponent,
-    InfoComponent,
-    FormBmiComponent,
+    // FormComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     HomeRoutingModule,
     NbButtonModule,
     NbIconModule,
-    NbCardModule,
-    ReactiveFormsModule,
-    NbInputModule,
+
+    // NbInputModule,
     NbLayoutModule,
-    NbAlertModule,
-    NbTooltipModule,
-    NbSpinnerModule,
-    NbFormFieldModule,
+    // NbTooltipModule,
+    // NbSpinnerModule,
     NbCheckboxModule,
     NbSelectModule,
-    NbTabsetModule,
-    NbAccordionModule,
+    // Register module
+    NgxJsonLdModule,
+    InfoModule,
+    FormBmiModule,
     NbToastrModule.forRoot(),
     // LottieModule.forRoot({ player: playerFactory, useCache: true }),
     LottieModule.forRoot({ player: playerFactory }),
-    SkeletonModule
+    // SkeletonModule
   ]
 })
 export class HomeModule { }

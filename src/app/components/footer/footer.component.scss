@@ -54,6 +54,15 @@
   .copyright {
     height: 54px;
     border-top: solid 1px #353a49;
+
+    @include tablet-sm {
+      height: 60px;
+
+    }
+
+    @include mobile-l {
+      height: 80px;
+    }
   }
 
   .copyright div {
