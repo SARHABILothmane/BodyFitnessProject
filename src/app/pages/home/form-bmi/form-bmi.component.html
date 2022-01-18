@@ -72,14 +72,14 @@
           <nb-form-field class="mb-3 ">
             <div class="d-flex justify-content-between">
               <div>
-                <label for="">Height<em class="" *ngIf="modelsBmi.heightImperial"> : Feet</em></label>
+                <label for="">Height<em class=""> : Feet</em></label>
                 <!-- <input type="number" nbInput formControlName="hFeet" fullWidth status="basic" placeholder="feet"
                   [(ngModel)]="modelsBmi.heightImperial" (ngModelChange)="onChange($event)"> -->
                 <input type="number" nbInput formControlName="hFeet" fullWidth status="basic" placeholder="feet"
                   (value)="calculateHeightImperial(modelsBmi.heightImperial)" (ngModelChange)="onChange($event)">
               </div>
               <div class="">
-                <label for="">Height<em class="" *ngIf="modelsBmi.heightImperial"> : inches</em></label>
+                <label for="">Height<em class=""> : inches</em></label>
                 <input type="number" nbInput formControlName="heightImperial" fullWidth status="basic"
                   placeholder="inches">
               </div>

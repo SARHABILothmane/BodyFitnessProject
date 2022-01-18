@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NbGlobalPhysicalPosition, NbIconConfig, NbToastrService } from '@nebular/theme';
+import { NbGlobalPhysicalPosition } from '@nebular/theme';
 import { AnimationOptions } from 'ngx-lottie';
 import { Bmi } from 'src/app/models/bmi';
 @Component({
@@ -60,7 +60,7 @@ export class FormBmiComponent implements OnInit {
     path: '/assets/animations/emoji-angry.json',
   };
 
-  constructor(private toastrService: NbToastrService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.calculeForm = new FormGroup({
@@ -196,10 +196,7 @@ export class FormBmiComponent implements OnInit {
     }
   }
   tabsSet(e: any) {
-    console.log(e.tabTitle)
     this.tabTitle = e.tabTitle
-    console.log("kkkk" + this.tabTitle);
-
     if (e.tabTitle === "Imperial") {
       this.modelsBmi.weightImperial = this.modelsBmi.weight * 2.205;
       this.modelsBmi.heightImperial = this.modelsBmi.height / 30.48;

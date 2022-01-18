@@ -40,7 +40,7 @@ export function playerFactory() {
     NgxJsonLdModule,
     InfoModule,
     FormBmiModule,
-    NbToastrModule.forRoot(),
+    // NbToastrModule.forRoot(),
     // LottieModule.forRoot({ player: playerFactory, useCache: true }),
     LottieModule.forRoot({ player: playerFactory }),
     // SkeletonModule

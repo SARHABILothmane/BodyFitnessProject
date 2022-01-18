@@ -11,3 +11,23 @@
   color: color(dark);
   transform: scale(1.1);
 }
+
+.msg {
+  background-color: color(blue-primary);
+  font-family: font(font-family-regular);
+  // font-size: 18px;
+  -webkit-transition: background 2s;
+  transition: background 2s;
+}
+
+.msg:hover {
+  background: color(primary);
+}
+
+.bmi {
+  color: color(primary);
+  font-size: 30px;
+  // font-style: bold;
+  font-weight: bolder;
+  font-family: font(font-family-regular);
+}

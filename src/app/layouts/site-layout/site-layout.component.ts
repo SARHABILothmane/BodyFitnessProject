@@ -10,6 +10,7 @@ export class SiteLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
