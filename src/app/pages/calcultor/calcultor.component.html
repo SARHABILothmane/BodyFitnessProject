@@ -2,37 +2,46 @@
   <nb-layout-column>
     <section id="formation-section1" #target class="position-relative">
       <div class="container">
-        <h1 class="text-center text-uppercase titles-about m-5" data-aos="fade-down">Calcultor :</h1>
+        <h1 class="text-center text-uppercase titles-about mt-5 pt-3" data-aos="fade-down">Calculators</h1>
         <div class="row align-items-center">
-          <div class="col-12 col-md-4 text-center about-card" routerLink="/calcultor/body-mass-index/women"
-            routerLinkActive="active">
-            <ng-lottie [options]="marathon" width="80%"></ng-lottie>
-            <h6 class="mt-1">Body mass index for women</h6>
+          
+          <div class="col-12 col-md-4 text-center about-card mb-5">
+            <a routerLink="/bmi-calculator-women">
+              <ng-lottie [options]="marathon" width="80%"></ng-lottie>
+            </a>
+            <h6 class="mt-1">Body mass index (bmi) for women</h6>
             <p class="px-5"> The Body Mass Index (BMI) Calculator can be used to calculate BMI value and
               corresponding weight status while taking age into consideration.
             </p>
-            <a routerLink="/calcultor/body-mass-index/women" routerLinkActive="active">Body Mass Index for women</a>
+            <a routerLink="/bmi-calculator-women">Body Mass Index for women</a>
           </div>
-          <div class="col-12 col-md-4 text-center about-card" routerLink="/calcultor/body-fat-porcentage"
-            routerLinkActive="active">
-            <ng-lottie [options]="weightLoss" width="100%"></ng-lottie>
-            <h6 class="mb-2">Body fat porcentage</h6>
-            <p class="px-5">The Body Fat Calculator can be used to estimate your total body fat based on specific
-              measurements.</p>
-            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+
+          <div class="col-12 col-md-4 text-center about-card mb-4">
+              <a routerLink="/body-fat-porcentage">
+                <ng-lottie [options]="weightLoss" width="100%"></ng-lottie>
+              </a>
+              <h6 class="mb-2">Body fat percentage calculator</h6>
+              <p class="px-5">The Body Fat Calculator can be used to estimate your total body fat based on specific
+                measurements.
+              </p>
+              <a routerLink="/body-fat-porcentage">Body fat percentage calculator</a>
           </div>
-          <div class="col-12 col-md-4 text-center about-card" routerLink="/calcultor/body-mass-index/men"
-            routerLinkActive="active">
+
+          <div class="col-12 col-md-4 text-center about-card mb-4">
             <div class="do">
-              <ng-lottie [options]="bodybuilder" width="60%"></ng-lottie>
+              <a routerLink="/bmi-calculator-men">
+                 <ng-lottie [options]="bodybuilder" width="60%"></ng-lottie>
+              </a>
             </div>
-            <h6 class="mt-1">Body mass index for men</h6>
+            <h6 class="mt-1">Body mass index (bmi) for men</h6>
             <p class="px-5"> The Body Mass Index (BMI) Calculator can be used to calculate BMI value and
               corresponding weight status while taking age into consideration.
             </p>
-            <a routerLink="/calcultor/body-mass-index/men" routerLinkActive="active">Body mass index for men</a>
+            <a routerLink="/bmi-calculator-men">Body mass index for men</a>
           </div>
+
         </div>
+
         <!-- <div class="row mb-5 align-items-center">
           <div class="col-12 col-md-4 mx-auto text-center about-card">
             <div class="do mt-5">
@@ -41,7 +50,7 @@
             <h6 class="mt-3">Ideal Weight Calculator</h6>
             <p class="px-5">The Ideal Weight Calculator computes ideal body weight (IBW) ranges based on height,
               gender, and age</p>
-            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat porcentage</a>
+            <a routerLink="/calcultor/body-fat-porcentage" routerLinkActive="active">Body fat percentage calculator</a>
           </div>
           <div class="col-12 col-md-4 mx-auto text-center">
             <div class="do">
@@ -50,7 +59,7 @@
             <h6 class="mt-5">Basal Metabolic Rate (BMR)</h6>
             <p class="px-5"> The Basal Metabolic Rate (BMR) Calculator estimates your basal metabolic rate—the
               amount of energy expended while at rest in a neutrally temperate environment.</p>
-            <a routerLink="/calcultor/body-mass-index/men" routerLinkActive="active">Body fat porcentage</a>
+            <a routerLink="/calcultor/body-mass-index/men" routerLinkActive="active">Body fat percentage calculator</a>
           </div>
         </div> -->
       </div>

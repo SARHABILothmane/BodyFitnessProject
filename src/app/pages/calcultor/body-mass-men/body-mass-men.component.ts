@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-body-mass-index',
-  templateUrl: './body-mass-index.component.html',
-  styleUrls: ['./body-mass-index.component.scss']
+  templateUrl: './body-mass-men.component.html',
+  styleUrls: ['./body-mass-men.component.scss']
 })
-export class BodyMassIndexComponent implements OnInit {
+export class BodyMassMenComponent implements OnInit {
 
   constructor(private router: Router) { }
 

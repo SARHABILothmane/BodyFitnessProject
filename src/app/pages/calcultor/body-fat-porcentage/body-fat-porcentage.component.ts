@@ -1,4 +1,4 @@
-import { NbToastrService } from '@nebular/theme';
+// import { NbToastrService } from '@nebular/theme';
 import { Bmr } from './../../../models/bmr';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -31,7 +31,9 @@ export class BodyFatPorcentageComponent implements OnInit {
     height: 0,
     weight: 0,
   }
-  constructor(private toastrService: NbToastrService) { }
+  constructor(
+    // private toastrService: NbToastrService
+    ) { }
 
   ngOnInit(): void {
     this.calculeBfp = new FormGroup({

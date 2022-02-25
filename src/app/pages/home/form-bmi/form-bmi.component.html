@@ -7,7 +7,7 @@
       <nb-alert status="danger" *ngIf="error">
         {{error}}
       </nb-alert>
-      <nb-tab tabTitle="Metric">
+      <nb-tab class="metric" tabTitle="Metric">
         <form [formGroup]="calculeForm" (ngSubmit)="claculteBmi(target)">
           <!-- <div class="mb-3 d-flex justify-content-center">
             <div class="d-flex flex-column">
@@ -59,7 +59,7 @@
         {{error}}
       </nb-alert>
 
-      <nb-tab tabTitle="Imperial">
+      <nb-tab class="imperial" tabTitle="Imperial">
         <form [formGroup]="calculeFormImperial" (ngSubmit)="claculteBmiImperiale(target)">
           <nb-form-field class="mb-3">
             <label for="">Age</label>

@@ -1,7 +1,7 @@
 <div id="menu-section">
-  <menu class="menu">
+  <menu class="menu" style="padding-inline-start: 0px !important;">
     <div class="container d-flex justify-content-between align-items-center web-header">
-      <a class="d-block logo" routerLink="/"><img width="60px" height="100%"
+      <a class="d-block logo" routerLink="/"><img width="40px" height="100px"
           src="../../../assets/images/logo/calculator.svg" alt="the body logo"></a>
       <ul class="d-flex  list pl-2 pl-xl-5">
         <li class="list-item">
@@ -11,36 +11,37 @@
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/about">About</a>
         </li> -->
         <li class="list-item">
-          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/calcultor">Calcultor</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/calcultor">Calculators</a>
         </li>
         <!-- <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/blog">Blog</a>
         </li> -->
       </ul>
     </div>
-    <div class="container d-flex justify-content-between align-items-center mobile-header">
-      <a class="d-block logo" routerLink="/"><img width="40px" height="100%"
+    <div class="d-flex justify-content-between align-items-center mobile-header">
+      <a class="d-block logo" routerLink="/"><img width="40px" height="100px"
           src="../../../assets/images/logo/calculator.svg" alt="body calcultor logo"></a>
 
       <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
-        <nb-icon icon="menu-outline"></nb-icon>
+        <nb-icon icon="menu-outline" [options]="{  height: '2rem',
+          width: '3.25rem'  }"></nb-icon>
       </button>
     </div>
 
     <div #sidebar id="mySidebar" class="sidebar shadow">
       <div class="d-flex justify-content-end">
         <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
-          <nb-icon icon="close-outline"></nb-icon>
+          <nb-icon  [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
         </button>
       </div>
-      <a class="d-block logo" (click)="toggle()" routerLink="/"><img width="60px" height="100%"
+      <a class="d-block logo text-center" (click)="toggle()" routerLink="/"><img width="60px" height="100%"
           src="../../../assets/images/logo/calculator.svg " alt="the body logo"></a>
 
       <a (click)="toggle()" routerLink="/" class="mb-3 mt-5">Home</a>
 
       <!-- <a (click)="toggle()" routerLink="/about" class="mb-3">About</a> -->
 
-      <a (click)="toggle()" routerLink="/calcultor" class="mb-3">Calcultor</a>
+      <a (click)="toggle()" routerLink="/calcultor" class="mb-3">Calculators</a>
 
 
       <!-- <a (click)="toggle()" routerLink="/blog" class="mb-3">Blog</a> -->

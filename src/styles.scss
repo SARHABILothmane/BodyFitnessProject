@@ -12,8 +12,6 @@
   @include nb-theme-global();
 }
 
-;
-
 /* You can add global styles to this file, and also import other style files */
 html {
   scroll-behavior: smooth;
@@ -24,8 +22,23 @@ html {
   color: #6c757d !important;
   font-weight: bolder;
 
-  @include mobile-l {
-    padding: 0rem !important;
-    font-size: 10px;
-  }
+  // @include mobile-l {
+  //   padding: 10px 0 !important;
+  //   font-size: 10px;
+  // }
+}
+
+nb-layout-header nav{
+  height: 60px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.nb-theme-custom-theme nb-layout-header.fixed ~ .layout-container{
+  padding-top: 10px !important;
+}
+// .example-items-col
+.imperial, .metric {
+  padding: 0 !important;
+  margin-top:10px;
 }

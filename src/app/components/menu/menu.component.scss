@@ -1,6 +1,10 @@
 @import '../../../variables.scss';
 @import '../../../mediaqueries.scss';
 
+// .logo{
+//   width: 100px !important;
+// }
+
 #menu-section {
   .list-item {
     font-family: font(font-family-regular);
@@ -56,7 +60,7 @@
     left: 0;
     background-color: white;
     overflow-x: hidden;
-    padding-top: 60px;
+    // padding-top: 60px;
     transition: 0.5s;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
@@ -159,5 +163,11 @@
       overflow-y: auto;
     }
   }
+
+  
+.nb-theme-custom-theme [nbButton].size-medium nb-icon{
+  height: 3.25rem !important;
+  width: 3.25rem !important;
+}
 
 }
