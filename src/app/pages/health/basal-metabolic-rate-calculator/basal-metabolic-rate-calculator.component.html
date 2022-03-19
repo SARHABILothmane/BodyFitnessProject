@@ -1,0 +1,129 @@
+<nb-layout>
+  <nb-layout-column style="display: flex;">
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="text-center mb-5 pb-3 mt-4 pt-5">
+            <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
+            <h1 class="text-secondary text-center">Basal metabolic rate Calculator</h1>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <img src="../../../../assets/images/undraw_personal_trainer_ote3.svg" width="100%" height="100%" alt="">
+        </div>
+        <div class="col-md-5">
+          <nb-card status="success">
+            <nb-card-header class="text-center">Calculator age</nb-card-header>
+            <nb-card-body class="example-items-col">
+              <form [formGroup]="calculeBmr" (ngSubmit)="CalculateBmr(target)">
+
+                <div class="mb-3 d-flex justify-content-center">
+                  <fa-icon *ngIf="checked == 'male'" class="social-icon ml-5" [icon]="faMale"></fa-icon>
+                  <fa-icon *ngIf="checked == 'female'" class="social-icon ml-5" [icon]="faFemale"></fa-icon>
+                  <nb-form-field class="mb-3">
+                    <nb-select placeholder="gender" status="basic" shape="semi-round" fullWidth
+                      (selectedChange)="checkedGender($event)" required>
+                      <nb-option value="male">Male</nb-option>
+                      <nb-option value="female">Female</nb-option>
+                    </nb-select>
+                  </nb-form-field>
+                </div>
+
+                <label for="Age">Age</label>
+                <input type="text" nbInput fullWidth status="basic" shape="semi-round" placeholder="Age"
+                  formControlName="age">
+                <label for="">Height :</label>
+                <strong *ngIf="selectedHeight == 'cm'"> cm</strong>
+                <strong *ngIf="selectedHeight == 'm'"> Metres</strong>
+                <strong *ngIf="selectedHeight == 'in'"> Inches</strong>
+                <strong *ngIf="selectedHeight == 'ft'"> Feet</strong>
+                <nb-form-field class="mb-3">
+                  <div class="d-flex justify-content-between">
+                    <input type="text" nbInput fullWidth status="basic" shape="semi-round" placeholder="Height"
+                      formControlName="height" [(ngModel)]="modelsBmr.height">
+                    <div class="">
+                      <nb-select placeholder="cm" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="heightSelect($event)" required>
+                        <!-- <nb-option value="cm" *ngIf="selectedItem == 'cm'">cm</nb-option> -->
+                        <nb-option value="cm">cm</nb-option>
+                        <nb-option value="m">Metres (m)</nb-option>
+                        <nb-option value="in">Inches (in)</nb-option>
+                        <nb-option value="ft">Feet (ft)</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                </nb-form-field>
+                <label for="">Weight :</label>
+                <strong *ngIf="selectedWeight == 'kg'"> kg</strong>
+                <strong *ngIf="selectedWeight == 'dag'"> Decagrams</strong>
+                <strong *ngIf="selectedWeight == 'lb'"> Pounds</strong>
+                <strong *ngIf="selectedWeight == 'oz'"> Ounces</strong>
+                <nb-form-field class="mb-3">
+                  <div class="d-flex justify-content-between">
+                    <input type="number" nbInput formControlName="weight" shape="semi-round" fullWidth status="basic"
+                      placeholder="kg" [(ngModel)]="modelsBmr.weight">
+                    <div class="">
+                      <nb-select placeholder="kg" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="weightSelect($event)" required>
+                        <nb-option value="kg">kg</nb-option>
+                        <nb-option value="dag">Decagrams (dag)</nb-option>
+                        <nb-option value="lb">Pounds (lb)</nb-option>
+                        <nb-option value="oz">Ounces (oz)</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                </nb-form-field>
+                <!-- <td>{{ data.DateofBirth | date: 'dd/MM/yyyy hh:mm a' }}</td> -->
+                <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="my-3" fullWidth
+                  status="success">Calculate</button>
+              </form>
+            </nb-card-body>
+          </nb-card>
+
+          <!--  -->
+          <div class="d-flex justify-content-between my-2">
+            <p class="bmi" *ngIf="bmr">Bmi = {{bmr | number}} Calories/day</p>
+          </div>
+          <!-- <table class="table">
+            <thead class="bg-secondary">
+              <tr>
+                <th scope="col">Activity level</th>
+                <th scope="col">Calorie</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">Sedentary: little or no exercise</td>
+                <td>
+                  <nb-icon nbSuffix icon="chevron-left-outline" pack="eva"></nb-icon>16
+                </td>
+              </tr>
+              <tr>
+                <td scope="row">Exercise 1-3 times/week</td>
+                <td>16<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>17</td>
+              </tr>
+              <tr>
+                <td scope="row">Exercise 4-5 times/week</td>
+                <td>17<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>18.5</td>
+              </tr>
+              <tr>
+                <td scope="row">Daily exercise or intense exercise 3-4 times/week</td>
+                <td>18.5<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>24.9</td>
+              </tr>
+              <tr>
+                <td scope="row">Intense exercise 6-7 times/week </td>
+                <td>25<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>29.9</td>
+              </tr>
+              <tr>
+                <td scope="row">Very intense exercise daily, or physical job</td>
+                <td>30<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>34.9</td>
+              </tr>
+            </tbody>
+          </table> -->
+          <!--  -->
+        </div>
+        <div #target></div>
+      </div>
+    </div>
+  </nb-layout-column>
+</nb-layout>

@@ -38,6 +38,10 @@
     color: color(title-color);
   }
 
+  /////
+
+
+  /////
   .active {
     font-family: font(font-family-regular);
     color: color(title-color);
@@ -164,10 +168,10 @@
     }
   }
 
-  
-.nb-theme-custom-theme [nbButton].size-medium nb-icon{
-  height: 3.25rem !important;
-  width: 3.25rem !important;
-}
+
+  .nb-theme-custom-theme [nbButton].size-medium nb-icon {
+    height: 3.25rem !important;
+    width: 3.25rem !important;
+  }
 
 }

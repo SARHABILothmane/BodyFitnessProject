@@ -20,7 +20,7 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     HomeComponent,
-    HeroSectionComponent,
+    // HeroSectionComponent,
     // FormComponent,
   ],
   imports: [
@@ -29,17 +29,16 @@ export function playerFactory() {
     HomeRoutingModule,
     NbButtonModule,
     NbIconModule,
-
     // NbInputModule,
-    NbLayoutModule,
+    // NbLayoutModule,
     // NbTooltipModule,
     // NbSpinnerModule,
-    NbCheckboxModule,
-    NbSelectModule,
+    // NbCheckboxModule,
+    // NbSelectModule,
     // Register module
     NgxJsonLdModule,
-    InfoModule,
-    FormBmiModule,
+    // InfoModule,
+    // FormBmiModule,
     // NbToastrModule.forRoot(),
     // LottieModule.forRoot({ player: playerFactory, useCache: true }),
     LottieModule.forRoot({ player: playerFactory }),

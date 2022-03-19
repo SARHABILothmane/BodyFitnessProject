@@ -1,0 +1,471 @@
+<section class="bg-white">
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col-12 col-md-7 order-2 order-md-1 d-flex justify-content-center align-items-center">
+        <div class="p-2">
+          <h1 class="hero-title text-secondary">Body fat percentage calculator (BFP)</h1>
+          <p class="hero-subtitle ">The body fat calculator created to assist you in estimating the proportion of your
+            body weight is body fat.</p>
+          <p> If you've ever wondered what your body fat proportion is, here is the ideal place
+            to determine. We will discuss in detail not just the significance of this data but also how to choose the
+            body fat percentage.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-md-5 order-1 order-md-2 hero-responsive mt-5">
+        <ng-lottie width="65%" [ngClass]="{'active':imageLoaded}" [options]="optionsF"
+          (animationCreated)="animationCreated($event)"></ng-lottie>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3 hero-responsive">
+        <ng-lottie width="65%" [ngClass]="{'active':imageLoaded}" [options]="bfpFemale"
+          (animationCreated)="animationCreated($event)">
+        </ng-lottie>
+      </div>
+      <div class="col-md-6 mt-4">
+        <nb-card status="success">
+          <nb-card-header>Body fat percentage calculator</nb-card-header>
+          <nb-card-body class="example-items-col">
+            <nb-alert status="danger" *ngIf="error">
+              {{error}}
+            </nb-alert>
+            <form [formGroup]="calculeBfp" (ngSubmit)="claculteBfp(target)">
+              <label for="">Gender</label>
+              <fa-icon *ngIf="checked == 'male'" class="social-icon ml-5" [icon]="faMale"></fa-icon>
+              <fa-icon *ngIf="checked == 'female'" class="social-icon ml-5" [icon]="faFemale"></fa-icon>
+              <nb-form-field class="mb-3">
+                <nb-select placeholder="gender" status="basic" shape="semi-round" fullWidth
+                  (selectedChange)="checkedGender($event)" required>
+                  <nb-option value="male">Male</nb-option>
+                  <nb-option value="female">Female</nb-option>
+                </nb-select>
+              </nb-form-field>
+              <label for="">Age</label>
+              <nb-form-field class="mb-3">
+                <input type="text" nbInput fullWidth status="basic" shape="semi-round" placeholder="Age"
+                  formControlName="age">
+                <!-- <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
+          !</small> -->
+              </nb-form-field>
+              <label for="">Height :</label>
+              <strong *ngIf="selectedHeight == 'cm'"> cm</strong>
+              <strong *ngIf="selectedHeight == 'm'"> Metres</strong>
+              <strong *ngIf="selectedHeight == 'in'"> Inches</strong>
+              <strong *ngIf="selectedHeight == 'ft'"> Feet</strong>
+              <nb-form-field class="mb-3">
+                <div class="d-flex justify-content-between">
+                  <input type="number" nbInput formControlName="height" shape="semi-round" fullWidth status="basic"
+                    placeholder="cm" [(ngModel)]="modelsBmi.height">
+                  <div class="">
+                    <nb-select placeholder="cm" status="basic" shape="semi-round" fullWidth
+                      (selectedChange)="heightSelect($event)" required>
+                      <!-- <nb-option value="cm" *ngIf="selectedItem == 'cm'">cm</nb-option> -->
+                      <nb-option value="cm">cm</nb-option>
+                      <nb-option value="m">Metres (m)</nb-option>
+                      <nb-option value="in">Inches (in)</nb-option>
+                      <nb-option value="ft">Feet (ft)</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
+                  !</small>
+                <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.min">Height must be greater than
+                  40
+                  in (100 cm)
+                  !</small>
+              </nb-form-field>
+              <label for="">Weight :</label>
+              <strong *ngIf="selectedWeight == 'kg'"> kg</strong>
+              <strong *ngIf="selectedWeight == 'dag'"> Decagrams</strong>
+              <strong *ngIf="selectedWeight == 'lb'"> Pounds</strong>
+              <strong *ngIf="selectedWeight == 'oz'"> Ounces</strong>
+              <nb-form-field class="mb-3">
+                <div class="d-flex justify-content-between">
+                  <input type="number" nbInput formControlName="weight" shape="semi-round" fullWidth status="basic"
+                    placeholder="kg" [(ngModel)]="modelsBmi.weight">
+                  <div class="">
+                    <nb-select placeholder="kg" status="basic" shape="semi-round" fullWidth
+                      (selectedChange)="weightSelect($event)" required>
+                      <nb-option value="kg">kg</nb-option>
+                      <nb-option value="dag">Decagrams (dag)</nb-option>
+                      <nb-option value="lb">Pounds (lb)</nb-option>
+                      <nb-option value="oz">Ounces (oz)</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
+                  !</small>
+              </nb-form-field>
+              <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="mb-3" fullWidth
+                status="success">Calculate</button>
+            </form>
+          </nb-card-body>
+        </nb-card>
+        <div class="d-flex justify-content-strart my-3" *ngIf="bmi">
+          <div class="border p-4">
+            <h5 class="text-center">Body Parameters</h5>
+            <h6 class="text-center bmi">{{message}}</h6>
+            <div class="row mt-4">
+              <div class="col-6">
+                <p>Age <em class="">: {{calculeBfp.value.age}} Year</em></p>
+                <p>Height <em class="">: {{calculeBfp.value.height}} Cm</em></p>
+                <p>Body mass index <em class="">{{bmi | number}} kg/m<sup>2</sup></em></p>
+                <p>Body Fat Mass <em>{{bfm}}</em></p>
+              </div>
+              <div class="col-6 text-center">
+                <p></p>
+                <p>Weight <em class="">: {{calculeBfp.value.weight}} Kg</em></p>
+                <p>Body fat percentage calculator<em class="">: {{bfp | number}} %</em></p>
+                <p>Lean Body Mass<em>{{lbm}}</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table" *ngIf="addCataloge && checked === 'female'">
+          <thead class="bg-secondary">
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Body fat</th>
+              <!-- <th scope="col">Rslt<sup>2</sup></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr [class.msg]="message === 'Essential fat'">
+              <!-- <td scope="row" [class.msg]="message === 'Severe thinness'">Severe thinness</td> -->
+              <td scope="row">Essential fat</td>
+              <td>
+                10<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>13
+              </td>
+            </tr>
+            <tr [class.msg]="message === 'Athletes'">
+              <td scope="row">Athletes</td>
+              <td>14<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>20</td>
+            </tr>
+            <tr [class.msg]="message === 'Fitness'">
+              <td scope="row">Fitness</td>
+              <td>21<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>24</td>
+            </tr>
+            <tr [class.msg]="message === 'Average'">
+              <td scope="row">Average</td>
+              <td>25<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>31</td>
+            </tr>
+            <tr [class.msg]="message === 'Obese'">
+              <td scope="row">Obese</td>
+              <td>
+                <nb-icon nbSuffix icon="chevron-right-outline" pack="eva"></nb-icon>32
+              </td>
+              <!-- <td>
+        <nb-icon nbSuffix icon="chevron-left-outline" pack="eva"></nb-icon>40 and above
+      </td> -->
+            </tr>
+          </tbody>
+        </table>
+        <table class="table" *ngIf="addCataloge && checked === 'male'">
+          <thead class="bg-secondary">
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Body fat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr [class.msg]="message === 'Essential fat'">
+              <!-- <td scope="row" [class.msg]="message === 'Severe thinness'">Severe thinness</td> -->
+              <td scope="row">Essential fat</td>
+              <td>
+                2<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>5
+              </td>
+            </tr>
+            <tr [class.msg]="message === 'Athletes'">
+              <td scope="row">Athletes</td>
+              <td>6<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>13</td>
+            </tr>
+            <tr [class.msg]="message === 'Fitness'">
+              <td scope="row">Fitness</td>
+              <td>14<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>17</td>
+            </tr>
+            <tr [class.msg]="message === 'Average'">
+              <td scope="row">Average</td>
+              <td>18<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>24</td>
+            </tr>
+            <tr [class.msg]="message === 'Obese'">
+              <td scope="row">Obese</td>
+              <td>
+                <nb-icon nbSuffix icon="chevron-right-outline" pack="eva"></nb-icon>25
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div #target></div>
+      </div>
+      <div class="col-md-3 hero-responsive">
+        <ng-lottie width="65%" [ngClass]="{'active':imageLoaded}" [options]="bfpFemale"
+          (animationCreated)="animationCreated($event)">
+        </ng-lottie>
+        <div class="row">
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c2"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c3"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c4"></ng-lottie>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c5"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c6"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="c8"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf7"></ng-lottie>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf7"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf8"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf9"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf10"></ng-lottie>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf1"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf4"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf5"></ng-lottie>
+          </div>
+          <div class="col-3">
+            <ng-lottie height="80%" [options]="bf6"></ng-lottie>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="col-12 text-center my-5">
+      <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
+      <h2 class="text-secondary">Learn more about Body Fat Percentage Calculator</h2>
+    </div>
+    <div class="row border shadow bg-white my-4">
+      <div class="col-md-12 mx-2 my-4">
+        <p>Body Fat Percentage Calculator</p>
+        <p>The body fat calculator created to assist you in estimating the proportion of your body weight is body fat.
+        </p>
+        <p>If you've ever wondered what your body fat proportion is, here is the ideal place to determine. We will
+          discuss in detail not just the significance of this data but also how to choose the body fat percentage.</p>
+        <h3 class="text-secondary">What do fats do to your body?</h3>
+        <p>Fats are an integral part of our diet. They give us energy, are utilized in cells' growth and are transformed
+          into vital hormones.</p>
+        <p>Fat tissues safeguard organs from physical injury and provide the insulation we need. </p>
+        <p> A large number of fatty tissues could create new pathways for developing diseases. </p>
+        <h3 class="text-secondary">How do you determine the body fat percentage?</h3>
+        <p>You can determine the body's composition by using our calculator for body fat percentage. Be aware that no
+          calculator, no matter how complicated, will never substitute a visit to an office of a doctor.</p>
+        <p> This result should be taken as a rough estimate, and it will only inform you of the percentage of body fat
+          that is excessively over the top. However, there's no reason to be concerned if the result isn't exactly the
+          suggested value.</p>
+        <p>To calculate your percentage of body fat, it is necessary to collect the following information:</p>
+        <p>Your age & gender</p>
+
+        <p><span>Weight: </span>weigh yourself. The most accurate results weigh yourself early in the morning, before
+          breakfast
+          and with no clothes on.</p>
+
+        <p><span>Height: </span>Stand straight and count the distance between the floor and the top of your head.
+          <em>Remember -
+            no shoes!</em> </p>
+        <p>After you have gathered all the data you need, you can enter them all into the Body Fat Calculator.</p>
+        <p>If you're interested in what it takes to calculate, here are the formulas we employ:</p>
+
+        <p><span>Body fat % =</span> -44.988 + (0.503 * age) + (10.689 * gender) + (3.172 * BMI) - (0.026 * BMI2) +
+          (0.181 * BMI * gender) -
+          (0.02 * BMI * age) - (0.005 * BMI2 * gender) + (0.00021 * BMI2 * age)</p>
+        <p>Where:</p>
+        <p>Gender value: male = 0 and female = 1.</p>
+        <p>BMI = height/weight = kg/m2</p>
+        <p>The equation was confirmed through The American Diabetes Association. The equation was evaluated with 6,510
+          participants and demonstrated an estimated error of 4.66 percent.</p>
+        <p>Be aware that due to the different body types in the population, the estimate could not be 100 100% precise!
+          For instance, an exceptionally strong person may have high BMI and weight values, but it isn't possible to say
+          that they are overweight.</p>
+        <p>If you're searching for more accurate and precise calculations, you can try this Navy Tool for Body Fat and
+          Army Tool for Body Fat!</p>
+        <p>Body fat ratio for females that is ideal</p>
+        <p>Because the BMI calculation is based only on your weight and height, and gender, whether you're male or
+          female isn't a factor determining the number.</p>
+        <p>However, there is a difference between women and men regarding the range of body fat percentages.</p>
+        <div class="col-4 mx-auto">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Body fat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">Essential fat</td>
+                <td>
+                  10<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>13 %
+                </td>
+              </tr>
+              <tr>
+                <td scope="row">Athletes</td>
+                <td>14<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>20 %</td>
+              </tr>
+              <tr>
+                <td scope="row">Fitness</td>
+                <td>21<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>24 %</td>
+              </tr>
+              <tr>
+                <td scope="row">Acceptable</td>
+                <td>25<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>31 %</td>
+              </tr>
+              <tr>
+                <td scope="row">Obesity</td>
+                <td>
+                  <nb-icon nbSuffix icon="chevron-right-outline" pack="eva"></nb-icon>32 %
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The age of the person determines ideal body fat percentages.</p>
+        <div class="col-4 mx-auto">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Age</th>
+                <th scope="col">Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">20<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>39</td>
+                <td>
+                  21<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>32 %
+                </td>
+              </tr>
+              <tr>
+                <td scope="row">40<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>59</td>
+                <td>23<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>33 %</td>
+              </tr>
+              <tr>
+                <td scope="row">60<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>79</td>
+                <td>24<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>35 %</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-secondary">Body fat is the ideal percentage of body fat for males.</h3>
+        <p>The general rule is that men have a lower body fat-to-ratio of lean tissues than females, which is the reason
+          for the variations in the proportions.</p>
+        <p>Reproduction is one factor that contributes to the higher percentages of body fat for females.</p>
+        <p>In this regard In that context, the ACE chart shows the following ranges of men's age:</p>
+        <div class="col-4 mx-auto">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Body fat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">Essential fat</td>
+                <td>
+                  2<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>5 %
+                </td>
+              </tr>
+              <tr>
+                <td scope="row">Athletes</td>
+                <td>6<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>13 %</td>
+              </tr>
+              <tr>
+                <td scope="row">Fitness</td>
+                <td>14<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>17 %</td>
+              </tr>
+              <tr>
+                <td scope="row">Acceptable</td>
+                <td>18<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>24 %</td>
+              </tr>
+              <tr>
+                <td scope="row">Obesity</td>
+                <td>
+                  <nb-icon nbSuffix icon="chevron-right-outline" pack="eva"></nb-icon>25 %
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>To get the ideal percentage of body fat determined by age, males:</p>
+        <div class="col-4 mx-auto">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Age</th>
+                <th scope="col">Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">20<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>39</td>
+                <td>
+                  8<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>19 %
+                </td>
+              </tr>
+              <tr>
+                <td scope="row">40<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>59</td>
+                <td>11<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>21 %</td>
+              </tr>
+              <tr>
+                <td scope="row">60<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>79</td>
+                <td>13<nb-icon nbSuffix icon="minus-outline" pack="eva"></nb-icon>24 %</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-secondary">Problems with calculation</h3>
+        <p>If you view BMI and body fat measurements as the only tools to keep track of your progress, you might not be
+          obsessed with the results.</p>
+        <p>Also, compelled by the desire to lower a specific number, you could be motivated to improve your overall
+          health by feeding your body healthy foods and incorporating some fitness into your routine.</p>
+        <p>This mentality can help to accept and understand the limitations and issues associated with BMI and body fat
+          percentages.</p>
+      </div>
+    </div>
+    <!-- <app-info></app-info> -->
+  </div>
+</section>

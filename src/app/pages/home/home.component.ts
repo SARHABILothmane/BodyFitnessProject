@@ -1,3 +1,4 @@
+import { AnimationOptions } from 'ngx-lottie';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
@@ -11,6 +12,41 @@ export class HomeComponent implements OnInit {
   jsonLD!: SafeHtml;
   schema!: any;
   constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) { }
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+
+  bmi: AnimationOptions = {
+    path: '/assets/animations/bmi.json',
+  };
+  bfp: AnimationOptions = {
+    path: '/assets/animations/bfp.json',
+  };
+  iwc: AnimationOptions = {
+    path: '/assets/animations/iwc.json',
+  };
+  bsc: AnimationOptions = {
+    path: '/assets/animations/bsc.json',
+  };
+  bmr: AnimationOptions = {
+    path: '/assets/animations/bmr.json',
+  };
+  hwc: AnimationOptions = {
+    path: '/assets/animations/hwc.json',
+  };
+  date: AnimationOptions = {
+    path: '/assets/animations/date.json',
+  };
+  age: AnimationOptions = {
+    path: '/assets/animations/age.json',
+  };
+  time: AnimationOptions = {
+    path: '/assets/animations/time.json',
+  };
+  calendre: AnimationOptions = {
+    path: '/assets/animations/lf20_jrrlfpbo.json',
+  };
+
 
   ngOnInit(): void {
     this.titleService.setTitle("Free online body mass index (BMI) calculator for women, men, children");

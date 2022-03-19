@@ -4,9 +4,9 @@
       <nb-card status="success">
         <nb-card-header>BMI</nb-card-header>
         <nb-card-body class="example-items-col">
-          <nb-alert status="danger" *ngIf="error">
+          <!-- <nb-alert status="danger" *ngIf="error">
             {{error}}
-          </nb-alert>
+          </nb-alert> -->
           <form [formGroup]="calculeForm" (ngSubmit)="claculteMetre()">
             <nb-form-field class="mb-3">
               <label for="">Age</label>

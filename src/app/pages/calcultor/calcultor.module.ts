@@ -1,5 +1,6 @@
-import { FormBmiComponent } from './../home/form-bmi/form-bmi.component';
-import { NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbFormFieldModule, NbInputModule, NbLayoutModule, NbTabsetModule, NbSelectModule, NbToastrModule, NbIconModule } from '@nebular/theme';
+import { AgeCalculatorComponent } from './age-calculator/age-calculator.component';
+import { DateCalculatorComponent } from './date-calculator/date-calculator.component';
+import { NbAlertModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbFormFieldModule, NbInputModule, NbLayoutModule, NbTabsetModule, NbSelectModule, NbToastrModule, NbIconModule, NbDatepickerModule, NbAccordionModule, NbCalendarModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LottieModule } from 'ngx-lottie';
@@ -7,10 +8,9 @@ import { LottieModule } from 'ngx-lottie';
 import { CalcultorRoutingModule } from './calcultor-routing.module';
 import { CalcultorComponent } from './calcultor.component';
 import { MetreToInchComponent } from './metre-to-inch/metre-to-inch.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BodyFatPorcentageComponent } from './body-fat-porcentage/body-fat-porcentage.component';
-import { InfoModule } from '../home/info/info.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { BodyFatPorcentageComponent } from './health/body-fat-porcentage/body-fat-porcentage.component';
+
 
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web/build/player/lottie_svg');
@@ -18,27 +18,32 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     CalcultorComponent,
-    BodyFatPorcentageComponent,
+    // BodyFatPorcentageComponent,
     MetreToInchComponent,
-
+    DateCalculatorComponent,
+    AgeCalculatorComponent,
   ],
   imports: [
     CommonModule,
     CalcultorRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     NbFormFieldModule,
     NbLayoutModule,
     NbCardModule,
     NbTabsetModule,
     NbSelectModule,
     NbCheckboxModule,
-    NbAlertModule,
+    // NbAlertModule,
+    NbCardModule,
+    NbCalendarModule,
     NbButtonModule,
     NbCardModule,
     NbInputModule,
     NbIconModule,
-    FontAwesomeModule,
-    NbToastrModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    // FontAwesomeModule,
+    // NbToastrModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),
 
   ]

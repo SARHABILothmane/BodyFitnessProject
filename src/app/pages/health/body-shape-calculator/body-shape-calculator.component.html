@@ -1,0 +1,144 @@
+<nb-layout>
+  <nb-layout-column style="display: flex;">
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="text-center mb-5 pb-3 mt-4 pt-5">
+            <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
+            <h1 class="text-secondary text-center">Body Shape Calculator</h1>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <img src="../../../../assets/images/undraw_yoga_-248-n.svg" width="100%" height="100%" alt="">
+        </div>
+        <div class="col-md-5">
+          <nb-card status="success">
+            <nb-card-header class="text-center">Calculator age</nb-card-header>
+            <nb-card-body class="example-items-col">
+              <form [formGroup]="calculeBsc" (ngSubmit)="CalculateBsc()">
+                <label for="Bust size">Bust Size:</label>
+                <strong *ngIf="selectedBust == 'cm'"> cm</strong>
+                <strong *ngIf="selectedBust == 'm'"> Metres</strong>
+                <strong *ngIf="selectedBust == 'in'"> Inches</strong>
+                <strong *ngIf="selectedBust == 'ft'"> Feet</strong>
+                <nb-form-field class="mb-3">
+                  <div class="d-flex justify-content-between">
+                    <input type="number" nbInput formControlName="bust" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.bust">
+                    <div class="">
+                      <nb-select placeholder="cm" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="bustSelect($event)" required>
+                        <!-- <nb-option value="cm" *ngIf="selectedItem == 'cm'">cm</nb-option> -->
+                        <nb-option value="cm">cm</nb-option>
+                        <nb-option value="m">Metres (m)</nb-option>
+                        <nb-option value="in">Inches (in)</nb-option>
+                        <nb-option value="ft">Feet (ft)</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  <!-- <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
+                    !</small>
+                  <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.min">Height must be greater than
+                    40
+                    in (100 cm)
+                    !</small> -->
+                </nb-form-field>
+                <label for="Waist size">Waist Size:</label>
+                <strong *ngIf="selectedWaist == 'cm'"> cm</strong>
+                <strong *ngIf="selectedWaist == 'm'"> Metres</strong>
+                <strong *ngIf="selectedWaist == 'in'"> Inches</strong>
+                <strong *ngIf="selectedWaist == 'ft'"> Feet</strong>
+                <nb-form-field class="mb-3">
+                  <div class="d-flex justify-content-between">
+                    <input type="number" nbInput formControlName="waist" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.waist">
+                    <div class="">
+                      <nb-select placeholder="cm" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="waistSelect($event)" required>
+                        <nb-option value="cm">cm</nb-option>
+                        <nb-option value="m">Metres (m)</nb-option>
+                        <nb-option value="in">Inches (in)</nb-option>
+                        <nb-option value="ft">Feet (ft)</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  <!-- <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
+                    !</small>
+                  <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.min">Height must be greater than
+                    40
+                    in (100 cm)
+                    !</small> -->
+                </nb-form-field>
+                <label for="High Hip size">High Hip Size</label>
+                <strong *ngIf="selectedHighHip == 'cm'"> cm</strong>
+                <strong *ngIf="selectedHighHip == 'm'"> Metres</strong>
+                <strong *ngIf="selectedHighHip == 'in'"> Inches</strong>
+                <strong *ngIf="selectedHighHip == 'ft'"> Feet</strong>
+                <nb-form-field class="mb-3">
+                  <div class="d-flex justify-content-between">
+                    <input type="number" nbInput formControlName="highHip" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.highHip">
+                    <div class="">
+                      <nb-select placeholder="cm" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="highHipSelect($event)" required>
+                        <nb-option value="cm">cm</nb-option>
+                        <nb-option value="m">Metres (m)</nb-option>
+                        <nb-option value="in">Inches (in)</nb-option>
+                        <nb-option value="ft">Feet (ft)</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  <!-- <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
+                    !</small>
+                  <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.min">Height must be greater than
+                    40
+                    in (100 cm)
+                    !</small> -->
+                </nb-form-field>
+                <label for="Hip size">Hip Size</label>
+                <label for="High Hip size">High Hip Size</label>
+                <strong *ngIf="selectedHip == 'cm'"> cm</strong>
+                <strong *ngIf="selectedHip == 'm'"> Metres</strong>
+                <strong *ngIf="selectedHip == 'in'"> Inches</strong>
+                <strong *ngIf="selectedHip == 'ft'"> Feet</strong>
+                <nb-form-field class="mb-3">
+                  <div class="d-flex justify-content-between">
+                    <input type="number" nbInput formControlName="hip" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.hip">
+                    <div class="">
+                      <nb-select placeholder="cm" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="hipSelect($event)" required>
+                        <nb-option value="cm">cm</nb-option>
+                        <nb-option value="m">Metres (m)</nb-option>
+                        <nb-option value="in">Inches (in)</nb-option>
+                        <nb-option value="ft">Feet (ft)</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  <!-- <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
+                    !</small>
+                  <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.min">Height must be greater than
+                    40
+                    in (100 cm)
+                    !</small> -->
+                </nb-form-field>
+                <!-- <td>{{ data.DateofBirth | date: 'dd/MM/yyyy hh:mm a' }}</td> -->
+                <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="my-3" fullWidth
+                  status="success">Calculate</button>
+              </form>
+            </nb-card-body>
+          </nb-card>
+          <div class="row my-3">
+            <div class="col-12 border shadow bg-white p-4" *ngIf="message">
+              <h6 class="text-center">Resultat of you calculator</h6>
+              <div class="my-3">
+                <h6 class="text-center my-3">Body shape: <span class="bmi">{{message}}</span> </h6>
+                <h6 class="text-center">Waist-hip ratio (WHR): <span class="bmi">{{whrRslt}}</span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-layout-column>
+</nb-layout>

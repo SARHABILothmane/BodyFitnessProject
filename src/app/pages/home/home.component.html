@@ -1,4 +1,172 @@
 <!-- <router-outlet></router-outlet> -->
-<app-hero-section></app-hero-section>
+<!-- <app-hero-section></app-hero-section>
 <app-info></app-info>
-<ngx-json-ld [json]="schema"></ngx-json-ld>
+<ngx-json-ld [json]="schema"></ngx-json-ld> -->
+<div id="section-about">
+  <section class="bg-white position-relative">
+    <div class="container section-one">
+      <!-- <div class="py-2">
+        <div class="broad"><a routerLink="/">home / </a><a routerLink="/about">About</a></div>
+      </div> -->
+      <div class="row mt-5">
+        <div class="col-12 col-md-7 order-2 order-md-1 d-flex justify-content-center align-items-center">
+          <div class="p-2 mt-5">
+            <h1 class="hero-title text-secondary">Body Calculator</h1>
+            <p class="hero-subtitle ">Calculate your body mass for free with differents types and genders for
+              women,men, and children.
+            </p>
+            <p class="hero-subtitle">
+              Just put your info and click calculate will give you the result.
+            </p>
+            <ul>
+              <a routerLink="/health/bmi-calculator">
+                <li class="hero-subtitle">Body mass index BMI for women and men</li>
+              </a>
+              <a routerLink="/health/body-fat-percentage-calculator">
+                <li class="hero-subtitle">Body fat porcentage BFP</li>
+              </a>
+              <a routerLink="/health/basal-metabolic-calculator">
+                <li class="hero-subtitle">Basal Metabolic Rate (BMR) calculator</li>
+              </a>
+              <a routerLink="/health/ideal-weight-calculator">
+                <li class="hero-subtitle">Ideal Weight Calculator</li>
+              </a>
+              <a routerLink="/health/body-shape-calculator">
+                <li class="hero-subtitle">Body shape calculator</li>
+              </a>
+              <a routerLink="/calculator/age-calculator">
+                <li class="hero-subtitle">Age calculator</li>
+              </a>
+              <a routerLink="/calculator/date-calculator">
+                <li class="hero-subtitle">Date calculator</li>
+              </a>
+            </ul>
+            <!-- <button aria-label="Hero button" class="mt-3" routerLink="/calcultor" nbButton status="primary">
+              <nb-icon status="dark" icon="eye">
+              </nb-icon>
+              <strong class="button-title">More calculators</strong>
+            </button> -->
+            <!-- <button nbButton status="primary" class="mt-3" routerLink="/contact">
+              <nb-icon class="text-white" nbPrefix icon="email-outline" pack="eva"></nb-icon> Contactez
+              Nous
+            </button> -->
+          </div>
+        </div>
+        <div class="col-12 col-md-5 d-flex justify-content-center order-1 order-md-2 info">
+        </div>
+      </div>
+    </div>
+    <div class="voir-plus d-flex flex-column justify-content-center align-items-center">
+      <div class="text-center">
+        <p class="text-uppercase font-weight-bold">See more</p>
+      </div>
+      <button class="rounded-circle circle-plus scrool-event p-3" (click)="scroll(target)">
+        <nb-icon class="text-white" nbPrefix icon="arrow-ios-downward-outline" pack="eva"></nb-icon>
+      </button>
+    </div>
+  </section>
+  <section id="formation-section1" #target class="position-relative">
+    <div class="container">
+      <div class="text-center mb-5 mt-4 pt-5">
+        <p class="text-uppercase mb-0 pres">Body mass index</p>
+        <h3 class="text-secondary">Les cours online</h3>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 text-center about-card">
+          <a routerLink="/health/bmi-calculator">
+            <ng-lottie [options]="bmi" width="80%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/health/bmi-calculator">Body mass index (bmi)</h6>
+          <p class="px-5 py-2" routerLink="/health/bmi-calculator">The Body Mass Index (BMI) Calculator can be
+            used to calculate BMI value and
+            corresponding weight status while taking age into consideration.</p>
+        </div>
+        <div class="col-12 col-md-4 text-center about-card">
+          <a routerLink="/health/body-fat-percentage-calculator">
+            <ng-lottie [options]="bfp" width="100%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/health/body-fat-percentage-calculator">Body fat percentage calculator</h6>
+          <p class="px-5 py-2" routerLink="/health/body-fat-percentage-calculator">The Body Fat Calculator can be used
+            to estimate your total body fat based on specific
+            measurements.</p>
+        </div>
+        <div class="col-12 col-md-4 text-center about-card">
+          <a routerLink="/health/ideal-weight-calculator">
+            <ng-lottie [options]="iwc" width="60%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/health/ideal-weight-calculator">Ideal weight Calculator</h6>
+          <p class="px-5 py-2" routerLink="/health/ideal-weight-calculator">ideal-weight-calculator Calculator can be
+            used
+            to calculate BMI value and
+            corresponding weight status while taking age into consideration.</p>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 text-center about-card">
+          <a routerLink="/health/body-shape-calculator">
+            <ng-lottie [options]="bsc" width="60%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/health/body-shape-calculator">body shape calculator</h6>
+          <p class="px-5 py-2" routerLink="/health/body-shape-calculator">The Body Mass Index (BMI) Calculator can be
+            used
+            to calculate BMI value and
+            corresponding weight status while taking age into consideration.</p>
+        </div>
+        <div class="col-12 col-md-4 mx-auto text-center about-card">
+          <a routerLink="/health/basal-metabolic-calculator">
+            <ng-lottie [options]="bmr" width="80%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/health/basal-metabolic-calculator">The Basal Metabolic Rate (BMR) Calculator
+          </h6>
+          <p class="px-5 py-2" routerLink="/health/basal-metabolic-calculator">Langue anglaise et passage de la
+            certification TOEIC</p>
+        </div>
+        <div class="col-12 col-md-4 mx-auto text-center about-card">
+          <a routerLink="/health/healthy-weight-calculator">
+            <ng-lottie [options]="hwc" width="70%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/health/healthy-weight-calculator">Healthy Weight Calculator
+          </h6>
+          <p class="px-5 py-2" routerLink="/health/healthy-weight-calculator">Langue anglaise et passage de la
+            certification TOEIC</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4 mx-auto text-center about-card">
+          <a routerLink="/calculator/age-calculator">
+            <ng-lottie [options]="calendre" width="75%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/calculator/age-calculator">Age Calculator</h6>
+          <p class="px-5 py-2" routerLink="calculator/age-calculator">Langue anglaise et passage de la certification
+            TOEIC</p>
+        </div>
+        <div class="col-12 col-md-4 mx-auto text-center about-card">
+          <a routerLink="/calculator/date-calculator">
+            <ng-lottie [options]="date" width="70%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/calculator/date-calculator">Date Calculator</h6>
+          <p class="px-5 py-2" routerLink="/calculator/date-calculator">(Développeur web, word, excel, powerpoint, tests
+            unitaires, etc …..) avec
+            différentes modalités</p>
+        </div>
+        <div class="col-12 col-md-4 mx-auto text-center about-card">
+          <a routerLink="/calculator/date-calculator">
+            <ng-lottie [options]="time" width="70%"></ng-lottie>
+          </a>
+          <h6 class="mb-4" routerLink="/calculator/date-calculator">Time Calculator</h6>
+          <p class="px-5 py-2" routerLink="/calculator/date-calculator">(Développeur web, word, excel, powerpoint, tests
+            unitaires, etc …..) avec
+            différentes modalités</p>
+        </div>
+        <!-- <ng-lottie [options]="options" width="50%"></ng-lottie>
+        <ng-lottie [options]="fitness1" width="50%"></ng-lottie>
+        <ng-lottie [options]="calorie1" width="50%"></ng-lottie>
+        <ng-lottie [options]="age" width="50%"></ng-lottie>
+        <ng-lottie [options]="age2" width="50%"></ng-lottie>
+        <ng-lottie [options]="age3" width="50%"></ng-lottie>
+        <ng-lottie [options]="calendre"></ng-lottie> -->
+
+      </div>
+    </div>
+  </section>
+</div>

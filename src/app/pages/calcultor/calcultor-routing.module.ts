@@ -8,8 +8,8 @@ const routes: Routes = [
   { path: "", component: CalcultorComponent },
   // { path: "", redirectTo: "/candidat/assignements", pathMatch: "full" },
   // { path: "metre", loadChildren: () => import("src/app/pages/calcultor/metre-to-inch/metre-to-inch.module").then(mod => mod.MetreToInchModule) },
-  // { path: "body-fat-porcentage", loadChildren: () => import("src/app/pages/calcultor/body-fat-porcentage/body-fat-porcentage.module").then(mod => mod.BodyFatPorcentageModule) },
-  // { path: "body-mass-index", loadChildren: () => import("src/app/pages/calcultor/body-mass-index/body-mass-index.module").then(mod => mod.BodyMassIndexModule) },
+  { path: "date-calculator", loadChildren: () => import("src/app/pages/calcultor/date-calculator/date-calculator.module").then(mod => mod.DateCalculatorModule) },
+  { path: "age-calculator", loadChildren: () => import("src/app/pages/calcultor/age-calculator/age-calculator.module").then(mod => mod.AgeCalculatorModule) },
 
 ];
 

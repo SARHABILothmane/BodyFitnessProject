@@ -31,7 +31,6 @@ export class FormBmiComponent implements OnInit {
     weightImperial: 0,
     heightImperial: 0,
   }
-
   options: AnimationOptions = {
     path: '/assets/animations/symgery-body-icon.json',
   };

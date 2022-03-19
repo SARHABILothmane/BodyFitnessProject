@@ -1,0 +1,40 @@
+@import '../../../../mediaqueries.scss';
+@import '../../../../variables.scss';
+@import '../../../../themes';
+
+
+
+
+.bmi {
+  color: color(primary);
+  font-size: 30px;
+  // font-style: bold;
+  font-weight: bolder;
+  font-family: font(font-family-regular);
+}
+
+.bmi:hover {
+  color: color(primary);
+
+}
+
+//responsive
+.bmi {
+  @include tablet-sm {
+    font-size: 25px;
+  }
+
+  @include mobile-l {
+    font-size: 16px;
+  }
+}
+
+p {
+  @include tablet-sm {
+    font-size: 14px;
+  }
+
+  @include mobile-l {
+    font-size: 12px;
+  }
+}

@@ -3,16 +3,19 @@
     <div class="container d-flex justify-content-between align-items-center web-header">
       <a class="d-block logo" routerLink="/"><img width="40px" height="100px"
           src="../../../assets/images/logo/calculator.svg" alt="the body logo"></a>
-      <ul class="d-flex  list pl-2 pl-xl-5">
+      <ul class="d-flex list pl-2 pl-xl-5">
         <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="">Home</a>
         </li>
         <!-- <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/about">About</a>
         </li> -->
+
         <li class="list-item">
-          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/calcultor">Calculators</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/calcultor">Calculators</a>
         </li>
+
         <!-- <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/blog">Blog</a>
         </li> -->
@@ -31,7 +34,7 @@
     <div #sidebar id="mySidebar" class="sidebar shadow">
       <div class="d-flex justify-content-end">
         <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
-          <nb-icon  [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
+          <nb-icon [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
         </button>
       </div>
       <a class="d-block logo text-center" (click)="toggle()" routerLink="/"><img width="60px" height="100%"

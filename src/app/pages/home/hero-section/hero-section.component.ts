@@ -13,17 +13,11 @@ export class HeroSectionComponent implements OnInit {
   optionsF: AnimationOptions = {
     // path: '/assets/relaxed-woman-meditating.json',
     path: '/assets/animations/symgery-body-icon.json',
-
-
   };
   options: AnimationOptions = {
     path: '/assets/animations/humanbody01.json',
-
   };
-
-
   constructor() { }
-
   ngOnInit(): void {
   }
   animationCreated(animationItem: AnimationItem): void {

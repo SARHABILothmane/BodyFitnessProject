@@ -1,0 +1,10 @@
+@import '../../../../mediaqueries.scss';
+@import '../../../../variables.scss';
+
+.bmi {
+  color: color(primary);
+  font-size: 30px;
+  // font-style: bold;
+  font-weight: bolder;
+  font-family: font(font-family-regular);
+}
