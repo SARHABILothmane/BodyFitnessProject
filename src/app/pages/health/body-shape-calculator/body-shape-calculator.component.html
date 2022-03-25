@@ -15,7 +15,7 @@
           <nb-card status="success">
             <nb-card-header class="text-center">Calculator age</nb-card-header>
             <nb-card-body class="example-items-col">
-              <form [formGroup]="calculeBsc" (ngSubmit)="CalculateBsc()">
+              <form [formGroup]="calculeBsc" (ngSubmit)="CalculateBsc(target)">
                 <label for="Bust size">Bust Size:</label>
                 <strong *ngIf="selectedBust == 'cm'"> cm</strong>
                 <strong *ngIf="selectedBust == 'm'"> Metres</strong>
@@ -138,6 +138,7 @@
             </div>
           </div>
         </div>
+        <div #target></div>
       </div>
     </div>
   </nb-layout-column>

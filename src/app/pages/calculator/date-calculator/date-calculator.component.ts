@@ -132,7 +132,7 @@ export class DateCalculatorComponent implements OnInit {
     // 18 ANS => 18 years => 18*12=216 month =>  216*365 =78840 jr => 78840*24 = 1 892 160 => 78840 *60 = 4 730 400
   }
   public AddOrSubDate(): void {
-    if (this.checked === "plus") {
+    if (this.checked === "add") {
       let dateAdd = this.AddOrSubtractDate.value.addSubDate;
       this.addOrSubDay = this.AddOrSubtractDate.value.days + dateAdd.getDate();
       this.addOrSubMonth = this.AddOrSubtractDate.value.months + dateAdd.getMonth() + 1;
@@ -179,9 +179,57 @@ export class DateCalculatorComponent implements OnInit {
       // this.addOrSubMonth = this.addOrSubMonth + monthsAdd;
 
     }
+    if (this.checked === "substract") {
+      let dateSubstract = this.AddOrSubtractDate.value.addSubDate;
+      this.addOrSubDay = dateSubstract.getDate() - this.AddOrSubtractDate.value.days;
+      this.addOrSubMonth = dateSubstract.getMonth() + 1 - this.AddOrSubtractDate.value.months;
+      this.addOrSubWeek = this.AddOrSubtractDate.value.weeks;
+      this.addOrSubWeek = Math.round(this.addOrSubWeek);
+      this.addOrSubYear = dateSubstract.getFullYear() - this.AddOrSubtractDate.value.years;
+      if (dateSubstract.getMonth() === 1 || dateSubstract.getMonth() === 3 || dateSubstract.getMonth() === 5 || dateSubstract.getMonth() === 7 || dateSubstract.getMonth() === 10 || dateSubstract.getMonth() === 12 && this.addOrSubDay >= 31) {
+        this.addOrSubDay = 31 - this.addOrSubDay;
+        this.addOrSubMonth = this.addOrSubMonth - dateSubstract.getMonth() + 1;
+      } if (dateSubstract.getMonth() === 4 || dateSubstract.getMonth() === 6 || dateSubstract.getMonth() === 8 || dateSubstract.getMonth() === 9 || dateSubstract.getMonth() === 11 && this.addOrSubDay >= 30) {
+        this.addOrSubDay = 30 - this.addOrSubDay;
+        this.addOrSubMonth = this.addOrSubMonth - dateSubstract.getMonth() + 1;
+      } if (dateSubstract.getMonth() === 2 && this.addOrSubDay >= 28) {
+        this.addOrSubDay = 28 - this.addOrSubDay;
+        this.addOrSubMonth = this.addOrSubMonth - dateSubstract.getMonth() + 1;
+      }
+      if (this.addOrSubDay >= 7) {
+        let weekFh = this.addOrSubDay / 7;
+        this.addOrSubDay = this.addOrSubDay % 7;
+        this.addOrSubWeek = this.addOrSubWeek + weekFh;
+        this.addOrSubWeek = Math.round(this.addOrSubWeek);
+      }
+      if (this.addOrSubWeek >= 4.34524) {
+        this.addOrSubMonth = this.addOrSubMonth + this.addOrSubWeek / 4.34524;
+        this.addOrSubWeek = this.addOrSubWeek % 7
+      }
+      if (this.addOrSubMonth >= 12) {
+        this.addOrSubMonth = this.addOrSubMonth - 12;
+        this.addOrSubYear = this.addOrSubYear + 1;
+      }
+      console.log("years" + this.addOrSubYear);
+      console.log("mon" + this.addOrSubMonth);
+      console.log("day" + this.addOrSubDay);
+      console.log("week" + this.addOrSubWeek);
+      this.date.setDate(this.addOrSubDay)
+      this.date.setMonth(Math.round(this.addOrSubMonth))
+      this.date.setFullYear(this.addOrSubYear)
+
+      console.log("date" + this.date);
+      this.handleDateChange(this.date);
+
+      // this.addOrSubYear = this.addOrSubYear + yearsAdd;
+      // this.addOrSubMonth = this.addOrSubMonth + monthsAdd;
+
+    }
   }
   handleDateChange(d: any) {
     this.date = d;
+    console.log(this.date);
+
     return this.date;
   }
   checkedDate(v: any) {

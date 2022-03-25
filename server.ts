@@ -12,6 +12,10 @@ import { existsSync } from 'fs';
 export function app(): express.Express {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/calculatorFitness/browser');
+  // let distFolder = join(process.cwd(), "browser");
+  // if (!existsSync(distFolder)) {
+  //   distFolder = join(process.cwd(), "dist/calculatorFitness/browser");
+  // }
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
@@ -40,12 +44,24 @@ export function app(): express.Express {
 function run(): void {
   const port = process.env.PORT || 4000;
 
-  // Start up the Node server
+  // Start up the Node server app.listen(3000, "127.0.0.1")
   const server = app();
-  server.listen(port, () => {
+  server.listen(4000, "127.0.0.1");
+  /* server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+  }); */
+  //require('https').createServer(app).listen(port);
 }
+
+// function run(): void {
+//   const port = process.env.PORT || 4000;
+
+//   // Start up the Node server
+//   const server = app();
+//   server.listen(port, () => {
+//     console.log(`Node Express server listening on http://localhost:${port}`);
+//   });
+// }
 
 // Webpack will replace 'require' with '__webpack_require__'
 // '__non_webpack_require__' is a proxy to Node 'require'

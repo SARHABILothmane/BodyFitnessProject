@@ -11,11 +11,26 @@
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/about">About</a>
         </li> -->
 
-        <li class="list-item">
+        <!-- <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
             routerLink="/calcultor">Calculators</a>
+        </li> -->
+        <li class="dropdown list-item">
+          <span>Calculators</span>
+          <div class="dropdown-content">
+            <div class="d-flex flex-column">
+              <a class="pb-2" routerLink="/health/bmi-calculator">Body Mass Index BMI</a>
+              <a class="py-2" routerLink="/health/body-fat-percentage-calculator">Body fat percentage calculator
+                (BFP)</a>
+              <a class="py-2" routerLink="/health/basal-metabolic-calculator">Basal metabolic rate (BMR)</a>
+              <a class="py-2" routerLink="/health/ideal-weight-calculator">Ideal weight</a>
+              <a class="py-2" routerLink="/health/body-shape-calculator">Body Shape</a>
+              <a class="py-2" routerLink="/health/healthy-weight-calculator">Healthy weight</a>
+              <a class="py-2" routerLink="/calculator/age-calculator">Age</a>
+              <a class="py-2" routerLink="/calculator/date-calculator">Date</a>
+            </div>
+          </div>
         </li>
-
         <!-- <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/blog">Blog</a>
         </li> -->

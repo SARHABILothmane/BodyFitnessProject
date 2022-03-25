@@ -1,5 +1,5 @@
 import { HealthyWeightCalculatorModule } from './healthy-weight-calculator/healthy-weight-calculator.module';
-import { DateCalculatorModule } from './../calcultor/date-calculator/date-calculator.module';
+import { DateCalculatorModule } from './../calculator/date-calculator/date-calculator.module';
 import { BasalMetabolicRateCalculatorModule } from './basal-metabolic-rate-calculator/basal-metabolic-rate-calculator.module';
 import { HealthComponent } from './health.component';
 import { HealthModule } from './health.module';
@@ -16,8 +16,8 @@ const routes: Routes = [
       { path: "ideal-weight-calculator", loadChildren: () => import("src/app/pages/health/ideal-weight-calculator/ideal-weight-calculator.module").then(mod => mod.IdealWeightCalculatorModule) },
       { path: "body-shape-calculator", loadChildren: () => import("src/app/pages/health/body-shape-calculator/body-shape-calculator.module").then(mod => mod.BodyShapeCalculatorModule) },
       { path: "basal-metabolic-calculator", loadChildren: () => import("src/app/pages/health/basal-metabolic-rate-calculator/basal-metabolic-rate-calculator.module").then(mod => mod.BasalMetabolicRateCalculatorModule) },
-      { path: "date-calculator", loadChildren: () => import("src/app/pages/calcultor/date-calculator/date-calculator.module").then(mod => mod.DateCalculatorModule) },
-      { path: "age-calculator", loadChildren: () => import("src/app/pages/calcultor/age-calculator/age-calculator.module").then(mod => mod.AgeCalculatorModule) },
+      { path: "date-calculator", loadChildren: () => import("src/app/pages/calculator/date-calculator/date-calculator.module").then(mod => mod.DateCalculatorModule) },
+      { path: "age-calculator", loadChildren: () => import("src/app/pages/calculator/age-calculator/age-calculator.module").then(mod => mod.AgeCalculatorModule) },
       { path: "healthy-weight-calculator", loadChildren: () => import("src/app/pages/health/healthy-weight-calculator/healthy-weight-calculator.module").then(mod => mod.HealthyWeightCalculatorModule) },
 
     ]

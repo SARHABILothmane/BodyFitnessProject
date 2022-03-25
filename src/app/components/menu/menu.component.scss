@@ -12,7 +12,6 @@
     font-size: 18px;
   }
 
-
   a {
     text-decoration: none;
   }
@@ -33,9 +32,9 @@
   .list li a:hover,
   .list li.active a {
     font-family: font(font-family-regular);
-    border-bottom: 3.5px solid color(title-color);
+    border-bottom: 3.5px solid color(blue-primary);
     padding-bottom: 4px;
-    color: color(title-color);
+    color: color(primary);
   }
 
   /////
@@ -72,15 +71,31 @@
     -o-transition: 0.5s;
   }
 
-  .search-link {
-    display: block;
-    padding: 15px 0;
-    cursor: pointer;
 
-    &:hover {
-      background-color: #edf1f7;
-    }
+  .dropdown {
+    position: relative;
+    display: inline-block;
   }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 260px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5%;
+    padding: 12px 16px;
+    z-index: 1;
+    font-family: font(font-family-regular);
+    font-weight: bolder;
+    font-size: 14px;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
 
 
   /* The sidebar links */

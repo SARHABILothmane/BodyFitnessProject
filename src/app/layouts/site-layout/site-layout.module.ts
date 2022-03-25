@@ -25,7 +25,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NbFormFieldModule,
     NbLayoutModule,
     NbSidebarModule,
-    NbSpinnerModule,
     NbCardModule,
     FontAwesomeModule,
     ShareButtonsModule.withConfig({
