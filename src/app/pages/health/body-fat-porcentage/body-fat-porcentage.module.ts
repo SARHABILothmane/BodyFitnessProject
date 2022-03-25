@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BodyFatPorcentageRoutingModule } from './body-fat-porcentage-routing.module';
+import { BodyFatPorcentageComponent } from './body-fat-porcentage.component';
 
 
 @NgModule({
@@ -9,14 +10,6 @@ import { BodyFatPorcentageRoutingModule } from './body-fat-porcentage-routing.mo
   imports: [
     CommonModule,
     BodyFatPorcentageRoutingModule,
-    // ReactiveFormsModule,
-    // NbFormFieldModule,
-    // NbLayoutModule,
-    // NbCardModule,
-    // NbAlertModule,
-    // NbIconModule,
-    // FontAwesomeModule,
-    // NbSelectModule,
   ]
 })
 export class BodyFatPorcentageModule { }

@@ -1,6 +1,6 @@
 <nb-card status="success">
   <nb-card-header>
-    <h2 class="hero-subtitle text-center">Calculate your BMI</h2>
+    <h2 class="hero-subtitle text-center">BMI calculate</h2>
   </nb-card-header>
   <nb-card-body class="example-items-col">
     <nb-tabset (changeTab)="tabsSet($event)">
@@ -51,8 +51,9 @@
             <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
               !</small>
           </nb-form-field>
-          <button nbSpinnerStatus="danger" type="submit" nbButton class="mb-3" fullWidth status="success"><strong
-              class="hero-subtitle">Calculate</strong></button>
+          <button nbSpinnerStatus="danger" type="submit" nbButton class="mb-3" fullWidth status="success">
+            Calculate
+          </button>
         </form>
       </nb-tab>
       <nb-alert status="danger" *ngIf="error">

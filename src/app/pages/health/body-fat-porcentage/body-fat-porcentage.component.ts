@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import { AnimationItem } from 'lottie-web';
+import { Utils } from 'src/app/constant/utils';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-body-fat-porcentage',
@@ -37,73 +40,53 @@ export class BodyFatPorcentageComponent implements OnInit {
   bfpFemale: AnimationOptions = {
     path: '/assets/animations/bfpFemale.json',
   };
-  bf: AnimationOptions = {
-    path: '/assets/animations/1yoga-breathing.json',
-  };
-  bf1: AnimationOptions = {
-    path: '/assets/animations/1yoga-virkshasana.json',
-  };
-
-  bf4: AnimationOptions = {
-    path: '/assets/animations/relaxed-woman-meditating.json',
-  };
-  bf5: AnimationOptions = {
-    path: '/assets/animations/1editor_kpqbifxu.json',
-  };
-  bf6: AnimationOptions = {
-    path: '/assets/animations/1-yoga.json',
-  };
-  bf7: AnimationOptions = {
-    path: '/assets/animations/1yoga-breathing.json',
-  };
-  bf8: AnimationOptions = {
-    path: '/assets/animations/1yoga-virkshasana.json',
-  };
-  bf9: AnimationOptions = {
-    path: '/assets/animations/lf20_jrrlfpbo.json',
-  };
-  bf10: AnimationOptions = {
-    path: '/assets/animations/symgery-body-icon.json',
-  };
-  c: AnimationOptions = {
-    path: '/assets/animations/c-body-man.json',
-  };
-  c1: AnimationOptions = {
-    path: '/assets/animations/c-calculator-age-icon.json',
-  };
-  c2: AnimationOptions = {
-    path: '/assets/animations/c-calendre.json',
-  };
-  c3: AnimationOptions = {
-    path: '/assets/animations/c-calendre2.json',
-  };
-  c4: AnimationOptions = {
-    path: '/assets/animations/c-calorie-intro-3.json',
-  };
-  c5: AnimationOptions = {
-    path: '/assets/animations/c-carbon-calculator.json',
-  };
-  c6: AnimationOptions = {
-    path: '/assets/animations/c-fitness-loading-spinner.json',
-  };
-  c7: AnimationOptions = {
-    path: '/assets/animations/c-weight-loss-progress.json',
-  };
-  c8: AnimationOptions = {
-    path: '/assets/animations/1-body.json',
-  };
-
+ 
   modelsBmi: Bmr = {
     age: 0,
     height: 0,
     weight: 0,
-  }
+  };
+  utils = new Utils();
+  isMobile: boolean = true;
+  jsonLD!: SafeHtml;
+  schema!: any;
 
   constructor(
     // private toastrService: NbToastrService
+    private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer
   ) { }
 
+
   ngOnInit(): void {
+    this.titleService.setTitle("Free online body fat percentage calculator");
+    this.metaService.addTags([
+      { name: 'keywords', content: "body fat percentage, body fat percentage calculator, body fat percentage women, women body fat percentage, healthy body fat percentage, body fat percentage men, average body fat percentage, how to calculate body fat percentage, calculate body fat percentage, what is my body fat percentage, female body fat percentage, body fat percentage for men, how to know your body fat percentage" },
+      { name: 'description', content: "Free online body fat percentage calculator, (body fat percentage women, body fat percentage men, average body fat percentage )" },
+    ]);
+    this.canonical.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "free online body fat percentage calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://body-calculator.com/health/body-fat-percentage-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "Body mass index (bmi) calculator",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
+
     this.calculeBfp = new FormGroup({
       // gender: new FormControl("", [Validators.required]),
       age: new FormControl("", [Validators.required]),
@@ -112,7 +95,20 @@ export class BodyFatPorcentageComponent implements OnInit {
       weight: new FormControl("", [Validators.required]),
     });
 
+    this.isMobile = this.utils.isMobile();
+
   }
+
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+
   animationCreated(animationItem: AnimationItem): void {
     this.imageLoaded = !this.imageLoaded
     // animationItem.show();

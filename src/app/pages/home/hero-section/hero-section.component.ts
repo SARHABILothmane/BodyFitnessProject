@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import { Utils } from 'src/app/constant/utils';
 
 @Component({
   selector: 'app-hero-section',
@@ -17,8 +18,12 @@ export class HeroSectionComponent implements OnInit {
   options: AnimationOptions = {
     path: '/assets/animations/humanbody01.json',
   };
+
+  utils = new Utils();
+  isMobile: boolean = true; 
   constructor() { }
   ngOnInit(): void {
+    this.isMobile = this.utils.isMobile();
   }
   animationCreated(animationItem: AnimationItem): void {
     this.imageLoaded = !this.imageLoaded

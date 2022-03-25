@@ -1,53 +1,40 @@
 <section class="bg-white">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-6 order-2 order-md-1 d-flex justify-content-center align-items-center">
+    <div class="row mt-5">
+      <div [ngClass]="{'col-md-6':!isMobile}" class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center">
         <div class="p-2">
-          <!-- <p class="hero-title"></p> -->
           <h1 class="hero-title text-secondary">Body Mass Index BMI Calculator</h1>
-          <p class="hero-subtitle ">Calculate your body mass for free with differents types and genders for
-            women,men, and children.
+          <p class="hero-subtitle ">
+            Calculate your body mass index for free with metric or imperial type, our calculator is valid for differents genres for women, men, and children.
           </p>
           <p class="hero-subtitle">
             Just put your info and click calculate will give you the result.
           </p>
-          <!-- <button aria-label="Hero button" class="mt-3" routerLink="/calcultor" nbButton status="primary">
-            <nb-icon status="dark" icon="eye">
-            </nb-icon>
-            <strong class="button-title">More calculators</strong>
-          </button> -->
-          <!-- <p class="font-weight-bold mt-4">vous avez des questions? <span><a routerLink="/contact"
-                rel="noopener noreferrer">Contactez-nous</a></span></p> -->
         </div>
       </div>
-      <div class="col-12 col-md-6 order-1 order-md-2 hero-responsive mt-5">
-        <!-- <img class="w-100 h-100" src="../../../assets/images/blogging.svg" alt="hero"> -->
-        <!-- <div> -->
+      <div *ngIf="!isMobile" class="col-12 col-md-6 order-1 order-md-2 hero-responsive mt-5">
         <ng-lottie [ngClass]="{'active':imageLoaded}" [options]="optionsF"
-          (animationCreated)="animationCreated($event)"></ng-lottie>
-        <!-- </div> -->
-        <!-- <div class="skeleton my-4" [ngClass]="{'not-active': imageLoaded}">
-          <app-skeleton></app-skeleton>
-        </div> -->
+          (animationCreated)="animationCreated($event)" height="300px"></ng-lottie>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3 hero-responsive">
+    <div class="row d-flex justify-content-center">
+      <div  *ngIf="!isMobile"class="col-md-3 hero-responsive">
         <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
           (animationCreated)="animationCreated($event)">
         </ng-lottie>
       </div>
+
       <div class="col-md-6 mt-4">
         <app-form-bmi class=""></app-form-bmi>
-
-        <!-- <app-form class=""></app-form> -->
       </div>
-      <div class="col-md-3 hero-responsive">
+
+      <div *ngIf="!isMobile" class="col-md-3 hero-responsive">
         <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
           (animationCreated)="animationCreated($event)">
         </ng-lottie>
       </div>
       <!-- <img class="w-100 h-100" src="../../../assets/images/hero-icons.svg" alt="hero"> -->
     </div>
+    <app-other-calcultor-health eleminateCalculator="bmi"></app-other-calcultor-health>
   </div>
 </section>

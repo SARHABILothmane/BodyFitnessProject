@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 
 import { HealthRoutingModule } from './health-routing.module';
 import { HealthComponent } from './health.component';
+import { OtherCalcultorModule } from '../other-calcultor/other-calculator.module';
 
 export function playerFactory() {
   return import('lottie-web/build/player/lottie_svg');
@@ -48,6 +49,7 @@ export function playerFactory() {
     FormBmiModule,
     InfoModule,
     FontAwesomeModule,
+    OtherCalcultorModule,
     LottieModule.forRoot({ player: playerFactory }),
 
   ]

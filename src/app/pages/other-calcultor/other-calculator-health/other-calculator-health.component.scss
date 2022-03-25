@@ -1,0 +1,16 @@
+.designeButton{
+  position: relative;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0.0666667rem 0.2rem 0.0666667rem;
+  border-radius: 5px;
+}
+
+.designeButton:hover{
+  box-shadow: rgb(0 0 0 / 10%) 0px 0.933333rem 1.86667rem, rgb(0 0 0 / 7%) 0px 0.666667rem 0.666667rem;
+  
+}
+
+// .designeButton:hover .arrow{ 
+//   transform: translateX(0.6666666667rem);
+//   transition: all .3s ease-in-out;
+//  } 
