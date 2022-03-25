@@ -19,15 +19,16 @@
           <span>Calculators</span>
           <div class="dropdown-content">
             <div class="d-flex flex-column">
-              <a class="pb-2" routerLink="/health/bmi-calculator">Body Mass Index BMI</a>
-              <a class="py-2" routerLink="/health/body-fat-percentage-calculator">Body fat percentage calculator
-                (BFP)</a>
-              <a class="py-2" routerLink="/health/basal-metabolic-calculator">Basal metabolic rate (BMR)</a>
-              <a class="py-2" routerLink="/health/ideal-weight-calculator">Ideal weight</a>
-              <a class="py-2" routerLink="/health/body-shape-calculator">Body Shape</a>
-              <a class="py-2" routerLink="/health/healthy-weight-calculator">Healthy weight</a>
-              <a class="py-2" routerLink="/calculator/age-calculator">Age</a>
-              <a class="py-2" routerLink="/calculator/date-calculator">Date</a>
+              <a class="pb-2" routerLink="/health/bmi-calculator">Body mass index BMI calculator</a>
+              <a class="py-2" routerLink="/health/body-fat-percentage-calculator">
+                Body fat percentage calculator (BFP)
+              </a>
+              <a class="py-2" routerLink="/health/ideal-weight-calculator">Ideal weight calculator</a>
+              <a class="py-2" routerLink="/health/body-shape-calculator">Body shape calculator</a>
+              <a class="py-2" routerLink="/health/basal-metabolic-calculator">Basal metabolic rate calculator (BMR)</a>
+              <a class="py-2" routerLink="/health/healthy-weight-calculator">Healthy weight calculator</a>
+              <a class="py-2" routerLink="/calculator/age-calculator">Age calculator</a>
+              <a class="py-2" routerLink="/calculator/date-calculator">Date calculator</a>
             </div>
           </div>
         </li>
@@ -55,13 +56,44 @@
       <a class="d-block logo text-center" (click)="toggle()" routerLink="/"><img width="60px" height="100%"
           src="../../../assets/images/logo/calculator.svg " alt="the body logo"></a>
 
-      <a (click)="toggle()" routerLink="/" class="mb-3 mt-5">Home</a>
+      <a (click)="toggle()" routerLink="/" class="mt-5 d-flex justify-content-between align-items-center">
+        <span class="pr-2">Home</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="pb-2 d-flex justify-content-between align-items-center" routerLink="/health/bmi-calculator">
+        <span class="pr-2">Body mass index BMI calculator</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/health/body-fat-percentage-calculator">
+        <span class="pr-2">Body fat percentage calculator (BFP)</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/health/ideal-weight-calculator">
+        <span class="pr-2">Ideal weight calculator</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/health/body-shape-calculator">
+        <span class="pr-2">Body shape calculator</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/health/basal-metabolic-calculator">
+        <span class="pr-2">Basal metabolic rate calculator (BMR)</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/health/healthy-weight-calculator">
+        <span class="pr-2">Healthy weight calculator</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/calculator/age-calculator">
+        <span class="pr-2">Age calculator</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
+      <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center" routerLink="/calculator/date-calculator">
+        <span class="pr-2">Date calculator</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
 
       <!-- <a (click)="toggle()" routerLink="/about" class="mb-3">About</a> -->
-
-      <a (click)="toggle()" routerLink="/calcultor" class="mb-3">Calculators</a>
-
-
       <!-- <a (click)="toggle()" routerLink="/blog" class="mb-3">Blog</a> -->
     </div>
   </menu>
