@@ -39,13 +39,14 @@ export class BodyShapeCalculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public CalculateBsc(): void {
+  public CalculateBsc(e: HTMLElement): void {
     this.bust = this.calculeBsc.value.bust;
     this.waist = this.calculeBsc.value.waist;
     this.highHip = this.calculeBsc.value.highHip;
     this.hip = this.calculeBsc.value.hip;
     this.whr = this.waist / this.hip;
     this.whrRslt = this.whr.toFixed(2);
+    e.scrollIntoView({ behavior: "smooth" });
     if (this.bust - this.hip <= 1 && this.hip - this.bust < 3.6 && this.bust - this.waist >= 9 || this.hip - this.waist >= 10) {
       this.message = "Hourglass";
     }

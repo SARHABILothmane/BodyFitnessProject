@@ -4,8 +4,8 @@ import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 @Component({
   selector: 'app-calcultor',
-  templateUrl: './calcultor.component.html',
-  styleUrls: ['./calcultor.component.scss']
+  templateUrl: './calculator.component.html',
+  styleUrls: ['./calculator.component.scss']
 })
 export class CalcultorComponent implements OnInit {
 

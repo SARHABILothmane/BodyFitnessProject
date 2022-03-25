@@ -5,10 +5,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LottieModule } from 'ngx-lottie';
 
-import { CalcultorRoutingModule } from './calcultor-routing.module';
-import { CalcultorComponent } from './calcultor.component';
-import { MetreToInchComponent } from './metre-to-inch/metre-to-inch.component';
+import { CalcultorRoutingModule } from './calculator-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalcultorComponent } from './calculator.component';
+import { TimeCalculatorComponent } from './time-calculator/time-calculator.component';
 // import { BodyFatPorcentageComponent } from './health/body-fat-porcentage/body-fat-porcentage.component';
 
 
@@ -18,8 +18,8 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     CalcultorComponent,
+    TimeCalculatorComponent,
     // BodyFatPorcentageComponent,
-    MetreToInchComponent,
     DateCalculatorComponent,
     AgeCalculatorComponent,
   ],

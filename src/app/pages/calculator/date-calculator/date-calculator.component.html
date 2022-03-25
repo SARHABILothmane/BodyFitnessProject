@@ -67,8 +67,8 @@
                     <div>
                       <nb-select placeholder="Select" status="basic" shape="semi-round" fullWidth
                         (selectedChange)="checkedDate($event)" required>
-                        <nb-option value="plus">+</nb-option>
-                        <nb-option value="moins">_</nb-option>
+                        <nb-option value="add">+</nb-option>
+                        <nb-option value="substract">_</nb-option>
                       </nb-select>
                     </div>
                   </nb-form-field>
@@ -96,6 +96,7 @@
             <div class="border shadow bg-white p-4">
               <p class="bmi text-center">Resultat of you calculator</p>
               <h6 class="text-center">Age: {{year}} years {{monthF}} months {{dayF}} days</h6>
+              <h1 class="h5">Selected date: {{ date | date }}</h1>
               <div class="row mt-4">
                 <div class="col-12">
                   <p>Year <em class="">: {{addOrSubYear}}</em></p>
@@ -112,7 +113,8 @@
                     <h1 class="h5">Selected date: {{ date | date }}</h1>
                   </nb-card-header>
                   <nb-card-body>
-                    <nb-calendar size="large" [(date)]="date" showWeekNumber="true">
+                    <nb-calendar size="large" [(date)]="date" (dateChange)="handleDateChange($event)"
+                      showWeekNumber="true">
                       <!-- <nb-calendar size="large" [(date)]="date" startView="month" (dateChange)="handleDateChange($event)"
                       showWeekNumber="true"> -->
                     </nb-calendar>
