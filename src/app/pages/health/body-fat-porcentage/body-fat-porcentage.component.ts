@@ -80,7 +80,7 @@ export class BodyFatPorcentageComponent implements OnInit {
         "@type": "Organization",
         "name": "body-calculator"
       },
-      "applicationCategory": "Body mass index (bmi) calculator",
+      "applicationCategory": "body fat percentage calculator",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
       "softwareVersion": "1"

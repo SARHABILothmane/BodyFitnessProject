@@ -12,6 +12,7 @@ import { LottieModule } from 'ngx-lottie';
 import { SkeletonModule } from 'src/app/shared/skeleton/skeleton.module';
 import { InfoModule } from './info/info.module';
 import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+import { CalculatorScientifiqueComponent } from './calculator-scientifique/calculator-scientifique.component';
 
 export function playerFactory() {
   return import('lottie-web/build/player/lottie_svg');
@@ -20,6 +21,7 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     HomeComponent,
+    CalculatorScientifiqueComponent
     // HeroSectionComponent,
     // FormComponent,
   ],

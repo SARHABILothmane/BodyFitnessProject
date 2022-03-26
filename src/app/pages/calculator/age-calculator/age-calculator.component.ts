@@ -1,6 +1,8 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-age-calculator',
@@ -26,7 +28,9 @@ export class AgeCalculatorComponent implements OnInit {
   minute!: number;
   second!: number;
   public age!: number;
-  constructor() {
+  jsonLD!: SafeHtml;
+  schema!: any;
+  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) {
     this.calculeAge = new FormGroup({
       birthday: new FormControl("", [Validators.required]),
       today: new FormControl("", [Validators.required]),
@@ -34,7 +38,46 @@ export class AgeCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Free online age calculator by date of birth");
+    this.metaService.addTags([
+      { name: 'keywords', content: "age calculator, date of birth calculator, birthday calculator, chronological age calculator, life expectancy calculator, calculate age from date of birth, age calculator by date of birth, age calculator pearson" },
+      { name: 'description', content: "Free online age calculator (life expectancy calculator, calculate age from date of birth, age calculator by date of birth, date of birth calculator)" },
+    ]);
+    this.canonical.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free online age calculator by date of birth",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://body-calculator.com/calculator/age-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "age calculator",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
   }
+
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+
   public CalculateAge(): void {
     let birthday = this.calculeAge.value.birthday;
     let today = this.calculeAge.value.today;

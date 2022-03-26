@@ -28,9 +28,12 @@
   </section> -->
 
   <section id="formation-section1" #target class="position-relative">
+    <div class="bg-white pb-5">
+      <h1 class="text-secondary text-center mt-4 pt-5">Body calculator</h1>
+      <app-calculator-scientifique></app-calculator-scientifique>
+    </div>
     <div class="container">
-        <h1 class="text-secondary text-center mt-4 pt-5">Body calculator</h1>
-      <div class="row align-items-center">
+        <div class="row align-items-center">
         <div class="col-12 col-md-4 text-center about-card">
           <a routerLink="/health/bmi-calculator">
             <div style="width: 80%;" class="mx-auto">
@@ -105,14 +108,14 @@
             <h2 class="mb-4">Date calculator</h2>
           </a>
         </div>
-        <div class="col-12 col-md-4 mx-auto text-center about-card">
+        <!-- <div class="col-12 col-md-4 mx-auto text-center about-card">
           <a routerLink="/calculator/time-calculator">
             <div style="width: 80%;" class="mx-auto">
               <ng-lottie height="220px" [options]="time"></ng-lottie>
             </div>
             <h2 class="mb-4">Time calculator</h2>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

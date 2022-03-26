@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import {OtherCalcultorHealthComponent } from './other-calculator-health/other-calculator-health.component';
 import { NbIconModule } from '@nebular/theme';
 import { RouterModule } from '@angular/router';
+import { OtherCalcultorTimeComponent } from './other-calculator-time/other-calculator-time.component';
 
 @NgModule({
-  declarations: [OtherCalcultorHealthComponent],
+  declarations: [OtherCalcultorHealthComponent, OtherCalcultorTimeComponent],
   imports: [
     CommonModule,
     NbIconModule,
     RouterModule
   ],
-  exports:[OtherCalcultorHealthComponent]
+  exports:[OtherCalcultorHealthComponent,OtherCalcultorTimeComponent]
 })
 export class OtherCalcultorModule { }

@@ -12,7 +12,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ]
 })
 export class AgeCalculatorModule { }

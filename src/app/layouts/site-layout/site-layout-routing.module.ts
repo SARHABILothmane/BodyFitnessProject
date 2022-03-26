@@ -16,7 +16,6 @@ const routes: Routes = [
       // { path: "blog", loadChildren: () => import("src/app/pages/blog/blog.module").then(mod => mod.BlogModule) },
       { path: "", loadChildren: () => import("src/app/pages/terms-private/terms-private.module").then(mod => mod.TermsPrivateModule) },
       //   { path: "contact", component: ContactSectionComponent },
-
     ]
   }
 ];
