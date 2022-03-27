@@ -24,7 +24,7 @@
             </div>
           </div> -->
           <nb-form-field class="mb-3">
-            <label for="">Age</label>
+            <label for="Age">Age</label>
             <!-- <nb-icon nbSuffix icon="at-outline" pack="eva"></nb-icon> -->
             <input type="number" nbInput fullWidth formControlName="age" status="basic" placeholder="Age"
               [(ngModel)]="modelsBmi.age">
@@ -38,14 +38,14 @@
             </div> -->
           </nb-form-field>
           <nb-form-field class="mb-3">
-            <label for="">Height<em class="" *ngIf="modelsBmi.height"> : Cm</em></label>
+            <label for="Height">Height<em class="" *ngIf="modelsBmi.height"> : Cm</em></label>
             <input type="number" nbInput formControlName="height" fullWidth status="basic" placeholder="cm"
               [(ngModel)]="modelsBmi.height">
             <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
               !</small>
           </nb-form-field>
           <nb-form-field class="mb-3">
-            <label for="">Weight <em class="" *ngIf="modelsBmi.weight"> : Kg</em></label>
+            <label for="Weight">Weight <em class="" *ngIf="modelsBmi.weight"> : Kg</em></label>
             <input type="number" nbInput formControlName="weight" fullWidth status="basic" placeholder="kg"
               [(ngModel)]="modelsBmi.weight">
             <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
@@ -63,7 +63,7 @@
       <nb-tab class="imperial" tabTitle="Imperial">
         <form [formGroup]="calculeFormImperial" (ngSubmit)="claculteBmiImperiale(target)">
           <nb-form-field class="mb-3">
-            <label for="">Age</label>
+            <label for="Age">Age</label>
             <!-- <nb-icon nbSuffix icon="at-outline" pack="eva"></nb-icon> -->
             <input type="number" nbInput fullWidth formControlName="age" status="basic" placeholder="Age"
               [(ngModel)]="modelsBmi.age">
@@ -73,7 +73,7 @@
           <nb-form-field class="mb-3 ">
             <div class="d-flex justify-content-between">
               <div>
-                <label for="">Height<em class=""> : Feet</em></label>
+                <label for="Height">Height<em class=""> : Feet</em></label>
                 <!-- <input type="number" nbInput formControlName="hFeet" fullWidth status="basic" placeholder="feet"
                   [(ngModel)]="modelsBmi.heightImperial" (ngModelChange)="onChange($event)"> -->
                 <input type="number" nbInput formControlName="hFeet" fullWidth status="basic" placeholder="feet"
@@ -89,7 +89,7 @@
               !</small> -->
           </nb-form-field>
           <nb-form-field class="mb-3">
-            <label for="">Weight <em class="" *ngIf="modelsBmi.weightImperial"> : Pounds</em></label>
+            <label for="Weight">Weight <em class="" *ngIf="modelsBmi.weightImperial"> : Pounds</em></label>
             <input type="number" nbInput formControlName="weightImperial" fullWidth status="basic" placeholder="Pounds"
               [(ngModel)]="modelsBmi.weightImperial">
             <!-- <small class="text-danger" *ngIf="submitted && formBmi.weightImperial.errors?.required">Ce champs est requis

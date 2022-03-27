@@ -1,3 +1,5 @@
+import { FormBmiModule } from './../../home/form-bmi/form-bmi.module';
+import { NbLayoutModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BodyMassMenComponent } from './body-mass-men.component';
@@ -8,9 +10,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BodyMassMenComponent,
+  ],
   imports: [
     CommonModule,
+    NbLayoutModule,
+    FormBmiModule,
     RouterModule.forChild(routes),
   ]
 })
