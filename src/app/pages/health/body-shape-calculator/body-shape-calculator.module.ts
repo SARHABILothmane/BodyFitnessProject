@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { BodyShapeCalculatorComponent } from './body-shape-calculator.component';
 import { Routes, RouterModule } from '@angular/router';
+import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
 
 const routes: Routes = [
   { path: "", component: BodyShapeCalculatorComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     NbInputModule,
     NbFormFieldModule,
     NbSelectModule,
+    OtherCalcultorModule,
     RouterModule.forChild(routes),
 
   ]
