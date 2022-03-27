@@ -12,7 +12,6 @@ export class HeroSectionComponent implements OnInit {
   imageLoaded: boolean = false;
 
   optionsF: AnimationOptions = {
-    // path: '/assets/relaxed-woman-meditating.json',
     path: '/assets/animations/symgery-body-icon.json',
   };
   options: AnimationOptions = {
@@ -20,13 +19,12 @@ export class HeroSectionComponent implements OnInit {
   };
 
   utils = new Utils();
-  isMobile: boolean = true; 
+  isMobile: boolean = true;
   constructor() { }
   ngOnInit(): void {
     this.isMobile = this.utils.isMobile();
   }
   animationCreated(animationItem: AnimationItem): void {
     this.imageLoaded = !this.imageLoaded
-    // animationItem.show();
   }
 }

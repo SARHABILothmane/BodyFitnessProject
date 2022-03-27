@@ -1,3 +1,6 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { OtherCalcultorModule } from './../../other-calcultor/other-calculator.module';
+import { NbLayoutModule, NbCardModule, NbDatepickerModule, NbInputModule, NbButtonModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,9 +12,18 @@ const routes: Routes = [
   { path: "", component: AgeCalculatorComponent },
 ];
 @NgModule({
-  declarations: [],
+  declarations: [
+    AgeCalculatorComponent,
+  ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    NbLayoutModule,
+    NbCardModule,
+    NbButtonModule,
+    NbInputModule,
+    NbDatepickerModule.forRoot(),
+    OtherCalcultorModule,
     RouterModule.forChild(routes)
   ]
 })

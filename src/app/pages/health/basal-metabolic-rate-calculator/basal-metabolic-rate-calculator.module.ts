@@ -1,3 +1,6 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NbLayoutModule, NbCardModule, NbFormFieldModule, NbSelectModule, NbInputModule, NbButtonModule } from '@nebular/theme';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,9 +12,19 @@ const routes: Routes = [
   { path: "", component: BasalMetabolicRateCalculatorComponent },
 ];
 @NgModule({
-  declarations: [],
+  declarations: [
+    BasalMetabolicRateCalculatorComponent,
+  ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    NbLayoutModule,
+    NbCardModule,
+    NbButtonModule,
+    NbInputModule,
+    NbFormFieldModule,
+    NbSelectModule,
+    FontAwesomeModule,
     BasalMetabolicRateCalculatorRoutingModule,
     RouterModule.forChild(routes),
   ]
