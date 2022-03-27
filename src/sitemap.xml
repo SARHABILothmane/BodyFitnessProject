@@ -4,32 +4,36 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
 <url>
-  <loc>http://www.body-calculator.com/</loc>
+  <loc>https://www.body-calculator.com/</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.body-calculator.com/health/bmi-calculator</loc>
+  <loc>https://body-calculator.com/health/bmi-calculator</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
-   <priority>0.5</priority>
+   <priority>1</priority>
 </url>
 <url>
-  <loc>http://www.body-calculator.com/health/bmi-calculator-women</loc>
+  <loc>https://body-calculator.com/health/bmi-calculator-women</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
-   <priority>0.5</priority>
+   <priority>1</priority>
 </url>
 <url>
-  <loc>http://www.body-calculator.com/health/bmi-calculator-men</loc>
+  <loc>https://body-calculator.com/health/bmi-calculator-men</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
-   <priority>0.5</priority>
+   <priority>1</priority>
 </url>
 <url>
-  <loc>http://www.body-calculator.com/health/body-fat-percentage-calculator</loc>
+  <loc>https://body-calculator.com/health/body-fat-percentage-calculator</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
-   <priority>0.5</priority>
+   <priority>1</priority>
+</url>
+<url>
+  <loc>https://body-calculator.com/health/body-shape-calculator</loc>
+  <lastmod>2022-01-08T10:03:29+00:00</lastmod>
+   <priority>1</priority>
 </url>
 </urlset>

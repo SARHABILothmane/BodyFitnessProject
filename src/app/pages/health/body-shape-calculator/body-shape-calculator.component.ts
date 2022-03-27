@@ -2,6 +2,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Bmr } from 'src/app/models/bmr';
 import { Bsc } from 'src/app/models/bsc';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-body-shape-calculator',
@@ -27,7 +29,11 @@ export class BodyShapeCalculatorComponent implements OnInit {
     highHip: 80,
     hip: 90,
   }
-  constructor() {
+
+  jsonLD!: SafeHtml;
+  schema!: any;
+
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) {
     this.calculeBsc = new FormGroup({
       bust: new FormControl("", [Validators.required]),
       waist: new FormControl("", [Validators.required]),
@@ -37,6 +43,42 @@ export class BodyShapeCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Free online body shape calculator");
+    this.metaService.addTags([
+      { name: 'keywords', content: "body shape calculator, body figure, body type calculator, body shape calculator female,  hourglass figure measurements"},
+      { name: 'description', content: "Free online body shape calculator tool, ( body shape calculator female )" },
+    ]);
+    this.CanonicalService.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "free online body shape calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://body-calculator.com/health/body-shape-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "Body shape calculator",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
+  }
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.DomSanitizer.bypassSecurityTrustHtml(html);
   }
 
   public CalculateBsc(e: HTMLElement): void {
