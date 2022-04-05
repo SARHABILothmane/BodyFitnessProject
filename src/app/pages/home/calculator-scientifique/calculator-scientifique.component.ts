@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator-scientifique.component.scss']
 })
 export class CalculatorScientifiqueComponent implements OnInit {
-
-  valuButton: string = '&#177';
-
   constructor() { }
 
   ngOnInit(): void {}

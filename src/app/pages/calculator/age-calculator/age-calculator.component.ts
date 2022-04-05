@@ -48,7 +48,7 @@ export class AgeCalculatorComponent implements OnInit {
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Free online age calculator by date of birth",
+      "name": "Age calculator",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
       "url": "https://body-calculator.com/calculator/age-calculator",
       "author": {
@@ -60,7 +60,6 @@ export class AgeCalculatorComponent implements OnInit {
         "@type": "Organization",
         "name": "body-calculator"
       },
-      "applicationCategory": "age calculator",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
       "softwareVersion": "1"

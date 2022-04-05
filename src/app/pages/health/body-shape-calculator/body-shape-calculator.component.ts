@@ -53,7 +53,7 @@ export class BodyShapeCalculatorComponent implements OnInit {
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
-      "name": "free online body shape calculator",
+      "name": "Body shape calculator",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
       "url": "https://body-calculator.com/health/body-shape-calculator",
       "author": {
@@ -65,7 +65,7 @@ export class BodyShapeCalculatorComponent implements OnInit {
         "@type": "Organization",
         "name": "body-calculator"
       },
-      "applicationCategory": "Body shape calculator",
+      "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
       "softwareVersion": "1"

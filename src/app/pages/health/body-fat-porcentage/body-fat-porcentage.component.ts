@@ -68,7 +68,7 @@ export class BodyFatPorcentageComponent implements OnInit {
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
-      "name": "free online body fat percentage calculator",
+      "name": "Body fat percentage calculator",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
       "url": "https://body-calculator.com/health/body-fat-percentage-calculator",
       "author": {
@@ -80,7 +80,7 @@ export class BodyFatPorcentageComponent implements OnInit {
         "@type": "Organization",
         "name": "body-calculator"
       },
-      "applicationCategory": "body fat percentage calculator",
+      "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
       "softwareVersion": "1"
