@@ -19,7 +19,7 @@ export class OtherCalcultorHealthComponent implements OnInit {
       {'title':'Body fat percentage calculator', 'url': '/health/body-fat-percentage-calculator', 'code':'bfp'},
       {'title':'Ideal weight calculator', 'url': '/health/ideal-weight-calculator', 'code': 'iwc'},
       {'title':'Body shape calculator', 'url': '/health/body-shape-calculator', 'code': 'bsc'},
-      {'title':'Basal metabolic rate BMR calculator', 'url': '/health/basal-metabolic-calculator', 'code': 'bmr'},
+      {'title':'Basal metabolic rate BMR calculator', 'url': '/health/bmr-calculator', 'code': 'bmr'}, 
       {'title':'Healthy weight calculator', 'url': '/health/healthy-weight-calculator', 'code': 'hwc'},
     ];
     this.arrayOtherCalculators = this.arrayOtherCalculators.filter((x:any) => x.code != this.eleminateCalculator);

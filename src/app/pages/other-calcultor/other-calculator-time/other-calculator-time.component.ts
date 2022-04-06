@@ -15,8 +15,8 @@ export class OtherCalcultorTimeComponent implements OnInit {
 
   ngOnInit(): void {
     this.arrayOtherCalculators = [
-      {'title':'Age calculator', 'url': '/calculator/age-calculator', 'code':'ac'},
-      {'title':'Date calculator', 'url': '/calculator/date-calculator', 'code':'dc'},
+      {'title':'Age calculator', 'url': '/calculators/age-calculator', 'code':'ac'},
+      {'title':'Date calculator', 'url': '/calculators/date-calculator', 'code':'dc'},
     ];
     this.arrayOtherCalculators = this.arrayOtherCalculators.filter((x:any) => x.code != this.eleminateCalculator);
   }
