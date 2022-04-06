@@ -2,6 +2,8 @@ import { Bmr } from './../../../models/bmr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-ideal-weight-calculator',
@@ -35,7 +37,9 @@ export class IdealWeightCalculatorComponent implements OnInit {
     height: 0,
     weight: 0,
   }
-  constructor() {
+  jsonLD!: SafeHtml;
+  schema!: any;
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) {
     this.calculeIwc = new FormGroup({
       age: new FormControl("", [Validators.required]),
       height: new FormControl("", [Validators.required]),
@@ -43,7 +47,44 @@ export class IdealWeightCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Free online ideal weight calculator (average weight calculator)");
+    this.metaService.addTags([
+      { name: 'keywords', content: "average weight calculator, ideal weight calculator, ideal body weight calculator, body weight ideal" },
+      { name: 'description', content: "Free online ideal weight calculator (ideal body weight calculator, body weight ideal, average weight calculator)" },
+    ]);
+    this.CanonicalService.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ideal weight calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://body-calculator.com/health/ideal-weight-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
   }
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.DomSanitizer.bypassSecurityTrustHtml(html);
+  }
+
   public CalculateIwc(e: HTMLElement): void {
     // Devine formula: 50.0 kg + 2.3 kg per every inch over 5 feet
     // Miller Formula  Male:	56.2 kg + 1.41 kg per inch over 5 feet

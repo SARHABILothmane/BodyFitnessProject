@@ -27,7 +27,7 @@ export class BodyMassWomenComponent implements OnInit {
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
-      "name": "free online body mass index bmi calculator for men",
+      "name": "Body mass index bmi calculator for men",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
       "url": "https://body-calculator.com/health/bmi-calculator-women",
       "author": {
@@ -39,7 +39,7 @@ export class BodyMassWomenComponent implements OnInit {
         "@type": "Organization",
         "name": "body-calculator"
       },
-      "applicationCategory": "Body mass index (bmi) calculator for men",
+      "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
       "softwareVersion": "1"

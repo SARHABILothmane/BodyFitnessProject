@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IdealWeightCalculatorComponent } from './ideal-weight-calculator.component';
+import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     NbFormFieldModule,
     NbSelectModule,
     FontAwesomeModule,
+    OtherCalcultorModule,
     RouterModule.forChild(routes),
   ]
 })
