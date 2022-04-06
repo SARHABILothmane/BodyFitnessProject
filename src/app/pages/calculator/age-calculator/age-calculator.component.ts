@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
+import { ifStmt } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-age-calculator',
@@ -12,28 +13,29 @@ import { CanonicalService } from 'src/app/services/canonical.service';
 export class AgeCalculatorComponent implements OnInit {
 
   calculeAge!: FormGroup;
-  rslt!: number;
-  month!: number;
-  monthF!: number;
-  year!: number;
-  week!: number;
-  weekF!: number;
-  day!: number;
-  dayF!: number;
-  dayW!: number;
-  calDayBr!: number;
-  calDayTo!: number;
-  rsltCalDayTo!: number;
-  hours!: number;
-  minute!: number;
-  second!: number;
+  rslt: number = 0;
+  month: number = 0;
+  monthF: number = 0;
+  year: number = 0;
+  week: number = 0;
+  weekF: number = 0;
+  day: number = 0;
+  dayF: number = 0;
+  dayW: number = 0;
+  calDayBr: number = 0;
+  calDayTo: number = 0;
+  rsltCalDayTo: number = 0;
+  hours: number = 0;
+  minute: number = 0;
+  second: number = 0;
   public age!: number;
   jsonLD!: SafeHtml;
   schema!: any;
+  checkForm: boolean = false;
   constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) {
     this.calculeAge = new FormGroup({
       birthday: new FormControl("", [Validators.required]),
-      today: new FormControl("", [Validators.required]),
+      today: new FormControl(new Date(), [Validators.required]),
     });
   }
 
@@ -78,10 +80,87 @@ export class AgeCalculatorComponent implements OnInit {
   }
 
 
-  public CalculateAge(): void {
+  public CalculateAge(e: HTMLElement): void {
+    e.scrollIntoView({ behavior: "smooth" });
+    this.checkForm = true;
     let birthday = this.calculeAge.value.birthday;
     let today = this.calculeAge.value.today;
+    if (birthday.getFullYear() === today.getFullYear()) {
+      this.year = 0;
+      // this.month = today.getMonth() + 1 - birthday.getMonth() + 1;
+    } if (birthday.getFullYear() != today.getFullYear()) {
+      this.year = today.getFullYear() - birthday.getFullYear() - 1;
+      //month of birthday
+      let m1 = birthday.getMonth() + 1;
+      let rsltMthBday = 12 - m1;
+      //month of today
+      let m2 = today.getMonth() + 1;
+      let rsltMthTday = 12 - m2;
+      let rsltMthTday2 = 12 - rsltMthTday - 1;
+      //////// day of birthday
+      if (m1 === 1 || m1 === 3 || m1 === 5 || m1 === 7 || m1 === 10 || m1 === 12) {
+        this.calDayBr = 31 - birthday.getDate();
+      } if (m1 === 4 || m1 === 6 || m1 === 8 || m1 === 9 || m1 === 11) {
+        this.calDayBr = 30 - birthday.getDate();
+      } if (m1 === 2) {
+        this.calDayBr = 28 - birthday.getDate();
+      }
+      /////// day of today
+      if (m2 === 1 || m2 === 3 || m2 === 5 || m2 === 7 || m2 === 10 || m2 === 12) {
+        this.calDayTo = 31 - today.getDate();
+        this.rsltCalDayTo = 31 - this.calDayTo;
+      } if (m2 === 4 || m2 === 6 || m2 === 8 || m2 === 9 || m2 === 11) {
+        this.calDayTo = 30 - today.getDate();
+        this.rsltCalDayTo = 30 - this.calDayTo;
+      } if (m2 === 2) {
+        this.calDayTo = 28 - today.getDate();
+        this.rsltCalDayTo = 28 - this.calDayTo;
+      }
+      //rslt day
+      this.dayF = this.calDayBr + this.rsltCalDayTo;
+      ///rsl month
+      if (this.dayF >= 30) {
+        this.monthF = rsltMthBday + rsltMthTday2 + 1;
+        this.dayF = this.dayF - 30;
+      } else {
+        this.monthF = rsltMthBday + rsltMthTday2;
+      }
+      if (this.monthF >= 12) {
+        this.monthF = this.monthF % 12;
+        this.year = this.year + 1;
+      }
+      this.month = this.year * 12 + this.monthF;
+      if (this.dayF >= 7) {
+        this.weekF = this.dayF / 7;
+        this.dayW = this.dayF % 7;
+        this.week = this.month * 4.34524 + this.weekF;
+        this.week = Math.round(this.week);
+      } else {
+        this.week = this.month * 4.34524;
+        this.week = Math.round(this.week);
+        this.day = this.week * 7;
+      }
+      this.day = this.week * 7 + this.dayW;
+      this.hours = this.day * 24;
+      this.hours = Math.round(this.hours);
+      this.minute = this.hours * 60;
+      this.minute = Math.round(this.minute);
+      this.second = this.minute * 60;
+      this.second = Math.round(this.second);
+    }
+  }
+  public CalculateAge1(e: HTMLElement): void {
+    e.scrollIntoView({ behavior: "smooth" });
+    this.checkForm = true;
+    let birthday = this.calculeAge.value.birthday;
+    let today = this.calculeAge.value.today;
+    // if (birthday.getFullYear() === today.getFullYear()) {
+    //   this.year = 0
+    // } else {
+    //   this.year = today.getFullYear() - birthday.getFullYear() - 1;
+    // }
     this.year = today.getFullYear() - birthday.getFullYear() - 1;
+
     //month of birthday
     let m1 = birthday.getMonth() + 1;
     let rsltMthBday = 12 - m1;
@@ -89,7 +168,6 @@ export class AgeCalculatorComponent implements OnInit {
     let m2 = today.getMonth() + 1;
     let rsltMthTday = 12 - m2;
     let rsltMthTday2 = 12 - rsltMthTday - 1;
-    console.log(birthday.getDate(), birthday.getMonth() + 1, birthday.getFullYear());
     //////// day of birthday
     if (m1 === 1 || m1 === 3 || m1 === 5 || m1 === 7 || m1 === 10 || m1 === 12) {
       this.calDayBr = 31 - birthday.getDate() + 1;
@@ -111,7 +189,6 @@ export class AgeCalculatorComponent implements OnInit {
     }
     //rslt day
     this.dayF = this.calDayBr + this.rsltCalDayTo;
-    console.log(this.dayF);
 
     ///rsl month
     if (this.dayF >= 30) {
@@ -154,19 +231,6 @@ export class AgeCalculatorComponent implements OnInit {
     // minute to seconde => 1m = 60 s 
     // 18 ans => 18 y => 18 *12 = 216 m => 216 * 4,3424 =  938,55 w => 
     // 18 ANS => 18 years => 18*12=216 month =>  216*365 =78840 jr => 78840*24 = 1 892 160 => 78840 *60 = 4 730 400
-  }
-
-
-  claculteBfp() {
-    var datePipe = new DatePipe("en-US");
-    let birthday = this.calculeAge.value.birthday;
-    let today = this.calculeAge.value.today;
-    let birthday_date = datePipe.transform(birthday, 'yyyy-MM-dd');
-    let today_date = datePipe.transform(today, 'yyyy-MM-dd');
-    console.log(birthday_date);
-    this.rslt = this.calculeAge.value.birthday - this.calculeAge.value.today;
-    console.log(this.rslt);
-
   }
 
 }
