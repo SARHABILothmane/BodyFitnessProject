@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbProgressBarModule, NbButtonModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { NgxJsonLdModule } from '@ngx-lite/json-ld';
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

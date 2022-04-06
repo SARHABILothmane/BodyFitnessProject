@@ -9,13 +9,14 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <img class="mb-3" src="../../../../assets/images/undraw_birthday_cake_re_bsw5.svg" width="100%" height="80%" alt="calculate age from date of birth">
+          <img class="mb-3" src="../../../../assets/images/undraw_birthday_cake_re_bsw5.svg" width="100%" height="80%"
+            alt="calculate age from date of birth">
         </div>
         <div class="col-12 col-md-6">
           <nb-card status="success">
             <nb-card-header class="text-center">Calculate age from date of birth</nb-card-header>
             <nb-card-body class="example-items-col">
-              <form [formGroup]="calculeAge" (ngSubmit)="CalculateAge()">
+              <form [formGroup]="calculeAge" (ngSubmit)="CalculateAge(target)">
                 <label for="Birthday">Birthday</label>
                 <input nbInput fullWidth placeholder="Pick Birthday" formControlName="birthday"
                   [nbDatepicker]="birthdayTimePicker">
@@ -30,7 +31,7 @@
               </form>
             </nb-card-body>
           </nb-card>
-          <div class="d-flex justify-content-strart my-3" *ngIf="year">
+          <div class="d-flex justify-content-strart my-3" *ngIf="checkForm">
             <div class="border shadow bg-white p-4">
               <p class="bmi text-center">Resultat of you calculator</p>
               <h6 class="text-center">Age: {{year}} years {{monthF}} months {{dayF}} days</h6>
@@ -51,6 +52,7 @@
             </div>
           </div>
         </div>
+        <div #target></div>
       </div>
       <app-other-calcultor-time eleminateCalculator="ac"></app-other-calcultor-time>
       <!--  -->
