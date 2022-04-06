@@ -4,19 +4,19 @@
       <div [ngClass]="{'col-md-7':!isMobile}"
         class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center mt-3">
         <div class="p-2">
-          <h1 class="hero-title text-secondary">Body fat percentage calculator (BFP)</h1>
+          <h1 class="hero-title text-secondary">Body fat percentage BFP calculator</h1>
           <p class="hero-subtitle">
             Body fat percentage is the percentage of your body weight that is made up of fat. Knowing your body fat
             percentage can help you determine if you need to lose weight or gain muscle.
           </p>
         </div>
       </div>
-      <div *ngIf="!isMobile" class="col-12 col-md-5 order-1 order-md-2 hero-responsive mt-5 d-none d-md-block">
+      <div *ngIf="!isMobile" class="col-12 col-md-5 order-1 order-md-2 hero-responsive my-5 d-none d-md-block">
         <ng-lottie width="65%" [ngClass]="{'active':imageLoaded}" [options]="optionsF"
           (animationCreated)="animationCreated($event)"></ng-lottie>
       </div>
     </div>
-    <div class="row mt-3 d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
       <div *ngIf="!isMobile" class="col-md-3 hero-responsive d-none d-md-block">
         <ng-lottie width="65%" [ngClass]="{'active':imageLoaded}" [options]="bfpFemale"
           (animationCreated)="animationCreated($event)">
