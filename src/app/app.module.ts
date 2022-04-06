@@ -26,7 +26,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [],
+  // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
