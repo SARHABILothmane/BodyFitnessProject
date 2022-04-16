@@ -2,6 +2,8 @@ import { Bmr } from 'src/app/models/bmr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
+import { CanonicalService } from 'src/app/services/canonical.service';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-basal-metabolic-rate-calculator',
@@ -17,7 +19,9 @@ export class BasalMetabolicRateCalculatorComponent implements OnInit {
   selectedHeight: string = "cm";
   selectedWeight: string = "kg";
   height!: number;
-  constructor() {
+  jsonLD!: SafeHtml;
+  schema!: any;
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) { 
     this.calculeBmr = new FormGroup({
       age: new FormControl("", [Validators.required]),
       height: new FormControl("", [Validators.required]),
@@ -29,8 +33,49 @@ export class BasalMetabolicRateCalculatorComponent implements OnInit {
     height: 0,
     weight: 0,
   }
+  
+
   ngOnInit(): void {
+    //this.href = this.router.url;
+    this.titleService.setTitle("Body-calculator - Free online basal metabolic rate BMR calculator");
+    this.metaService.addTags([
+      { name: 'keywords', content: "BMR calculator, basal metabolic rate calculator" },
+      { name: 'description', content: "Free online tool that allow you to calculate your basal metabolic rate BMR (basal metabolic rate calculator, BMR calculator)" },
+    ]);
+    this.CanonicalService.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "basal metabolic rate BMR calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://www.body-calculator.com/health/bmr-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-03-26",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
   }
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.DomSanitizer.bypassSecurityTrustHtml(html);
+  }
+
+
   public CalculateBmr(e: HTMLElement): void {
     e.scrollIntoView({ behavior: "smooth" });
     if (this.checked === 'male') {

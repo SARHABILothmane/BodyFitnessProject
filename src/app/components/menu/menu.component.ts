@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   loading = false;
   searchForm!: FormGroup;
   detailsFormation: any;
+  hideDropDown: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -26,5 +27,11 @@ export class MenuComponent implements OnInit {
       this.sidebar.nativeElement.style.width = '0px';
       this.isClosed = !this.isClosed;
     }
+  }
+  hideDropDownMethode(){
+    this.hideDropDown = true;
+    setTimeout(() => {
+      this.hideDropDown = false
+    }, 30);
   }
 }

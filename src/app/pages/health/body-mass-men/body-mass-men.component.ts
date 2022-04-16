@@ -1,7 +1,6 @@
 import { CanonicalService } from 'src/app/services/canonical.service';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-body-mass-index',
@@ -9,13 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./body-mass-men.component.scss']
 })
 export class BodyMassMenComponent implements OnInit {
-  href: string = "";
+  //href: string = "";
   jsonLD!: SafeHtml;
   schema!: any;
 
-  constructor(private router: Router, private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) { }
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) { }
   ngOnInit(): void {
-    this.href = this.router.url;
+    //this.href = this.router.url;
     this.titleService.setTitle("Body-calculator - free online tool to calculate fitness, time...");
     this.metaService.addTags([
       { name: 'keywords', content: "bmi calculator, bmi calculator men, bmi calculator by age, children's bmi calculator, cdc bmi calculator, bmi calculator for women, bmi calculator children, bmi calculator women age, bmi calculator kg, child bmi calculator, bmi chart calculator, bmi calculator kids, bmi calculator for men, womens bmi calculator, bmi calculator adults, bmi calculator male male bmi calculator" },

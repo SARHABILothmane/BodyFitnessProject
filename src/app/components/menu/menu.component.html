@@ -15,20 +15,20 @@
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
             routerLink="/calcultor">Calculators</a>
         </li> -->
-        <li class="dropdown list-item">
+        <li class="dropdown list-item" >
           <span>Calculators</span>
-          <div class="dropdown-content">
-            <div class="d-flex flex-column">
-              <a class="pb-2" routerLink="/health/bmi-calculator">Body mass index BMI calculator</a>
-              <a class="py-2" routerLink="/health/body-fat-percentage-calculator">
+          <div class="dropdown-content" *ngIf="hideDropDown == false" >
+            <div class="d-flex flex-column" >
+              <a (click)="hideDropDownMethode()" class="pb-2" routerLink="/health/bmi-calculator">Body mass index BMI calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-fat-percentage-calculator">
                 Body fat percentage BFP calculator
               </a>
-              <a class="py-2" routerLink="/health/ideal-weight-calculator">Ideal weight calculator</a>
-              <a class="py-2" routerLink="/health/body-shape-calculator">Body shape calculator</a>
-              <a class="py-2" routerLink="/health/bmr-calculator">Basal metabolic rate BMR calculator</a>
-              <a class="py-2" routerLink="/health/healthy-weight-calculator">Healthy weight calculator</a>
-              <a class="py-2" routerLink="/calculators/age-calculator">Age calculator</a>
-              <a class="py-2" routerLink="/calculators/date-calculator">Date calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/ideal-weight-calculator">Ideal weight calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-shape-calculator">Body shape calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/bmr-calculator">Basal metabolic rate BMR calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/healthy-weight-calculator">Healthy weight calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/age-calculator">Age calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/date-calculator">Date calculator</a>
             </div>
           </div>
         </li>
