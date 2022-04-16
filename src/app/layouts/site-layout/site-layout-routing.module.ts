@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactComponent } from 'src/app/pages/contact/contact.component';
 import { SiteLayoutComponent } from './site-layout.component';
 
 const routes: Routes = [
@@ -14,8 +15,8 @@ const routes: Routes = [
       // { path: "bmi-calculator-men", loadChildren: () => import("src/app/pages/calcultor/health/body-mass-men/body-mass-men.module").then(mod => mod.BodyMassMenModule) },
       // { path: "body-fat-porcentage", loadChildren: () => import("src/app/pages/calcultor/health/body-fat-porcentage/body-fat-porcentage.module").then(mod => mod.BodyFatPorcentageModule) },
       // { path: "blog", loadChildren: () => import("src/app/pages/blog/blog.module").then(mod => mod.BlogModule) },
+      { path: "contact", loadChildren: () => import("src/app/pages/contact/contact.module").then(mod => mod.ContactModule) },
       { path: "", loadChildren: () => import("src/app/pages/terms-private/terms-private.module").then(mod => mod.TermsPrivateModule) },
-      //   { path: "contact", component: ContactSectionComponent },
     ]
   }
 ];
