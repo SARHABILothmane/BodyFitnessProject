@@ -17,7 +17,7 @@
     <div class="cookies" *ngIf="showCookie">
       <div class="row">
         <div class="col-10">
-           <p class="text-center text-white mt-3">By clicking “Accept all cookies”, you agree Body-calculator.com can store cookies on your device in accordance with our <a routerLink="/private-policy">Cookie Policy</a>.</p>
+           <p class="text-center text-white mt-3">By clicking “Accept cookies”, you agree Body-calculator.com can store cookies on your device in accordance with our <a routerLink="/private-policy">Cookie Policy</a>.</p>
         </div>
         <div class="col-2">
           <nb-icon (click)="storeCookie()" class=" text-white" style="cursor: pointer; " [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
@@ -25,7 +25,7 @@
       </div>
       
        <div class="d-flex justify-content-center mb-2">
-         <button (click)="storeCookie()" class="btn btn-outline-success">Accept all cookies</button>
+         <button (click)="storeCookie()" class="btn btn-outline-success">Accept cookies</button>
        </div>
     </div>
   </nb-layout-column>
