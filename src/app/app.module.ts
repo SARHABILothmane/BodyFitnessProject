@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbProgressBarModule, NbButtonModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
+import { NbThemeModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NgxJsonLdModule } from '@ngx-lite/json-ld';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+// import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+// import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -15,14 +15,14 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     AppComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    // BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'custom-theme' }),
-    NbLayoutModule,
+    // NbLayoutModule,
     NbEvaIconsModule,
-    NbProgressBarModule,
-    NbButtonModule,
+    // NbProgressBarModule,
+    // NbButtonModule,
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
   ],

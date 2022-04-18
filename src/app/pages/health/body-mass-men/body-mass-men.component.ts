@@ -15,17 +15,17 @@ export class BodyMassMenComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) { }
   ngOnInit(): void {
     //this.href = this.router.url;
-    this.titleService.setTitle("Body-calculator - free online tool to calculate fitness, time...");
+    this.titleService.setTitle("Body-calculator - free online body mass index BMI calculator men");
     this.metaService.addTags([
       { name: 'keywords', content: "bmi calculator, bmi calculator men, bmi calculator by age, children's bmi calculator, cdc bmi calculator, bmi calculator for women, bmi calculator children, bmi calculator women age, bmi calculator kg, child bmi calculator, bmi chart calculator, bmi calculator kids, bmi calculator for men, womens bmi calculator, bmi calculator adults, bmi calculator male male bmi calculator" },
-      { name: 'description', content: "Free tool allows you to use bmi calculator men, bmi calculator men, bmi calculator children all this options and more (bmi calculator female, bmi calculator by age)" },
+      { name: 'description', content: "Free that tool allows you to use body mass index BMI calculator men" },
     ]);
     this.CanonicalService.createCanonicalLink();
     //shema
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Body mass index bmi calculator for men",
+      "name": "Body mass index bmi calculator men",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
       "url": "https://body-calculator.com/health/bmi-calculator-men",
       "author": {
