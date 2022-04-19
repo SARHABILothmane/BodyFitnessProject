@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BodyMassMenComponent } from './body-mass-men.component';
 import { RouterModule, Routes } from '@angular/router';
+import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
 
 const routes: Routes = [
   { path: "", component: BodyMassMenComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
     NbLayoutModule,
     FormBmiModule,
     RouterModule.forChild(routes),
+    OtherCalcultorModule
   ]
 })
 export class BodyMassMenModule { }

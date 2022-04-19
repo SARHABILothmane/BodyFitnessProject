@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactComponent } from 'src/app/pages/contact/contact.component';
 import { SiteLayoutComponent } from './site-layout.component';
 
 const routes: Routes = [
