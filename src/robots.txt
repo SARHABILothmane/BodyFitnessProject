@@ -1,3 +1,5 @@
 Sitemap: http://body-calculator.com/sitemap.xml
 User-agent: *
-Disallow: /admin/
+Disallow: /contact
+Disallow: /private-policy
+Disallow: /terms
