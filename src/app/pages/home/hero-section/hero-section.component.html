@@ -1,11 +1,13 @@
 <section class="bg-white">
   <div class="container">
     <div class="row mt-5">
-      <div [ngClass]="{'col-md-6':!isMobile}" class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center">
+      <div [ngClass]="{'col-md-6':!isMobile}"
+        class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center">
         <div class="p-2">
           <h1 class="hero-title text-secondary">Body Mass Index BMI Calculator</h1>
           <p class="hero-subtitle ">
-            Calculate your body mass index for free with metric or imperial type, our calculator is valid for differents genres for women, men, and children.
+            Calculate your body mass index for free with metric or imperial type, our calculator is valid for differents
+            genres for women, men, and children.
           </p>
           <p class="hero-subtitle">
             Just put your info and click calculate will give you the result.
@@ -13,12 +15,12 @@
         </div>
       </div>
       <div *ngIf="!isMobile" class="col-12 col-md-6 order-1 order-md-2 hero-responsive mt-5">
-        <ng-lottie [ngClass]="{'active':imageLoaded}" [options]="optionsF"
-          (animationCreated)="animationCreated($event)" height="300px"></ng-lottie>
+        <ng-lottie [ngClass]="{'active':imageLoaded}" [options]="optionsF" (animationCreated)="animationCreated($event)"
+          height="300px"></ng-lottie>
       </div>
     </div>
     <div class="row d-flex justify-content-center">
-      <div  *ngIf="!isMobile"class="col-md-3 hero-responsive">
+      <div *ngIf="!isMobile" class="col-md-3 hero-responsive">
         <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
           (animationCreated)="animationCreated($event)">
         </ng-lottie>

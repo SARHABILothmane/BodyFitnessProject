@@ -14,3 +14,9 @@
   .error {
     color: color(danger);
   }
+  @include tablet-sm {
+    .hero-responsive {
+      display: none;
+    }
+  }
+  
