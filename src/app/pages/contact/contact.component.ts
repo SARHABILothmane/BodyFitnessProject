@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   positions = NbGlobalPhysicalPosition;
   utils = new Utils();
   isMobile: boolean = true;
-
+  isLoading: boolean = false;
   options: AnimationOptions = {
     path: '/assets/animations/contact.json',
   };
@@ -32,7 +32,7 @@ export class ContactComponent implements OnInit {
         name: new FormControl("", [Validators.required]),
         email: new FormControl("", [Validators.required, Validators.email]),
         subject: new FormControl("", [Validators.required]),
-        message: new FormControl("", [Validators.required, Validators.maxLength(200), Validators.minLength(20),]),
+        message: new FormControl("", [Validators.required, Validators.maxLength(5000), Validators.minLength(20),]),
       }
     );
     this.isMobile = this.utils.isMobile();
@@ -41,6 +41,7 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     if (this.contactForm.valid) {
       this.error = "";
+      this.isLoading = true;
       // const email = contactForm.value;
       const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
       this.http.post('https://formspree.io/f/xknyqpjw',
@@ -49,17 +50,21 @@ export class ContactComponent implements OnInit {
         // { name: email.name, replyto: email.email, message: email.messages },
         { 'headers': headers }).subscribe(
           (response: any) => {
-            this.showToast('success'),
-              console.log(response);
+            this.isLoading = false;
+            this.contactForm.reset();
+            this.showToast('Your email sent successfully','success')
+          }, (error: any)=>{
+            this.isLoading = false;
+            this.showToast("There's some problems please retry",'danger')
           }
         );
     } else {
-      this.error = "Merci de verifiers les champs";
+      this.error = "Please check the fields";
       window.scroll(0, 0);
     }
   }
-  showToast(status: NbComponentStatus) {
-    this.toastrService.show('Your email sent successfully', status, { status });
+  showToast(msg: string, status: NbComponentStatus) {
+    this.toastrService.show(msg, status, { status });
   }
   get name() {
     return this.contactForm.get("name") as FormControl;

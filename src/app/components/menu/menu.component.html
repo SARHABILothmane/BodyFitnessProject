@@ -36,7 +36,7 @@
           </div>
         </li>
         <li class="list-item">
-          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/contact">Contact</a>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/contact">Contact us</a>
         </li>
         <!-- <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/blog">Blog</a>
@@ -64,10 +64,6 @@
 
       <a (click)="toggle()" routerLink="/" class="mt-5 d-flex justify-content-between align-items-center">
         <span class="pr-2">Home</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
-      </a>
-      <a (click)="toggle()" routerLink="/contact" class="pb-2 d-flex justify-content-between align-items-center">
-        <span class="pr-2">Contact</span>
         <nb-icon icon="arrow-forward-outline"></nb-icon>
       </a>
       <a (click)="toggle()" class="pb-2 d-flex justify-content-between align-items-center"
@@ -110,7 +106,10 @@
         <span class="pr-2">Date calculator</span>
         <nb-icon icon="arrow-forward-outline"></nb-icon>
       </a>
-
+      <a (click)="toggle()" routerLink="/contact" class="pb-2 d-flex justify-content-between align-items-center">
+        <span class="pr-2">Contact us</span>
+        <nb-icon icon="arrow-forward-outline"></nb-icon>
+      </a>
       <!-- <a (click)="toggle()" routerLink="/about" class="mb-3">About</a> -->
       <!-- <a (click)="toggle()" routerLink="/blog" class="mb-3">Blog</a> -->
     </div>

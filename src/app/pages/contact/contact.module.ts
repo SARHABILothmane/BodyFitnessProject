@@ -1,6 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
-import { NbLayoutModule, NbInputModule, NbButtonModule, NbToastrModule, NbAlertModule } from '@nebular/theme';
+import { NbLayoutModule, NbInputModule, NbButtonModule, NbToastrModule, NbAlertModule, NbSpinnerModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactComponent } from './contact.component';
@@ -32,6 +32,7 @@ const routes: Routes = [
     NbAlertModule,
     NbToastrModule.forRoot(),
     RouterModule.forChild(routes),
+    NbSpinnerModule,
     LottieModule.forRoot({ player: playerFactory }),
 
 
