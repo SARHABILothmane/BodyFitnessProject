@@ -1,9 +1,9 @@
 <nb-layout>
-  <nb-layout-column class="hide-svg " style="background-color: #FFFFFF;">
-    <ng-lottie width="80%" [options]="options"></ng-lottie>
+  <nb-layout-column class="hide-svg hero-responsive" style="background-color: #FFFFFF;">
+    <ng-lottie *ngIf="!isMobile" width="80%" [options]="options"></ng-lottie>
   </nb-layout-column>
   <nb-layout-column style="display: flex;">
-    <div class="container d-flex align-self-center cent">
+    <div class="container d-flex align-self-center justify-content-center">
       <div class="row w-100">
         <div class="col">
           <div class="d-flex align-items-center mb-5">

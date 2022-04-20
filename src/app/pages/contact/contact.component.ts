@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
+import { Utils } from 'src/app/constant/utils';
 
 @Component({
   selector: 'app-contact',
@@ -13,11 +14,16 @@ export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   error: string = "";
   positions = NbGlobalPhysicalPosition;
+  utils = new Utils();
+  isMobile: boolean = true;
+
   options: AnimationOptions = {
     path: '/assets/animations/contact.json',
   };
 
   constructor(private http: HttpClient, private toastrService: NbToastrService) { }
+
+
 
   ngOnInit(): void {
     //init forms
@@ -29,6 +35,7 @@ export class ContactComponent implements OnInit {
         message: new FormControl("", [Validators.required, Validators.maxLength(200), Validators.minLength(20),]),
       }
     );
+    this.isMobile = this.utils.isMobile();
   }
 
   onSubmit() {
