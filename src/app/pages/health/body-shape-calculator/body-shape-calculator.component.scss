@@ -4,6 +4,21 @@
 
 
 
+p {
+  font-family: font(font-family-regular);
+  font-size: 18px;
+  line-height: 1.5;
+}
+h2 {
+  font-family: font(font-family-regular);
+  font-size: 30px;
+  line-height: 1.5;
+}
+h3 {
+  font-family: font(font-family-regular);
+  font-size: 28px;
+  line-height: 1.5;
+}
 
 .bmi {
   color: color(primary);
@@ -15,9 +30,35 @@
 
 .bmi:hover {
   color: color(primary);
-
 }
+.img-shape{
+  background-image: url(../../../../assets/images/body-shape-size.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 30%;
+  height: 100px;
+}
+.hero-subtitle {
+  letter-spacing: 1px;
+  font-family: font(font-family-bold);
+  line-height: 1.5;
+  font-size: 22px;
+  text-transform: none;
+  color: color(dark) !important;
 
+  // color: #d3265f !important;
+
+  @include tablet-sm {
+    padding: 20px 0 10px 0;
+    line-height: 0.5;
+    font-size: 18px;
+  }
+
+  @include mobile-l {
+    line-height: 0.5;
+    font-size: 16px;
+  }
+}
 //responsive
 .bmi {
   @include tablet-sm {
