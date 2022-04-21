@@ -15,7 +15,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     AppComponent,
   ],
   imports: [
-    // BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'custom-theme' }),
