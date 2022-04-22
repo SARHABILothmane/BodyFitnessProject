@@ -5,12 +5,6 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-
-<url>
-  <loc>https://www.body-calculator.com/</loc>
-  <lastmod>2022-01-08T10:03:29+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
 <url>
   <loc>https://body-calculator.com/health/bmi-calculator</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
@@ -33,6 +27,21 @@
 </url>
 <url>
   <loc>https://body-calculator.com/health/body-shape-calculator</loc>
+  <lastmod>2022-01-08T10:03:29+00:00</lastmod>
+   <priority>1</priority>
+</url>
+<url>
+  <loc>https://body-calculator.com/health/healthy-weight-calculator</loc>
+  <lastmod>2022-01-08T10:03:29+00:00</lastmod>
+   <priority>1</priority>
+</url>
+<url>
+  <loc>https://body-calculator.com/health/bmr-calculator</loc>
+  <lastmod>2022-01-08T10:03:29+00:00</lastmod>
+   <priority>1</priority>
+</url>
+<url>
+  <loc>https://body-calculator.com/health/ideal-weight-calculator</loc>
   <lastmod>2022-01-08T10:03:29+00:00</lastmod>
    <priority>1</priority>
 </url>

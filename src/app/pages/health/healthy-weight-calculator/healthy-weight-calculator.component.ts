@@ -2,7 +2,8 @@ import { Bmr } from 'src/app/models/bmr';
 import { faMale, faFemale } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 @Component({
   selector: 'app-healthy-weight-calculator',
   templateUrl: './healthy-weight-calculator.component.html',
@@ -26,13 +27,52 @@ export class HealthyWeightCalculatorComponent implements OnInit {
     height: 0,
     weight: 0,
   }
-  constructor() {
+  jsonLD!: SafeHtml;
+  schema!: any;
+  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) {
     this.calculeHwc = new FormGroup({
       height: new FormControl("", [Validators.required]),
     });
   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+    this.titleService.setTitle("Free online healthy weight calculator");
+    this.metaService.addTags([
+      { name: 'keywords', content: "Healthy weight calculator" },
+      { name: 'description', content: "Free online Healthy weight calculator (healthy weight range calculator, )" },
+    ]);
+    this.canonical.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Healthy weight calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://body-calculator.com/health/healthy-weight-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
+   }
+
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
   public CalculateHwc(e: HTMLElement): void {
     // Devine formula: 50.0 kg + 2.3 kg per every inch over 5 feet

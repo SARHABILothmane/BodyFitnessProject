@@ -61,7 +61,7 @@ export class BodyFatPorcentageComponent implements OnInit {
     this.titleService.setTitle("Free online body fat percentage calculator");
     this.metaService.addTags([
       { name: 'keywords', content: "body fat percentage, body fat percentage calculator, body fat percentage women, women body fat percentage, healthy body fat percentage, body fat percentage men, average body fat percentage, how to calculate body fat percentage, calculate body fat percentage, what is my body fat percentage, female body fat percentage, body fat percentage for men, how to know your body fat percentage" },
-      { name: 'description', content: "Free online body fat percentage calculator, (body fat percentage women, body fat percentage men, average body fat percentage )" },
+      { name: 'description', content: "Free online body fat percentage calculator (body fat percentage women, body fat percentage men, average body fat percentage)" },
     ]);
     this.canonical.createCanonicalLink();
     //shema
