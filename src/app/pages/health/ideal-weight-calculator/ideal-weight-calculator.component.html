@@ -89,8 +89,7 @@
               </tr>
               <tr>
                 <td scope="row">Healthy BMI Range</td>
-                <td class="height">{{rsltHealthyWeightMin}} kgs <nb-icon nbSuffix icon="minus-outline" pack="eva">
-                  </nb-icon>
+                <td class="height">{{rsltHealthyWeightMin}} -
                   {{rsltHealthyWeightMax}} kgs</td>
               </tr>
             </tbody>
@@ -100,13 +99,10 @@
         <div #target></div>
       </div>
       <app-other-calcultor-health eleminateCalculator="iwc"></app-other-calcultor-health>
-      <!--  -->
-      <div class="row">
-        <div class="col-12 col-md-12 text-center my-3">
-          <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
-          <h2 class="text-secondary">Learn more about Ideal Weight Calculator</h2>
-        </div>
-        <div class="border shadow bg-white my-4">
+  
+        <p class="text-secondary text-center my-5 font-weight-bold" style="font-size: 24px;">Learn more about Ideal Weight Calculator</p>
+
+        <div class="row border shadow bg-white my-4">
           <div class="col-md-12 mx-2 my-4">
             <p>Adults may use the following tables to determine their conventional ideal weight in relation to their
               height and to maintain a healthy BMI (BMI). A 2016 research offered a universal equation based on body
@@ -290,8 +286,7 @@
             </p>
           </div>
         </div>
-      </div>
-      <!-- <app-info></app-info> -->
+
     </div>
   </nb-layout-column>
 </nb-layout>

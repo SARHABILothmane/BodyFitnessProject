@@ -1,8 +1,8 @@
 <div id="menu-section">
   <menu class="menu" style="padding-inline-start: 0px !important;">
     <div class="container d-flex justify-content-between align-items-center web-header">
-      <a class="d-block logo" routerLink="/"><img width="40px" height="100px"
-          src="../../../assets/images/logo/calculator.svg" alt="the body logo"></a>
+      <a class="d-block logo" routerLink="/"><img loading="lazy" width="40px" height="100px"
+          src="../../../assets/images/logo/calculator.svg" alt="body-calculator"></a>
       <ul class="d-flex list pl-2 pl-xl-5 mr-5">
         <li class="list-item">
           <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="">Home</a>
@@ -15,23 +15,30 @@
           <span>Calculators</span>
           <div class="dropdown-content" *ngIf="hideDropDown == false">
             <div class="d-flex flex-column">
-              <a (click)="hideDropDownMethode()" class="pb-2" routerLink="/health/bmi-calculator">Body mass index BMI
-                calculator</a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-fat-percentage-calculator">
+              <a (click)="hideDropDownMethode()" class="pb-2" routerLink="/health/bmi-calculator" routerLinkActive="linkActiveDropDown">
+                Body mass index BMI calculator
+              </a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-fat-percentage-calculator" routerLinkActive="linkActiveDropDown">
                 Body fat percentage BFP calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/ideal-weight-calculator">Ideal weight
-                calculator</a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-shape-calculator">Body shape
-                calculator</a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/bmr-calculator">Basal metabolic rate
-                BMR calculator</a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/healthy-weight-calculator">Healthy
-                weight calculator</a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/age-calculator">Age
-                calculator</a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/date-calculator">Date
-                calculator</a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/ideal-weight-calculator" >
+                Ideal weight calculator
+              </a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-shape-calculator" routerLinkActive="linkActiveDropDown"> 
+                Body shape calculator
+              </a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/bmr-calculator" routerLinkActive="linkActiveDropDown">
+                Basal metabolic rate BMR calculator
+              </a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/healthy-weight-calculator" routerLinkActive="linkActiveDropDown">
+                Healthy weight calculator
+              </a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/age-calculator" routerLinkActive="linkActiveDropDown">
+                Age calculator
+              </a>
+              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/date-calculator" routerLinkActive="linkActiveDropDown">
+                Date calculator
+              </a>
             </div>
           </div>
         </li>
@@ -44,8 +51,8 @@
       </ul>
     </div>
     <div class="d-flex justify-content-between align-items-center mobile-header">
-      <a class="d-block logo" routerLink="/"><img width="40px" height="100px"
-          src="../../../assets/images/logo/calculator.svg" alt="body calcultor logo"></a>
+      <a class="d-block logo" routerLink="/"><img loading="lazy" width="40px" height="100px"
+          src="../../../assets/images/logo/calculator.svg" alt="body-calcultor"></a>
 
       <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
         <nb-icon icon="menu-outline" [options]="{  height: '2rem',
@@ -59,56 +66,58 @@
           <nb-icon [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
         </button>
       </div>
-      <a class="d-block logo text-center" (click)="toggle()" routerLink="/"><img width="60px" height="100%"
-          src="../../../assets/images/logo/calculator.svg " alt="the body logo"></a>
+      <a class="d-block logo text-center" (click)="toggle()" routerLink="/">
+        <img loading="lazy" width="60px" height="100%"
+          src="../../../assets/images/logo/calculator.svg" alt="body calculator">
+        </a>
 
       <a (click)="toggle()" routerLink="/" class="mt-5 d-flex justify-content-between align-items-center">
-        <span class="pr-2">Home</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown" [routerLinkActiveOptions]="{exact:true}">Home</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown" [routerLinkActiveOptions]="{exact:true}"></nb-icon>
       </a>
       <a (click)="toggle()" class="pb-2 d-flex justify-content-between align-items-center"
         routerLink="/health/bmi-calculator">
-        <span class="pr-2">Body mass index BMI calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Body mass index BMI calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/body-fat-percentage-calculator">
-        <span class="pr-2">Body fat percentage BFP calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Body fat percentage BFP calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/ideal-weight-calculator">
-        <span class="pr-2">Ideal weight calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Ideal weight calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/body-shape-calculator">
-        <span class="pr-2">Body shape calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown" >Body shape calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/bmr-calculator">
-        <span class="pr-2">Basal metabolic rate BMR calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Basal metabolic rate BMR calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/healthy-weight-calculator">
-        <span class="pr-2">Healthy weight calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Healthy weight calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/calculators/age-calculator">
-        <span class="pr-2">Age calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Age calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/calculators/date-calculator">
-        <span class="pr-2">Date calculator</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Date calculator</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <a (click)="toggle()" routerLink="/contact" class="pb-2 d-flex justify-content-between align-items-center">
-        <span class="pr-2">Contact us</span>
-        <nb-icon icon="arrow-forward-outline"></nb-icon>
+        <span class="pr-2" routerLinkActive="linkActiveDropDown">Contact us</span>
+        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
       </a>
       <!-- <a (click)="toggle()" routerLink="/about" class="mb-3">About</a> -->
       <!-- <a (click)="toggle()" routerLink="/blog" class="mb-3">Blog</a> -->

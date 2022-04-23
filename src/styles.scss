@@ -46,3 +46,7 @@ nb-layout-header nav{
 .nb-theme-custom-theme nb-card {
   margin-bottom: 0;
 }
+
+.layout-container .content .columns nb-layout-column{
+  min-width: auto !important;
+}

@@ -1,12 +1,14 @@
 <nb-layout>
-  <nb-layout-column class="hide-svg hero-responsive" style="background-color: #FFFFFF;">
-    <ng-lottie *ngIf="!isMobile" width="80%" [options]="options"></ng-lottie>
-  </nb-layout-column>
   <nb-layout-column style="display: flex;">
-    <div class="container d-flex align-self-center justify-content-center">
+    <div class="container d-flex align-self-center justify-content-center mt-5 pt-3">
       <div class="row w-100">
-        <div class="col">
-          <div class="d-flex align-items-center mb-5">
+        <div class="col-md-6">
+          <nb-layout-column class="hide-svg hero-responsive" style="background-color: #FFFFFF;">
+            <ng-lottie *ngIf="!isMobile" width="85%" [options]="options"></ng-lottie>
+          </nb-layout-column>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
             <h5 class="ml-2">Contact <span class="temp">us</span></h5>
           </div>
           <p>Email: support@body-calculator.com</p>
@@ -23,7 +25,7 @@
             </div>
             <div class="element mb-3">
               <label for="email">Email<span class="required">*</span></label>
-              <input type="text" id="email" nbInput formControlName="email" fullWidth placeholder="Votre adresse Email"
+              <input type="text" id="email" nbInput formControlName="email" fullWidth placeholder="Email"
                 required>
               <small class="error mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
                 Email is invalid</small>

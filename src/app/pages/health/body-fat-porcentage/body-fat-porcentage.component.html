@@ -108,17 +108,17 @@
             <h5 class="text-center">Body Parameters</h5>
             <h6 class="text-center bmi">{{message}}</h6>
             <div class="row mt-4">
-              <div class="col-6">
-                <p>Age <em class="">: {{calculeBfp.value.age}} Year</em></p>
-                <p>Height <em class="">: {{calculeBfp.value.height}} Cm</em></p>
-                <p>Body mass index <em class="">{{bmi | number}} kg/m<sup>2</sup></em></p>
-                <p>Body Fat Mass <em>{{bfm}}</em></p>
+              <div class="col-6 pl-0">
+                <p>-Age: <em>{{calculeBfp.value.age}} Year</em></p>
+                <p>-Height: <em>{{calculeBfp.value.height}} Cm</em></p>
+                <p>-Body mass index: <em>{{bmi | number}} kg/m<sup>2</sup></em></p>
+                <p>-Body Fat Mass: <em>{{bfm}}</em></p>
               </div>
-              <div class="col-6 text-center">
+              <div class="col-6 p-0 text-center">
                 <p></p>
-                <p>Weight <em class="">: {{calculeBfp.value.weight}} Kg</em></p>
-                <p>Body fat percentage calculator<em class="">: {{bfp | number}} %</em></p>
-                <p>Lean Body Mass<em>{{lbm}}</em></p>
+                <p>-Weight: <em>{{calculeBfp.value.weight}} Kg</em></p>
+                <p>-Body fat percentage calculator: <em>{{bfp | number}} %</em></p>
+                <p>-Lean Body Mass: <em>{{lbm}}</em></p>
               </div>
             </div>
           </div>
@@ -204,13 +204,13 @@
           (animationCreated)="animationCreated($event)">
         </ng-lottie>
       </div>
-      <app-other-calcultor-health eleminateCalculator="bfp"></app-other-calcultor-health>
+      <div class="col-12 mt-3">
+        <app-other-calcultor-health eleminateCalculator="bfp"></app-other-calcultor-health>
+      </div>
     </div>
-    <!--  -->
-    <div class="col-12 text-center my-5">
-      <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
-      <h2 class="text-secondary">Learn more about Body Fat Percentage Calculator</h2>
-    </div>
+
+      <p class="text-secondary text-center my-5 font-weight-bold" style="font-size: 24px;">Learn more about Body Fat Percentage Calculator</p>
+  
     <div class="row border shadow bg-white my-4">
       <div class="col-md-12 mx-2 my-4">
         <p>
@@ -460,7 +460,7 @@
           percentages.</p>
       </div>
     </div>
-    <!-- <app-info></app-info> -->
+ 
   </div>
 </section>
 </nb-layout-column>
