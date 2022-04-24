@@ -22,7 +22,17 @@ em {
   color: color(dark);
   transform: scale(1.1);
 }
-
+.error {
+  color: color(danger);
+}
+.hero-subtitle {
+  letter-spacing: 1px;
+  font-family: font(font-family-bold);
+  line-height: 1.5;
+  font-size: 22px;
+  text-transform: none;
+  color: color(dark) !important;
+}
 .msg {
   background-color: color(blue-primary);
   font-family: font(font-family-regular);
