@@ -57,10 +57,7 @@
           </nb-card>
         </div>
         <div class="col-md-6 mx-auto" *ngIf="height">
-          <!--  -->
-          <div class="d-flex justify-content-between my-2">
-            <p class="bmi">The ideal weight based on popular formulas:</p>
-          </div>
+          <p class="bmi text-center my-3">Your ideal weight based on popular formulas:</p>
           <table class="table">
             <!-- <table class="table border"> -->
             <thead class="bg-secondary">
@@ -96,7 +93,7 @@
           </table>
           <!--  -->
         </div>
-        <div #target></div>
+        <span #target></span>
       </div>
       <app-other-calcultor-health eleminateCalculator="iwc"></app-other-calcultor-health>
   

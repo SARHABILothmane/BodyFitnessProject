@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { DateCalculatorComponent } from './date-calculator.component';
 import { RouterModule, Routes } from '@angular/router';
+import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
 
 const routes: Routes = [
   { path: "", component: DateCalculatorComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
     NbSelectModule,
     NbCalendarModule,
     NbDatepickerModule.forRoot(),
+    OtherCalcultorModule,
     RouterModule.forChild(routes),
 
   ]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 @Component({
   selector: 'app-date-calculator',
   templateUrl: './date-calculator.component.html',
@@ -37,8 +38,9 @@ export class DateCalculatorComponent implements OnInit {
   date = new Date();
   public age!: number;
   checked: string = "";
-
-  constructor() {
+  jsonLD!: SafeHtml;
+  schema!: any;
+  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) {
     this.calculeDate = new FormGroup({
       startDate: new FormControl("", [Validators.required]),
       dateEnd: new FormControl("", [Validators.required]),
@@ -53,8 +55,46 @@ export class DateCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Free online date calculator - body-calculator");
+    this.metaService.addTags([
+      { name: 'keywords', content: "date calculator, days calculator, days between dates, time and date calculator" },
+      { name: 'description', content: "Free online date calculator (days calculator, days between dates, time and date calculator)" },
+    ]);
+    this.canonical.createCanonicalLink();
+    //shema
+    this.schema = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Age calculator",
+      "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
+      "url": "https://body-calculator.com/calculator/date-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "SARHABIL"
+      },
+      "datePublished": "2022-01-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "body-calculator"
+      },
+      "operatingSystem": "Linux",
+      "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
+      "softwareVersion": "1"
+    }
+    this.jsonLD = this.getSafeHTML(this.schema);
   }
-  public CalculateDate(): void {
+
+  getSafeHTML(value: {}) {
+    // If value convert to JSON and escape / to prevent script tag in JSON
+    const json = value
+      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
+      : '';
+    const html = `${json}`;
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  public CalculateDate(e: HTMLElement): void {
+    e.scrollIntoView({ behavior: "smooth" });
     let startDate = this.calculeDate.value.startDate;
     let dateEnd = this.calculeDate.value.dateEnd;
     this.year = dateEnd.getFullYear() - startDate.getFullYear() - 1;
