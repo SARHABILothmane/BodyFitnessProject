@@ -28,6 +28,31 @@ html {
   // }
 }
 
+.btnBgPrimary{
+  background-color: color(primary-light) !important;
+  text-transform: uppercase;
+  color: white !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  padding: 8px 0 !important;
+}
+
+.btnBgPrimary:hover{
+  background-color: #7CE0E7 !important;
+}
+
+.form-control{
+  color: #495057 !important;
+  background-color: #f7f9fc !important;
+  border-radius: 12px !important;
+}
+.form-control:focus {
+  border-color: color(primary) !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
 nb-layout-header nav{
   height: 60px !important;
   padding-top: 0 !important;

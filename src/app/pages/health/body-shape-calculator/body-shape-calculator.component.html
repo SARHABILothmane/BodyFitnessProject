@@ -1,7 +1,7 @@
 <nb-layout>
   <nb-layout-column style="display: flex;">
     <div class="container">
-      <div class="row mb-5">
+      <div class="row mb-3">
         <div class="col-md-12">
           <div class="text-center pb-3 mt-4 pt-5">
             <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
@@ -81,6 +81,7 @@
                 <strong *ngIf="selectedHighHip == 'ft'"> Feet</strong>
                 <nb-form-field class="mb-3">
                   <div class="d-flex justify-content-between">
+                    <!-- <input type="number" formControlName="highHip" class="form-control" placeholder="Hip"> -->
                     <input type="number" nbInput formControlName="highHip" shape="semi-round" fullWidth status="basic"
                       placeholder="cm" [(ngModel)]="modelsBsc.highHip">
                     <div class="">
@@ -126,16 +127,17 @@
                     in (100 cm)
                     !</small> -->
                 </nb-form-field>
-                <button class="" type="submit" shape="semi-round" nbButton fullWidth status="success">Calculate</button>
+                <!-- <button class="" type="submit" shape="semi-round" nbButton fullWidth status="success">Calculate</button> -->
+                <button type="submit" class="btn btnBgPrimary w-100">Calculate</button>
               </form>
             </nb-card-body>
           </nb-card>
           <div class="row my-3">
             <div class="col-12 border shadow bg-white p-4" *ngIf="message">
-              <h6 class="text-center">Resultat of you calculator</h6>
+              <p class="text-center font-weight-bold" style="font-size: 24px;">The result of your calculator is</p>
               <div class="my-3">
-                <h6 class="text-center my-3">Body shape: <span class="bmi">{{message}}</span> </h6>
-                <h6 class="text-center">Waist-hip ratio (WHR): <span class="bmi">{{whrRslt}}</span></h6>
+                <p class="text-center my-3 font-weight-bold">Body shape: <span class="bmi">{{message}}</span> </p>
+                <p class="text-center font-weight-bold">Waist-hip ratio (WHR): <span class="bmi">{{whrRslt}}</span></p>
               </div>
             </div>
           </div>

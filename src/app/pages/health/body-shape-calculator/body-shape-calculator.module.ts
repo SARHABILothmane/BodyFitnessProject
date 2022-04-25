@@ -19,7 +19,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NbLayoutModule,
     NbCardModule,
-    NbButtonModule,
+    // NbButtonModule,
     NbInputModule,
     NbFormFieldModule,
     NbSelectModule,
