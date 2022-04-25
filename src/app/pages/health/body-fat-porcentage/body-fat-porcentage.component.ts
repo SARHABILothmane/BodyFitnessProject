@@ -40,7 +40,7 @@ export class BodyFatPorcentageComponent implements OnInit {
   bfpFemale: AnimationOptions = {
     path: '/assets/animations/bfpFemale.json',
   };
- 
+
   modelsBmi: Bmr = {
     age: 0,
     height: 0,
@@ -90,9 +90,10 @@ export class BodyFatPorcentageComponent implements OnInit {
     this.calculeBfp = new FormGroup({
       // gender: new FormControl("", [Validators.required]),
       age: new FormControl("", [Validators.required]),
-      height: new FormControl(""),
+      height: new FormControl("", [Validators.required]),
       // height: new FormControl("", [Validators.required, Validators.min(100), Validators.max(400)]),
       weight: new FormControl("", [Validators.required]),
+      gender: new FormControl("", [Validators.required]),
     });
 
     this.isMobile = this.utils.isMobile();
@@ -474,7 +475,7 @@ export class BodyFatPorcentageComponent implements OnInit {
       this.lbm = lbm.toFixed(2);
 
     } else {
-      this.error = "Merci de verifiers les champs";
+      this.error = "Please check the fields";
     }
     // this.calculeBfp.reset();
   }
@@ -604,5 +605,18 @@ export class BodyFatPorcentageComponent implements OnInit {
         this.selectedWeight = "dag";
       }
     }
+  }
+  //getter 
+  get age() {
+    return this.calculeBfp.get("age") as FormControl;
+  }
+  get height() {
+    return this.calculeBfp.get("height") as FormControl;
+  }
+  get weight() {
+    return this.calculeBfp.get("weight") as FormControl;
+  }
+  get gender() {
+    return this.calculeBfp.get("gender") as FormControl;
   }
 }
