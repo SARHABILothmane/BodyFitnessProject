@@ -78,11 +78,6 @@
                     <small class="error mt-1" *ngIf="height.invalid && (height.dirty || height.touched)">
                       Height is required !
                     </small>
-                    <small class="text-danger" *ngIf="submitted && height.errors?.min">Height must be greater
-                      than
-                      40
-                      in (100 cm)
-                      !</small>
                   </nb-form-field>
                   <label for="">Weight :</label>
                   <strong *ngIf="selectedWeight == 'kg'"> kg</strong>
@@ -106,15 +101,14 @@
                     <small class="error mt-1" *ngIf="weight.invalid && (weight.dirty || weight.touched)">
                       Weight is required !
                     </small>
-                    <!-- <small class="text-danger" *ngIf="submitted && formBmi.weight.errors?.required">Ce champs est requis
-                      !</small> -->
                   </nb-form-field>
                   <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="mb-3" fullWidth
                     status="success">Calculate</button>
                 </form>
               </nb-card-body>
             </nb-card>
-            <div class="d-flex justify-content-strart my-3" *ngIf="bmi">
+            <div #target></div>
+            <div class="" *ngIf="bmi">
               <div class="border p-4">
                 <h5 class="text-center">Body Parameters</h5>
                 <h6 class="text-center bmi">{{message}}</h6>
@@ -122,14 +116,14 @@
                   <div class="col-6 pl-0">
                     <p>-Age: <em>{{calculeBfp.value.age}} Year</em></p>
                     <p>-Height: <em>{{calculeBfp.value.height}} Cm</em></p>
+                    <p>-Weight: <em>{{calculeBfp.value.weight}} Kg</em></p>
+                    <p>-Gender: <em>{{calculeBfp.value.gender}}</em></p>
+                  </div>
+                  <div class="col-6 p-0">
+                    <p>-Body fat percentage: <em>{{bfp | number}} %</em></p>
+                    <p>-Lean Body Mass: <em>{{lbm}}</em></p>
                     <p>-Body mass index: <em>{{bmi | number}} kg/m<sup>2</sup></em></p>
                     <p>-Body Fat Mass: <em>{{bfm}}</em></p>
-                  </div>
-                  <div class="col-6 p-0 text-center">
-                    <p></p>
-                    <p>-Weight: <em>{{calculeBfp.value.weight}} Kg</em></p>
-                    <p>-Body fat percentage calculator: <em>{{bfp | number}} %</em></p>
-                    <p>-Lean Body Mass: <em>{{lbm}}</em></p>
                   </div>
                 </div>
               </div>
@@ -208,7 +202,6 @@
                 </tr>
               </tbody>
             </table>
-            <div #target></div>
           </div>
           <div class="col-md-3 hero-responsive d-none d-md-block" *ngIf="!isMobile">
             <ng-lottie width="65%" [ngClass]="{'active':imageLoaded}" [options]="bfpFemale"
