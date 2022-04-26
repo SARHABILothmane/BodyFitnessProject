@@ -1,6 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { OtherCalcultorModule } from './../../other-calcultor/other-calculator.module';
-import { NbLayoutModule, NbCardModule, NbDatepickerModule, NbInputModule, NbButtonModule } from '@nebular/theme';
+import { NbLayoutModule, NbCardModule, NbDatepickerModule, NbInputModule, NbButtonModule, NbAlertModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -22,6 +22,7 @@ const routes: Routes = [
     NbCardModule,
     NbButtonModule,
     NbInputModule,
+    NbAlertModule,
     NbDatepickerModule.forRoot(),
     OtherCalcultorModule,
     RouterModule.forChild(routes)
