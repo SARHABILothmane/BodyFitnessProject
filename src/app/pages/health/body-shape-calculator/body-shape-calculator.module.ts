@@ -1,5 +1,5 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbLayoutModule, NbCardModule, NbFormFieldModule, NbSelectModule, NbButtonModule, NbInputModule } from '@nebular/theme';
+import { NbLayoutModule, NbCardModule, NbFormFieldModule, NbSelectModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -20,7 +20,7 @@ const routes: Routes = [
     NbLayoutModule,
     NbCardModule,
     // NbButtonModule,
-    NbInputModule,
+    // NbInputModule,
     NbFormFieldModule,
     NbSelectModule,
     OtherCalcultorModule,

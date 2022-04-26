@@ -79,3 +79,15 @@ p {
     font-size: 12px;
   }
 }
+
+@media screen and (min-width: 552px) {
+  .widthMobile {
+     width: 40% !important;
+  }
+}
+
+@media screen and (max-width: 552px) {
+  .widthMobile {
+      width: 90% !important;
+  }
+}

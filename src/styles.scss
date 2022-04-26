@@ -17,6 +17,11 @@ html {
   scroll-behavior: smooth;
 }
 
+// @media (max-width: 425px)
+// {
+//  .border div p{ font-size: 15px !important; }
+// }
+
 .nb-theme-custom-theme nb-tabset .tab-link {
   padding: 1rem !important;
   color: #6c757d !important;
@@ -43,9 +48,12 @@ html {
 }
 
 .form-control{
-  color: #495057 !important;
+  color: #222b45 !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
   background-color: #f7f9fc !important;
   border-radius: 12px !important;
+  padding: 1rem 1rem !important;
 }
 .form-control:focus {
   border-color: color(primary) !important;
@@ -75,3 +83,12 @@ nb-layout-header nav{
 .layout-container .content .columns nb-layout-column{
   min-width: auto !important;
 }
+.nb-theme-custom-theme .nb-select-min-width .select-button{
+  min-width: auto !important;
+}
+.nb-form-field-max-width{
+  max-width: inherit !important;
+}
+// .nb-theme-custom-theme .nb-form-field-limited-width.nb-form-field-size-medium{
+//   max-width: auto !important;
+// }

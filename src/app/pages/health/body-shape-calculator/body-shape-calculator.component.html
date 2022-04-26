@@ -1,13 +1,8 @@
 <nb-layout>
   <nb-layout-column style="display: flex;">
     <div class="container">
+      <h1 class="text-secondary text-center pb-3 mt-4 pt-5">Body Shape Calculator</h1>
       <div class="row mb-3">
-        <div class="col-md-12">
-          <div class="text-center pb-3 mt-4 pt-5">
-            <!-- <p class="text-uppercase mb-0 pres">Vous etes prêt à apprendre ?</p> -->
-            <h1 class="text-secondary text-center">Body Shape Calculator</h1>
-          </div>
-        </div>
         <div class="col-md-5 d-flex align-items-center">
           <img class="mb-3" src="../../../../assets/images/undraw_yoga_-248-n.svg" width="100%" height="400px"
             alt="body shape calculator">
@@ -25,12 +20,15 @@
                 <strong *ngIf="selectedBust == 'm'"> Metres</strong>
                 <strong *ngIf="selectedBust == 'in'"> Inches</strong>
                 <strong *ngIf="selectedBust == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3">
-                  <div class="d-flex justify-content-between">
-                    <input type="number" nbInput formControlName="bust" shape="semi-round" fullWidth status="basic"
-                      placeholder="cm" [(ngModel)]="modelsBsc.bust">
-                    <div class="">
-                      <nb-select placeholder="cm" status="primary" shape="semi-round" fullWidth
+                <nb-form-field class="mb-3 nb-form-field-max-width">
+                  <div class="row">
+                    <!-- <input type="number" nbInput formControlName="bust" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.bust"> -->
+                    <div class="col-6">
+                      <input type="number" formControlName="bust" class="form-control" [(ngModel)]="modelsBsc.bust" placeholder="Bust">
+                    </div>
+                    <div class="col-6 pl-0">
+                      <nb-select class="nb-select-min-width" selected="cm" status="primary" shape="semi-round"
                         (selectedChange)="bustSelect($event)" required>
                         <!-- <nb-option value="cm" *ngIf="selectedItem == 'cm'">cm</nb-option> -->
                         <nb-option value="cm">cm</nb-option>
@@ -53,12 +51,15 @@
                 <strong *ngIf="selectedWaist == 'm'"> Metres</strong>
                 <strong *ngIf="selectedWaist == 'in'"> Inches</strong>
                 <strong *ngIf="selectedWaist == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3">
-                  <div class="d-flex justify-content-between">
-                    <input type="number" nbInput formControlName="waist" shape="semi-round" fullWidth status="basic"
-                      placeholder="cm" [(ngModel)]="modelsBsc.waist">
-                    <div class="">
-                      <nb-select placeholder="cm" status="primary" shape="semi-round" fullWidth
+                <nb-form-field class="mb-3 nb-form-field-max-width">
+                  <div class="row">
+                    <!-- <input type="number" nbInput formControlName="waist" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.waist"> -->
+                      <div class="col-6">
+                        <input type="number" formControlName="waist" class="form-control" [(ngModel)]="modelsBsc.waist" placeholder="Waist">
+                      </div>
+                    <div class="col-6 pl-0">
+                      <nb-select class="nb-select-min-width" selected="cm" status="primary" shape="semi-round"
                         (selectedChange)="waistSelect($event)" required>
                         <nb-option value="cm">cm</nb-option>
                         <nb-option value="m">Metres (m)</nb-option>
@@ -79,13 +80,15 @@
                 <strong *ngIf="selectedHighHip == 'm'"> Metres</strong>
                 <strong *ngIf="selectedHighHip == 'in'"> Inches</strong>
                 <strong *ngIf="selectedHighHip == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3">
-                  <div class="d-flex justify-content-between">
-                    <!-- <input type="number" formControlName="highHip" class="form-control" placeholder="Hip"> -->
-                    <input type="number" nbInput formControlName="highHip" shape="semi-round" fullWidth status="basic"
-                      placeholder="cm" [(ngModel)]="modelsBsc.highHip">
-                    <div class="">
-                      <nb-select placeholder="cm" status="primary" shape="semi-round" fullWidth
+                <nb-form-field class="mb-3 nb-form-field-max-width">
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="number" formControlName="highHip" class="form-control" [(ngModel)]="modelsBsc.highHip" placeholder="Hip">
+                    </div>
+                    <!-- <input type="number" nbInput formControlName="highHip" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.highHip"> -->
+                    <div class="col-6 pl-0">
+                      <nb-select class="nb-select-min-width" selected="cm" status="primary" shape="semi-round"
                         (selectedChange)="highHipSelect($event)" required>
                         <nb-option value="cm">cm</nb-option>
                         <nb-option value="m">Metres (m)</nb-option>
@@ -106,20 +109,30 @@
                 <strong *ngIf="selectedHip == 'm'"> Metres</strong>
                 <strong *ngIf="selectedHip == 'in'"> Inches</strong>
                 <strong *ngIf="selectedHip == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3">
-                  <div class="d-flex justify-content-between">
-                    <input type="number" nbInput formControlName="hip" shape="semi-round" fullWidth status="basic"
-                      placeholder="cm" [(ngModel)]="modelsBsc.hip">
-                    <div class="">
-                      <nb-select placeholder="cm" status="primary" shape="semi-round" fullWidth
-                        (selectedChange)="hipSelect($event)" required>
-                        <nb-option value="cm">cm</nb-option>
-                        <nb-option value="m">Metres (m)</nb-option>
-                        <nb-option value="in">Inches (in)</nb-option>
-                        <nb-option value="ft">Feet (ft)</nb-option>
-                      </nb-select>
-                    </div>
-                  </div>
+
+                <nb-form-field class="mb-3 nb-form-field-max-width">
+                  <!-- <div class="d-flex justify-content-between"> -->
+                    <!-- <input type="number" nbInput formControlName="hip" shape="semi-round" fullWidth status="basic"
+                      placeholder="cm" [(ngModel)]="modelsBsc.hip"> -->
+                      <div class="row">
+                        <div class="col-6">
+                          <input type="number" formControlName="hip" class="form-control" [(ngModel)]="modelsBsc.hip" placeholder="Hip">
+                        </div>
+                        <div class="col-6 pl-0">
+                          <nb-select class="nb-select-min-width"  selected="cm" status="primary" shape="semi-round"
+                          (selectedChange)="hipSelect($event)" required [fullWidth]="false">
+                            <nb-option value="cm">cm</nb-option>
+                            <nb-option value="m">Metres (m)</nb-option>
+                            <nb-option value="in">Inches (in)</nb-option>
+                            <nb-option value="ft">Feet (ft)</nb-option>
+                          </nb-select>
+                        </div>
+                      </div>
+                       
+                    <!-- <div class="mx-3" >
+                     
+                    </div> -->
+                  <!-- </div> -->
                   <!-- <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.required">Ce champs est requis
                     !</small>
                   <small class="text-danger" *ngIf="submitted && formBmi.height.errors?.min">Height must be greater than
@@ -170,7 +183,7 @@
             your
             own body type by examining the most prevalent female body types:</p>
           <div class="d-flex justify-content-center">
-            <img loading="lazy" src="assets/images/body-shape.png" height="250px" width="350px" alt="body-shape-calculator">
+            <img loading="lazy" src="assets/images/body-shape.png" class="widthMobile" height="250px" alt="body-shape-calculator">
           </div>
           <h3 class="my-0">- Hourglass:</h3>
           <p>The breast and hip measurements of an hourglass figure are equal. The waistline of women with this body
@@ -213,7 +226,7 @@
           <ul>
             <li> If (bust – hips) 3.6′′ AND (bust – waist) 9′′, you have this body form.</li>
           </ul>
-          <h3 class="my-0">- Athletic/Rectangle/Banana:</h3>
+          <h3 class="my-0 text-break">- Athletic/Rectangle/ Banana:</h3>
           <p>The proportions of the shoulders, waist, hips, and busts are all the same size on people with a banana body
             shape. The waist has a rectangular form and is not strongly defined.</p>
           <ul>
