@@ -42,17 +42,17 @@
           </nb-card>
           <div class="my-3" *ngIf="checkForm">
             <div class="border rounded shadow bg-white p-4">
-              <p class="bmi text-center">Resultat of you calculator</p>
-              <h6 class="text-center">Age is: {{year}} years ,and {{monthF}} months ,and {{dayF}} days</h6>
+              <p class="bmi text-center font-weight-bold">Resultat of you calculator</p>
+              <p>Age is: <em>{{year}}</em> <span *ngIf="year > 1"> years</span> <span *ngIf="year < 2"> year</span>, and <em>{{monthF}}</em> <span *ngIf="monthF > 1"> months</span><span *ngIf="monthF < 2"> month</span> ,and <em>{{dayF}}</em> <span *ngIf="dayF > 1"> days</span><span *ngIf="dayF < 2"> day</span></p>
               <div class="row mt-4">
                 <div class="col-12">
-                  <p class="rsltP" *ngIf="year != 0">Year <em>: {{year | number}}</em></p>
-                  <p class="rsltP">Months <em>: {{month | number}} and {{dayF | number}} days</em></p>
-                  <p class="rsltP">Weeks <em>: {{week | number}} and {{dayW | number}} days</em></p>
-                  <p class="rsltP">Days <em>: {{day | number}}</em></p>
-                  <p class="rsltP">Hours <em>: {{hours | number}}</em></p>
-                  <p class="rsltP">Minutes <em>: {{minute | number}}</em></p>
-                  <p class="rsltP">Seconds <em>: {{second | number}}</em></p>
+                  <p class="rsltP" *ngIf="year != 0">Year: <em>{{year | number}}</em></p>
+                  <p class="rsltP">Months: <em>{{month | number}} and {{dayF | number}} days</em></p>
+                  <p class="rsltP">Weeks: <em>{{week | number}} and {{dayW | number}} days</em></p>
+                  <p class="rsltP">Days: <em>{{day | number}}</em></p>
+                  <p class="rsltP">Hours: <em>{{hours | number}}</em></p>
+                  <p class="rsltP">Minutes: <em>{{minute | number}}</em></p>
+                  <p class="rsltP">Seconds: <em>{{second | number}}</em></p>
                 </div>
               </div>
             </div>
