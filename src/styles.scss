@@ -89,6 +89,18 @@ nb-layout-header nav{
 .nb-form-field-max-width{
   max-width: inherit !important;
 }
-// .nb-theme-custom-theme .nb-form-field-limited-width.nb-form-field-size-medium{
-//   max-width: auto !important;
-// }
+.nb-theme-custom-theme p{
+  line-height: 1.8rem !important;
+}
+
+.designeButton{
+  position: relative !important;
+  background-color: white !important;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0.0666667rem 0.2rem 0.0666667rem !important;
+  border-radius: 5px !important;
+}
+
+.designeButton:hover{
+  box-shadow: rgb(0 0 0 / 10%) 0px 0.933333rem 1.86667rem, rgb(0 0 0 / 7%) 0px 0.666667rem 0.666667rem !important;
+  
+}

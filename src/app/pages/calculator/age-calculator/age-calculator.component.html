@@ -16,23 +16,25 @@
           <nb-card status="success">
             <nb-card-header class="hero-subtitle text-center">Calculate age from date of birth</nb-card-header>
             <nb-card-body class="example-items-col">
-              <nb-alert status="danger" *ngIf="error">
-                {{error}}
-              </nb-alert>
+              <div *ngIf="error" class="alert alert-danger w-75 mx-auto text-center" role="alert">
+                <span>
+                  {{error}}
+                </span>
+              </div>
               <form [formGroup]="calculeAge" (ngSubmit)="CalculateAge(target)">
-                <label for="Birthday">Birthday</label>
+                <label for="Birthday">Date of birth</label>
                 <input nbInput fullWidth placeholder="Pick Birthday" formControlName="birthday"
                   [nbDatepicker]="birthdayTimePicker">
-                <nb-datepicker #birthdayTimePicker></nb-datepicker>
+                <nb-datepicker [startView]="'year'" #birthdayTimePicker></nb-datepicker>
                 <div> <small class="error mt-1" *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)">
-                    Birthday is required !
+                  Date of birth is required !
                   </small></div>
-                <label class="mt-3" for="Today">Today</label>
-                <input nbInput fullWidth placeholder="Pick Today" formControlName="today"
+                <label class="mt-3" for="Today">Age at the date of</label>
+                <input nbInput fullWidth placeholder="Pick a date" formControlName="today"
                   [nbDatepicker]="todayTimePicker">
-                <nb-datepicker #todayTimePicker></nb-datepicker>
+                <nb-datepicker [startView]="'year'" #todayTimePicker></nb-datepicker>
                 <small class="error mt-1" *ngIf="today.invalid && (today.dirty || today.touched)">
-                  Today is required !
+                  Age at the date of is required !
                 </small>
                 <!-- <td>{{ data.DateofBirth | date: 'dd/MM/yyyy hh:mm a' }}</td> -->
                 <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="my-3" fullWidth
@@ -42,17 +44,18 @@
           </nb-card>
           <div class="my-3" *ngIf="checkForm">
             <div class="border rounded shadow bg-white p-4">
-              <p class="bmi text-center font-weight-bold">Resultat of you calculator</p>
-              <p>Age is: <em>{{year}}</em> <span *ngIf="year > 1"> years</span> <span *ngIf="year < 2"> year</span>, and <em>{{monthF}}</em> <span *ngIf="monthF > 1"> months</span><span *ngIf="monthF < 2"> month</span> ,and <em>{{dayF}}</em> <span *ngIf="dayF > 1"> days</span><span *ngIf="dayF < 2"> day</span></p>
+              <!-- <p class="bmi text-center font-weight-bold">Resultat of you calculator</p> -->
+              <p>Your age between <span class="font-weight-bold">{{birthday.value | date:"fullDate" }}</span> and <span class="font-weight-bold">{{today.value | date:"fullDate" }}</span></p>
+              <p>The result is: <em>{{year}}</em> <span *ngIf="year > 1"> years</span> <span *ngIf="year < 2"> year</span> and <em>{{monthF}}</em> <span *ngIf="monthF > 1"> months</span><span *ngIf="monthF < 2"> month</span> and <em>{{dayF}}</em> <span *ngIf="dayF > 1"> days</span><span *ngIf="dayF < 2"> day</span></p>
               <div class="row mt-4">
                 <div class="col-12">
-                  <p class="rsltP" *ngIf="year != 0">Year: <em>{{year | number}}</em></p>
-                  <p class="rsltP">Months: <em>{{month | number}} and {{dayF | number}} days</em></p>
-                  <p class="rsltP">Weeks: <em>{{week | number}} and {{dayW | number}} days</em></p>
-                  <p class="rsltP">Days: <em>{{day | number}}</em></p>
-                  <p class="rsltP">Hours: <em>{{hours | number}}</em></p>
-                  <p class="rsltP">Minutes: <em>{{minute | number}}</em></p>
-                  <p class="rsltP">Seconds: <em>{{second | number}}</em></p>
+                  <!-- <p class="rsltP" *ngIf="year != 0">Year: <em>{{year | number}}</em></p> -->
+                  <p>Or <em>{{month}} {{month > 1 ? "months" : "month"}} and {{dayF}} {{dayF> 1 ? "days" : "day"}}</em></p>
+                  <p>Or <em>{{week}} {{week > 1 ? "weeks" : "week"}} and {{dayW}} {{dayW > 1 ? "days" : "day"}}</em></p>
+                  <p>Or <em>{{day}} {{day > 1 ? "days" : "day"}}</em></p>
+                  <p>Or <em>{{hours}} hours</em></p>
+                  <p>Or <em>{{minute}} minutes</em></p>
+                  <p>Or <em>{{second}} seconds</em></p>
                 </div>
               </div>
             </div>
@@ -65,9 +68,8 @@
         Calculator</p>
       <div class="row border shadow bg-white my-4">
         <div class="col-md-12 mx-2 my-4">
-          <p>"How old am I currently?" is a good place to start. Please consult our age calculator for any questions
-            you
-            may have, such as "How old were I upon the date?" or "How old can I be in 2050?"</p>
+          <p>"How old am I currently?" is a good place to start. Please consult our chronological age calculator for any questions
+            you may have, such as "How old were I upon the date?" or "How old can I be in 2050?"</p>
           <p>In order to answer your age-related inquiries, you may pick from several time units (from milliseconds to
             years) in the precise age calculator:</p>
           <ul>
@@ -86,7 +88,7 @@
             countries throughout the globe. However, age is reckoned differently in certain countries (especially in
             Korea), such as the United States. Here, we'll stick with a system that is widely used.</p>
           <p>Find out how old you really are by using the age calculator we've provided below.</p>
-          <h2 class="text-secondary">Today, I'm how old? Use an online calculator to find out your age.</h2>
+          <h2 class="text-secondary">Today, I'm how old? Use an online chronological age calculator to find out your age.</h2>
           <p>What year were you born? Use the age calculator and enter your date of birth to see how old you are now:
           </p>
           <ul>

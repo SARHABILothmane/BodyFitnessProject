@@ -2,21 +2,28 @@
   <nb-layout-column style="display: flex;">
     <div class="container">
       <h1 class="text-secondary text-center mb-5 pb-3 mt-4 pt-5">Date calculator</h1>
-      <div class="row mb-4">
+      <div class="row mb-4 d-flex justify-content-center">
         <div class="col-md-5 mb-4">
           <nb-card status="success">
             <nb-card-header class="text-center">Date calculator</nb-card-header>
             <nb-card-body class="example-items-col">
+              <div *ngIf="error" class="alert alert-danger w-75 mx-auto text-center" role="alert">
+                <span>
+                  {{error}}
+                </span>
+              </div>
               <form [formGroup]="calculeDate" (ngSubmit)="CalculateDate(target)">
+
                 <label for="Start date">Start date</label>
                 <input nbInput fullWidth placeholder="Start date" formControlName="startDate"
                   [nbDatepicker]="birthdayTimePicker">
-                <nb-datepicker #birthdayTimePicker></nb-datepicker>
+                <nb-datepicker [startView]="'year'" #birthdayTimePicker></nb-datepicker>
+
                 <label class="mt-3" for="Date end">End date</label>
-                <input nbInput fullWidth placeholder="Date end" formControlName="dateEnd"
+                <input nbInput fullWidth placeholder="End date" formControlName="dateEnd"
                   [nbDatepicker]="todayTimePicker">
-                <nb-datepicker #todayTimePicker></nb-datepicker>
-                <!-- <td>{{ data.DateofBirth | date: 'dd/MM/yyyy hh:mm a' }}</td> -->
+                <nb-datepicker [startView]="'year'" #todayTimePicker></nb-datepicker>
+
                 <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="my-3" fullWidth
                   status="success">Calculate</button>
               </form>
@@ -26,46 +33,49 @@
         <div class="col-md-5 mb-3 d-flex justify-content-center">
           <img src="../../../../assets/images/undraw_date_picker_re_r0p8.svg" width="80%" height="90%" alt="days calculator">
         </div>
+        <span #target></span>
         <div class="col-md-5 d-flex justify-content-center">
-          <!-- <div class=" " > -->
-            <div class="border shadow bg-white p-4" *ngIf="year">
-              <p class="bmi text-center">The resultat is:</p>
-              <h6 class="text-center">{{year}} years {{monthF}} months {{dayF}} days</h6>
+            <div class="border shadow bg-white p-5" *ngIf="checkForm">
+              <p class="bmi text-center">Difference between <span class="font-weight-bold">{{calculeDate.value.startDate | date:"fullDate" }}</span> and <span class="font-weight-bold">{{calculeDate.value.dateEnd | date:"fullDate" }}</span></p>
+              <p class="text-center font-weight-bold">The result is : <em>{{year}}</em> {{year > 1 ? "years" : "year"}} and <em>{{monthF}}</em> {{monthF > 1 ? "months" : "month"}} and <em>{{dayF}}</em> days</p>
               <div class="mt-4">
-                <!-- <div class="col-12"> -->
-                  <p>Year <em>: {{year}}</em></p>
-                  <p> months<em>: {{month}} and {{dayF}} days</em></p>
-                  <p>weeks<em>: {{week}} and {{dayW}} days</em></p>
-                  <p> days<em>: {{day}}</em></p>
-                  <p>minutes <em>: {{minute}}</em></p>
-                  <p> seconds<em>: {{second}}</em></p>
-                <!-- </div> -->
+                  <!-- <p *ngIf="year > 0">Or {{year > 1 ? "years" : "year"}} : <em>{{year}}</em></p> -->
+                  <p>Or <em>{{month}} {{month > 1 ? "months" : "month"}} and {{dayF}} {{dayF> 1 ? "days" : "day"}}</em></p>
+                  <p>Or <em>{{week}} {{week > 1 ? "weeks" : "week"}} and {{dayW}} {{dayW > 1 ? "days" : "day"}}</em></p>
+                  <p>Or <em>{{day}} {{day > 1 ? "days" : "day"}}</em></p>
+                  <p>Or <em>{{hours}} hours</em></p>
+                  <p>Or <em>{{minute}} minutes</em></p>
+                  <p>Or <em>{{second}} seconds</em></p>
               </div>
             </div>
-            <span #target></span>
-          <!-- </div> -->
         </div>
+
+        <!-- start section add or subtract dates  -->
         <div class="col-md-10 mt-3">
           <nb-card status="success">
             <nb-card-header class="text-center">Add to or Subtract from a Date</nb-card-header>
             <nb-card-body class="example-items-col">
-              <form [formGroup]="AddOrSubtractDate" (ngSubmit)="AddOrSubDate()">
+              <div *ngIf="errorAddOrSubDate" class="alert alert-danger w-75 mx-auto text-center" role="alert">
+                <span>
+                  {{errorAddOrSubDate}}
+                </span>
+              </div>
+              <form [formGroup]="AddOrSubtractDate" (ngSubmit)="AddOrSubDate(targetAddOrSubtract)">
                 <div class="d-flex justify-content-center">
                   <label class="mt-2" for="Start date">Start date:</label>
-                  <!-- <input class="d-flex justify-content-start" nbInput placeholder="years" formControlName="years"> -->
                   <div class="widthSelectDate ml-3">
                     <input nbInput fullWidth placeholder="Start date" formControlName="addSubDate"
                       [nbDatepicker]="addSubDateTimePicker">
-                    <nb-datepicker #addSubDateTimePicker></nb-datepicker>
+                    <nb-datepicker [startView]="'year'" #addSubDateTimePicker></nb-datepicker>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
                   <label class="mt-4" for="Date end">Add or Subtract :</label>
                   <nb-form-field class="m-3">
-                      <nb-select placeholder="Select" status="basic" shape="semi-round" fullWidth
-                        (selectedChange)="checkedDate($event)" required>
-                        <nb-option value="add">+</nb-option>
-                        <nb-option value="substract">-</nb-option>
+                      <nb-select selected="+" status="basic" shape="semi-round" fullWidth
+                        (selectedChange)="changeSymbole($event)" required>
+                        <nb-option value="+">+</nb-option>
+                        <nb-option value="-">-</nb-option>
                       </nb-select>
                   </nb-form-field>
                 </div>
@@ -87,38 +97,50 @@
                   <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="mb-3 widthSelectDate" fullWidth
                   status="success">Calculate</button>
                 </div>
+                <span #targetAddOrSubtract></span>
               </form>
             </nb-card-body>
           </nb-card>
-          <div class="col-12 my-3" *ngIf="addOrSubYear">
+          <div class="col-12 my-3" *ngIf="showResultAddOrSubtract">
             <div class="border shadow bg-white p-4">
-              <p class="bmi text-center">Resultat of you calculator</p>
-              <h6 class="text-center">Age: {{year}} years {{monthF}} months {{dayF}} days</h6>
-              <h1 class="h5">Selected date: {{ date | date }}</h1>
-              <div class="row mt-4">
-                <div class="col-12">
-                  <p>Year <em class="">: {{addOrSubYear}}</em></p>
-                  <p> months<em class="">: {{addOrSubMonth}} and {{dayF}} days</em></p>
-                  <p>weeks<em class="">: {{addOrSubWeek}} and {{dayW}} days</em></p>
-                  <p> days<em class="">: {{addOrSubDay}}</em></p>
+              <p>The result is: <em>{{resultAddOrSubtract | date:'fullDate'}}</em></p>
+              <p>
+                After add 
+                <em>{{AddOrSubtractDate.value.years ? AddOrSubtractDate.value.years : 0}}</em> {{AddOrSubtractDate.value.years > 1 ? "years" : "year" }}, 
+                <em>{{AddOrSubtractDate.value.months ? AddOrSubtractDate.value.months: 0}}</em> {{AddOrSubtractDate.value.months > 1 ? "months" : "month" }},
+                <em>{{AddOrSubtractDate.value.weeks ? AddOrSubtractDate.value.weeks : 0}}</em> {{AddOrSubtractDate.value.weeks > 1 ? "weeks" : "week" }} and
+                <em>{{AddOrSubtractDate.value.days ? AddOrSubtractDate.value.days : 0}}</em> {{AddOrSubtractDate.value.days > 1 ? "days" : "day" }}
+              </p>
+              <div class="row">
+
+                <div class="col-md-6 col-12">
+                  <nb-card>
+                    <nb-card-header>
+                      <p>Selected date: <em>{{ selectedDate | date:'fullDate' }}</em></p>
+                    </nb-card-header>
+                    <nb-card-body>
+                      <nb-calendar size="large" [date]="selectedDate" [filter]="filterSelectedDate"
+                        showWeekNumber="false">
+                      </nb-calendar>
+                    </nb-card-body>
+                  </nb-card>
                 </div>
-                <!-- <div class="col-6 text-center">
-                  <p>Body mass index <em class="">{{bmi | number}} kg/m<sup>2</sup></em></p>
-                  <p>Body fat percentage calculator<em class="">: {{bfp | number}} %</em></p>
-                </div> [showNavigation]="false" -->
-                <nb-card>
-                  <nb-card-header>
-                    <h1 class="h5">Selected date: {{ date | date }}</h1>
-                  </nb-card-header>
-                  <nb-card-body>
-                    <nb-calendar size="large" [(date)]="date" (dateChange)="handleDateChange($event)"
-                      showWeekNumber="true">
-                      <!-- <nb-calendar size="large" [(date)]="date" startView="month" (dateChange)="handleDateChange($event)"
-                      showWeekNumber="true"> -->
-                    </nb-calendar>
-                  </nb-card-body>
-                </nb-card>
+
+                <div class="col-12 col-md-6">
+                  <nb-card>
+                    <nb-card-header>
+                      <p>Result date: <em>{{ resultAddOrSubtract | date:'fullDate' }}</em></p>
+                    </nb-card-header>
+                    <nb-card-body>
+                      <nb-calendar size="large" [filter]="filterDateResult" [(date)]="resultAddOrSubtract"
+                        showWeekNumber="false">
+                      </nb-calendar>
+                    </nb-card-body>
+                  </nb-card>
+                </div>
+                
               </div>
+
             </div>
           </div>
         </div>

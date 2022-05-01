@@ -22,7 +22,6 @@ const routes: Routes = [
     NbCardModule,
     NbButtonModule,
     NbInputModule,
-    NbAlertModule,
     NbDatepickerModule.forRoot(),
     OtherCalcultorModule,
     RouterModule.forChild(routes)

@@ -1,3 +1,4 @@
+@import '../../../../variables.scss';
 @media screen and (min-width: 552px) {
     .widthSelectDate {
        width: 30% !important;
@@ -8,4 +9,11 @@
     .widthSelectDate {
         width: 90% !important;
     }
+}
+
+em {
+    font-size: 22px;
+    color: color(blue-primary);
+    font-family: font(font-family-regular);
+    font-weight: bold;
 }

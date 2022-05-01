@@ -17,15 +17,15 @@ export class AgeCalculatorComponent implements OnInit {
   year: number = 0;
   week: number = 0;
   weekF: number = 0;
-  day: number = 0;
+  day: number | string = 0;
   dayF: number = 0;
   dayW: number = 0;
   calDayBr: number = 0;
   calDayTo: number = 0;
   rsltCalDayTo: number = 0;
-  hours: number = 0;
-  minute: number = 0;
-  second: number = 0;
+  hours: number | string = 0;
+  minute: number | string = 0;
+  second: number | string = 0;
   public age!: number;
   jsonLD!: SafeHtml;
   schema!: any;
@@ -38,10 +38,10 @@ export class AgeCalculatorComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.titleService.setTitle("Free online age calculator by date of birth - body-calculator");
+    this.titleService.setTitle("Free online age calculator by date of birth - (chronological age calculator)");
     this.metaService.addTags([
       { name: 'keywords', content: "age calculator, date of birth calculator, birthday calculator, chronological age calculator, life expectancy calculator, calculate age from date of birth, age calculator by date of birth, age calculator pearson" },
-      { name: 'description', content: "Free online age calculator (life expectancy calculator, calculate age from date of birth, age calculator by date of birth, date of birth calculator)" },
+      { name: 'description', content: "Free online age calculator (chronological age calculator, calculate age from date of birth, age calculator by date of birth, date of birth calculator)" },
     ]);
     this.canonical.createCanonicalLink();
     //shema
@@ -78,7 +78,12 @@ export class AgeCalculatorComponent implements OnInit {
 
 
   CalculateAge(e: HTMLElement){
+    this.error = "";
     if (this.calculeAge.valid) {
+      if(this.birthday.value > this.today.value){
+        this.error = "Date of birth needs to be earlier than the age at date.";
+        return;
+      }
       this.daysDiff(this.birthday.value, this.today.value);
       this.monthsDiff(this.birthday.value, this.today.value);
       this.fullDateDiff(this.birthday.value, this.today.value);
@@ -86,7 +91,8 @@ export class AgeCalculatorComponent implements OnInit {
       this.checkForm = true;
       e.scrollIntoView({ behavior: "smooth" });
     }else {
-      this.error = "Please check the inputs";
+      this.error = "Please check the fields";
+      this.checkForm = false;
     }
   }
 
@@ -114,6 +120,11 @@ export class AgeCalculatorComponent implements OnInit {
     if(this.dayF < 0){
       this.dayF = 0;
     };
+
+    if(date1.getDate() > date2.getDate()){
+      months -=  1;
+    }
+    
     this.month = months 
 
     return months;
@@ -122,7 +133,7 @@ export class AgeCalculatorComponent implements OnInit {
   daysDiff(d1: Date, d2: Date) {
     let hours = this.hoursDiff(d1, d2);
     let daysDiff = Math.floor( hours / 24 );
-    this.day = daysDiff;
+    this.day = daysDiff.toLocaleString().split(/\s/).join(',');
     
     return daysDiff;
  }
@@ -130,7 +141,7 @@ export class AgeCalculatorComponent implements OnInit {
  hoursDiff(d1: Date, d2:  Date) {
   let minutes = this.minutesDiff(d1, d2);
   let hoursDiff = Math.floor( minutes / 60 );
-  this.hours = hoursDiff;
+  this.hours = hoursDiff.toLocaleString().split(/\s/).join(',');
   
   return hoursDiff;
 }
@@ -139,15 +150,17 @@ export class AgeCalculatorComponent implements OnInit {
 minutesDiff(d1: Date, d2: Date) {
   let seconds = this.secondsDiff(d1, d2);
   let minutesDiff = Math.floor( seconds / 60 );
-  this.minute =  minutesDiff;
+  this.minute =  minutesDiff.toLocaleString().split(/\s/).join(',');
   
   return minutesDiff;
 }
 
 secondsDiff(d1: any, d2: any) {
-  // let millisecondDiff = d2 - d1;
-  let secDiff = Math.floor( ( d2 - d1) / 1000 );
-  this.second = secDiff;
+  // nrod les times 3la 7sab montasaf lil 
+  let millisecondDiff = new Date(d2).setHours(0, 0, 0, 0) - new Date(d1).setHours(0, 0, 0, 0);
+  // let secDiff = Math.floor( ( d2 - d1) / 1000 );
+  let secDiff = millisecondDiff / 1000 ;
+  this.second = secDiff.toLocaleString().split(/\s/).join(',');
   
   return secDiff;
 }
@@ -194,148 +207,8 @@ fullDateDiff(startingDate: any, endingDate: any) {
   this.dayF = dayDiff;
 }
 
-  public CalculateAgee(e: HTMLElement): void {
-    if (this.calculeAge.valid) {
-      this.checkForm = true;
-      e.scrollIntoView({ behavior: "smooth" });
-      this.error = "";
-      let birthday = this.calculeAge.value.birthday;
-      let today = this.calculeAge.value.today;
-      if (birthday.getFullYear() === today.getFullYear()) {
-        this.year = 0;
-        // this.month = today.getMonth() + 1 - birthday.getMonth() + 1;
-        //month of birthday
-        if (birthday.getMonth() > today.getMonth()) {
-          this.error = "The birthday cannot be greater than today's date";
-        }
-        let m1 = birthday.getMonth() + 1;
-        let rsltMthBday = 12 - m1;
-        //month of today
-        let m2 = today.getMonth() + 1;
-        let rsltMthTday = 12 - m2;
-        // let rsltMthTday2 = 12 - rsltMthTday - 1;
-        let rsltMthTday2 = rsltMthBday - rsltMthTday - 1;
-        //////// day of birthday
-        if (m1 === 1 || m1 === 3 || m1 === 5 || m1 === 7 || m1 === 10 || m1 === 12) {
-          this.calDayBr = 31 - birthday.getDate();
-        } if (m1 === 4 || m1 === 6 || m1 === 8 || m1 === 9 || m1 === 11) {
-          this.calDayBr = 30 - birthday.getDate();
-        } if (m1 === 2) {
-          this.calDayBr = 28 - birthday.getDate();
-        }
-        /////// day of today
-        if (m2 === 1 || m2 === 3 || m2 === 5 || m2 === 7 || m2 === 10 || m2 === 12) {
-          this.calDayTo = 31 - today.getDate();
-          this.rsltCalDayTo = 31 - this.calDayTo;
-        } if (m2 === 4 || m2 === 6 || m2 === 8 || m2 === 9 || m2 === 11) {
-          this.calDayTo = 30 - today.getDate();
-          this.rsltCalDayTo = 30 - this.calDayTo;
-        } if (m2 === 2) {
-          this.calDayTo = 28 - today.getDate();
-          this.rsltCalDayTo = 28 - this.calDayTo;
-        }
-        //rslt day
-        this.dayF = this.calDayBr + this.rsltCalDayTo;
-        ///rsl month
-        if (this.dayF >= 30) {
-          this.monthF = rsltMthTday2 + 1;
-          this.dayF = this.dayF - 30;
-        } else {
-          this.monthF = rsltMthTday2;
-        }
-        this.month = this.year * 12 + this.monthF;
-        if (this.dayF >= 7) {
-          this.weekF = this.dayF / 7;
-          this.dayW = this.dayF % 7;
-          this.week = this.month * 4.34524 + this.weekF;
-          this.week = Math.floor(this.week);
-          console.log("1" + this.week);
-          console.log("1f" + this.weekF);
-
-        } else {
-          this.week = this.month * 4.34524;
-          this.week = Math.round(this.week);
-          this.day = this.week * 7;
-          this.dayW = this.dayF;
-          console.log("2" + this.week);
-        }
-        this.day = this.week * 7 + this.dayW;
-        this.hours = this.day * 24;
-        this.hours = Math.round(this.hours);
-        this.minute = this.hours * 60;
-        this.minute = Math.round(this.minute);
-        this.second = this.minute * 60;
-        this.second = Math.round(this.second);
-      }
-      if (birthday.getFullYear() != today.getFullYear()) {
-        this.year = today.getFullYear() - birthday.getFullYear() - 1;
-        //month of birthday
-        let m1 = birthday.getMonth() + 1;
-        let rsltMthBday = 12 - m1;
-        //month of today
-        let m2 = today.getMonth() + 1;
-        let rsltMthTday = 12 - m2;
-        let rsltMthTday2 = 12 - rsltMthTday - 1;
-        //////// day of birthday
-        if (m1 === 1 || m1 === 3 || m1 === 5 || m1 === 7 || m1 === 10 || m1 === 12) {
-          this.calDayBr = 31 - birthday.getDate();
-        } if (m1 === 4 || m1 === 6 || m1 === 8 || m1 === 9 || m1 === 11) {
-          this.calDayBr = 30 - birthday.getDate();
-        } if (m1 === 2) {
-          this.calDayBr = 28 - birthday.getDate();
-        }
-        /////// day of today
-        if (m2 === 1 || m2 === 3 || m2 === 5 || m2 === 7 || m2 === 10 || m2 === 12) {
-          this.calDayTo = 31 - today.getDate();
-          this.rsltCalDayTo = 31 - this.calDayTo;
-        } if (m2 === 4 || m2 === 6 || m2 === 8 || m2 === 9 || m2 === 11) {
-          this.calDayTo = 30 - today.getDate();
-          this.rsltCalDayTo = 30 - this.calDayTo;
-        } if (m2 === 2) {
-          this.calDayTo = 28 - today.getDate();
-          this.rsltCalDayTo = 28 - this.calDayTo;
-        }
-        //rslt day
-        this.dayF = this.calDayBr + this.rsltCalDayTo;
-        ///rsl month
-        if (this.dayF >= 30) {
-          this.monthF = rsltMthBday + rsltMthTday2 + 1;
-          this.dayF = this.dayF - 30;
-        } else {
-          this.monthF = rsltMthBday + rsltMthTday2;
-        }
-        if (this.monthF >= 12) {
-          this.monthF = this.monthF % 12;
-          this.year = this.year + 1;
-        }
-        this.month = this.year * 12 + this.monthF;
-        if (this.dayF >= 7) {
-          this.weekF = this.dayF / 7;
-          this.dayW = this.dayF % 7;
-          console.log("this.dayW " + this.dayW);
-          this.week = this.month * 4.34524 + this.weekF;
-          this.week = Math.round(this.week);
-        } else {
-          this.week = this.month * 4.34524;
-          this.week = Math.round(this.week);
-          this.day = this.week * 7;
-          this.dayW = this.dayF;
-          console.log("this.dayW " + this.dayW);
-        }
-        this.day = this.week * 7 + this.dayW;
-        this.hours = this.day * 24;
-        this.hours = Math.round(this.hours);
-        this.minute = this.hours * 60;
-        this.minute = Math.round(this.minute);
-        this.second = this.minute * 60;
-        this.second = Math.round(this.second);
-      }
-    } else {
-      this.error = "Please check the fields";
-    }
-  }
   //getter 
-  get formBmi() { return this.calculeAge.controls; }
+  // get formBmi() { return this.calculeAge.controls; }
   get birthday() {
     return this.calculeAge.get("birthday") as FormControl;
   }
