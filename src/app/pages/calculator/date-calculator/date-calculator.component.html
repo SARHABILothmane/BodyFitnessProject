@@ -54,29 +54,39 @@
         <div class="col-md-10 mt-3">
           <nb-card status="success">
             <nb-card-header class="text-center">Add to or Subtract from a Date</nb-card-header>
-            <nb-card-body class="example-items-col">
+            <nb-card-body class="example-items-col p-3">
               <div *ngIf="errorAddOrSubDate" class="alert alert-danger w-75 mx-auto text-center" role="alert">
                 <span>
                   {{errorAddOrSubDate}}
                 </span>
               </div>
               <form [formGroup]="AddOrSubtractDate" (ngSubmit)="AddOrSubDate(targetAddOrSubtract)">
-                <div class="d-flex justify-content-center">
-                  <label class="mt-2" for="Start date">Start date:</label>
-                  <div class="widthSelectDate ml-3">
-                    <input nbInput fullWidth placeholder="Start date" formControlName="addSubDate"
-                      [nbDatepicker]="addSubDateTimePicker">
-                    <nb-datepicker [startView]="'year'" #addSubDateTimePicker></nb-datepicker>
+                  <div class="col-md-8 col-12 mx-auto ">
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-md-2 col-4 px-0">
+                          <label class="mt-2" for="Start date">Start date</label>
+                        </div>
+                        <div class="col-md-5 col-8 pr-0">
+                            <input nbInput fullWidth placeholder="Start date" formControlName="addSubDate"
+                            [nbDatepicker]="addSubDateTimePicker">
+                           <nb-datepicker [startView]="'year'" #addSubDateTimePicker></nb-datepicker>
+                        </div>
+                      </div>
                   </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <label class="mt-4" for="Date end">Add or Subtract :</label>
-                  <nb-form-field class="m-3">
-                      <nb-select selected="+" status="basic" shape="semi-round" fullWidth
-                        (selectedChange)="changeSymbole($event)" required>
-                        <nb-option value="+">+</nb-option>
-                        <nb-option value="-">-</nb-option>
-                      </nb-select>
+                <div class="col-md-8 col-12 mx-auto mt-3">
+                  <nb-form-field >
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-4 px-0">
+                        <label class="mt-2" for="Date end">Add or Subtract</label>
+                      </div>
+                      <div class="col-md-3 col-8 pr-0">
+                          <nb-select class="nb-select-min-width" selected="+" status="basic" shape="semi-round" fullWidth
+                          (selectedChange)="changeSymbole($event)" required>
+                          <nb-option value="+">+</nb-option>
+                          <nb-option value="-">-</nb-option>
+                        </nb-select>
+                      </div>
+                    </div>
                   </nb-form-field>
                 </div>
                 <div class="row my-4">
@@ -149,20 +159,20 @@
         <p class="text-secondary text-center my-1 font-weight-bold" style="font-size: 24px;">Learn more about date Calculator</p>
         <div class="row border shadow bg-white my-4">
           <div class="col-md-12 mx-2 my-4">
-            <h3 class="text-secondary">Date calculator</h3>
+            <h2 class="text-secondary">Date calculator</h2>
             <p>There is a date calculator that calculates and shows the difference in years, months, weeks and days
               between the 'Start Date' and 'End Date'.
               According to this date calculator, the week begins on 'Monday' and concludes 'Sunday'.
             </p>
-            <h3 class="text-secondary">Date truncation or expansion</h3>
+            <h2 class="text-secondary">Date truncation or expansion</h2>
             <p>In the 'Start Date' area and the ones below it, you may enter the date you want to determine how much
               behind or how far ahead the date will be. It shows the date and the day of the week that a certain date
               occurs on.</p>
-            <h3 class="text-secondary">What exactly is a date calculator?</h3>
+            <h2 class="text-secondary">What exactly is a date calculator?</h2>
             <p>You can use a date calculator to figure out how many days pass between two specific dates, how many days
               have passed since your birth or since you started a job, how many days remain until the next Cricket World
               Cup or the next Lok Sabha elections, and many more such calculations using a date calculator.</p>
-            <h3 class="text-secondary">The short history of conventional time</h3>
+            <h2 class="text-secondary">The short history of conventional time</h2>
             <p>People all throughout the globe used to plan their days and weeks according to the phases of the moon and
               the seasons, long before the creation of such inventive devices as the date-to-date
               calculator.Historically, the first day of the Roman month was marked by a new moon, thus the name
@@ -199,7 +209,7 @@
               colonies began using it, and Greece was the latest European nation to adopt it in 1923.</p>
             <p>Most nations now use the Gregorian calendar, which was introduced in 1582. Afghanistan, Iran, Ethiopia,
               and Nepal are the only outliers.</p>
-            <h3 class="text-secondary">How are the calculators above put to use?</h3>
+            <h2 class="text-secondary">How are the calculators above put to use?</h2>
             <p>The first calculator's mode of operation</p>
             <p>The first calculator allows you to compute the difference between two dates, where the first date is
               referred to as the 'Start Date' and the second is referred to as the 'End Date'. Initially, both fields
@@ -211,7 +221,7 @@
               further choose 'Include End Day (add 1 Day)', which will add an additional day to the discrepancy, by
               selecting the box.</p>
             <p>According to this date calculator, the week begins on 'Monday' and concludes 'Sunday'.</p>
-            <h3 class="text-secondary">Using the second calculator's working technique</h3>
+            <h2 class="text-secondary">Using the second calculator's working technique</h2>
             <p>It may be used to add or remove a certain number of years, months, weeks or days, singly or in
               combination, from a specific date that is indicated by the field 'Start Date' This field is initially set
               to reflect the current date. Users may insert a date in that box if they so like.</p>
@@ -237,7 +247,7 @@
             <p> Shukla Paksha, which begins with a new moon, and Krishna Paksha, which begins with a full moon, are the
               two phases of this calendar. The Islamic Hijri calendar contains 354 days and is based on the lunar
               calendar. Ramadan and Hajj are two major Islamic ceremonies that are determined by this calendar.</p>
-            <h3 class="text-secondary">Counting days between dates is a common occurrence in a variety of contexts.</h3>
+            <h2 class="text-secondary">Counting days between dates is a common occurrence in a variety of contexts.</h2>
             <p>Check out the date calculator if you need to know:</p>
             <ul>
               <li>The number of days till a deadline or test.</li>
@@ -252,7 +262,7 @@
               <li>Subtractors add the number of days/weeks/months/years, e.g. you want to know when your six-week
                 training plan ends and the next one begins.</li>
             </ul>
-            <h3 class="text-secondary">The official calendar is utilized for all government functions.</h3>
+            <h2 class="text-secondary">The official calendar is utilized for all government functions.</h2>
             <p>The Georgian calendar, a modified variant of the Julian calendar, is officially used in India and a
               number of other nations throughout the globe. An extra day is added at the conclusion of a year for leap
               years under this calendar. </p>

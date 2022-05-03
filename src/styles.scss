@@ -17,10 +17,10 @@ html {
   scroll-behavior: smooth;
 }
 
-// @media (max-width: 425px)
-// {
-//  .border div p{ font-size: 15px !important; }
-// }
+p{
+  font-size: max(1em, 16px) !important;
+}
+
 
 .nb-theme-custom-theme nb-tabset .tab-link {
   padding: 1rem !important;
@@ -33,8 +33,13 @@ html {
   // }
 }
 
+
+// to set all buttonsand headers with the same color 
+.nb-theme-custom-theme [nbButton].appearance-filled.status-success,nb-card-header{
+  background-color:color(colorLighthouse) !important;
+}
 .btnBgPrimary{
-  background-color: color(primary-light) !important;
+  background-color: color(colorLighthouse) !important;
   text-transform: uppercase;
   color: white !important;
   border-radius: 12px !important;
@@ -43,8 +48,12 @@ html {
   padding: 8px 0 !important;
 }
 
-.btnBgPrimary:hover{
-  background-color: #7CE0E7 !important;
+.nb-theme-custom-theme [nbButton].appearance-filled.status-success:hover,nb-card-header,.btnBgPrimary:hover{
+  filter: brightness(90%);
+}
+
+.nb-theme-custom-theme a{
+  color: color(colorLighthouse);
 }
 
 .form-control{
