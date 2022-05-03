@@ -1,4 +1,4 @@
-import { NbLayoutModule, NbCardModule, NbDatepickerModule, NbFormFieldModule, NbSelectModule, NbCalendarModule, NbButtonModule, NbInputModule } from '@nebular/theme';
+import { NbLayoutModule, NbCardModule, NbDatepickerModule, NbFormFieldModule, NbSelectModule, NbCalendarModule } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,8 +19,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     NbLayoutModule,
     NbCardModule,
-    NbButtonModule,
-    NbInputModule,
+    // NbButtonModule,
+    // NbInputModule,
     NbFormFieldModule,
     NbSelectModule,
     NbCalendarModule,

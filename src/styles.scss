@@ -35,7 +35,7 @@ p{
 
 
 // to set all buttonsand headers with the same color 
-.nb-theme-custom-theme [nbButton].appearance-filled.status-success,nb-card-header{
+.nb-theme-custom-theme [nbButton].appearance-filled.status-success,nb-card-header:not(.calendar-navigation, .headerNebular){
   background-color:color(colorLighthouse) !important;
 }
 .btnBgPrimary{
@@ -61,7 +61,7 @@ p{
   font-size: 0.9375rem !important;
   font-weight: 600 !important;
   background-color: #f7f9fc !important;
-  border-radius: 12px !important;
+  border-radius: 7px !important;
   padding: 1rem 1rem !important;
 }
 .form-control:focus {
