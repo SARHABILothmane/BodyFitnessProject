@@ -112,6 +112,8 @@ export class DateCalculatorComponent implements OnInit {
     if (this.calculeDate.valid) {
       let dateEnd = this.calculeDate.value.dateEnd;
       let dateStart = this.calculeDate.value.startDate;
+      console.log('dateEnd', dateEnd);
+      console.log('dateStart', dateStart);
       
       if(dateStart > dateEnd ){
         this.error = "The start date needs to be earlier than the end date";
