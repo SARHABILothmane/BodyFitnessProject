@@ -10,18 +10,5 @@ export class SiteLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-     this.checkIfAccepteCookie();
   }
-
-  checkIfAccepteCookie(){
-    if(localStorage.getItem('cookie')){
-      this.showCookie =  false;
-    }
-  }
-
-  storeCookie(){
-    this.showCookie = false;
-    localStorage.setItem('cookie', 'true');
-  }
-
 }

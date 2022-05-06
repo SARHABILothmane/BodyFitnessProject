@@ -1,7 +1,6 @@
 import { Bmr } from 'src/app/models/bmr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import { CanonicalService } from 'src/app/services/canonical.service';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 
@@ -14,8 +13,6 @@ export class BasalMetabolicRateCalculatorComponent implements OnInit {
   calculeBmr!: FormGroup;
   checked: string = "";
   bmr!: number;
-  faMale = faMale;
-  faFemale = faFemale;
   selectedHeight: string = "cm";
   selectedWeight: string = "kg";
   height!: number;

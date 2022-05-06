@@ -18,11 +18,11 @@ export function playerFactory() {
     CalculatorScientifiqueComponent
   ],
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
+    // CommonModule,
+    // ReactiveFormsModule,
     HomeRoutingModule,
-    NbButtonModule,
-    NbIconModule,
+    // NbButtonModule,
+    // NbIconModule,
     NgxJsonLdModule,
     LottieModule.forRoot({ player: playerFactory }),
   ]

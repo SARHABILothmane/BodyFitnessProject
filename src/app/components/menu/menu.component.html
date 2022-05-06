@@ -13,30 +13,30 @@
         </li> -->
         <li class="dropdown list-item">
           <span>Calculators</span>
-          <div class="dropdown-content" *ngIf="hideDropDown == false">
+          <div class="dropdown-content" id="dropDown">
             <div class="d-flex flex-column">
-              <a (click)="hideDropDownMethode()" class="pb-2" routerLink="/health/bmi-calculator" routerLinkActive="linkActiveDropDown">
+              <a onclick="hideDropDownMenu()" class="pb-2" routerLink="/health/bmi-calculator" routerLinkActive="linkActiveDropDown">
                 Body mass index BMI calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-fat-percentage-calculator" routerLinkActive="linkActiveDropDown">
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/health/body-fat-percentage-calculator" routerLinkActive="linkActiveDropDown">
                 Body fat percentage BFP calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/ideal-weight-calculator" >
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/health/ideal-weight-calculator" >
                 Ideal weight calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/body-shape-calculator" routerLinkActive="linkActiveDropDown"> 
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/health/body-shape-calculator" routerLinkActive="linkActiveDropDown"> 
                 Body shape calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/bmr-calculator" routerLinkActive="linkActiveDropDown">
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/health/bmr-calculator" routerLinkActive="linkActiveDropDown">
                 Basal metabolic rate BMR calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/health/healthy-weight-calculator" routerLinkActive="linkActiveDropDown">
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/health/healthy-weight-calculator" routerLinkActive="linkActiveDropDown">
                 Healthy weight calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/age-calculator" routerLinkActive="linkActiveDropDown">
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/calculators/age-calculator" routerLinkActive="linkActiveDropDown">
                 Age calculator
               </a>
-              <a (click)="hideDropDownMethode()" class="py-2" routerLink="/calculators/date-calculator" routerLinkActive="linkActiveDropDown">
+              <a onclick="hideDropDownMenu()" class="py-2" routerLink="/calculators/date-calculator" routerLinkActive="linkActiveDropDown">
                 Date calculator
               </a>
             </div>
@@ -54,16 +54,20 @@
       <a class="d-block logo" routerLink="/"><img loading="lazy" width="40px" height="100px"
           src="../../../assets/images/logo/calculator.svg" alt="body-calcultor"></a>
 
-      <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
-        <nb-icon icon="menu-outline" [options]="{  height: '2rem',
-          width: '3.25rem'  }"></nb-icon>
-      </button>
+      <!-- <button class="btn" status="dark" (click)="toggle()" aria-label="menu button" nbSuffix  ghost> -->
+        <img (click)="toggle()" style="width: 35px;height: 27px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAA2CAMAAABN0h93AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkFFRkYyRDY2QTg2NzExRUNCNDhFQTcyQjE3RjlDRjVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkFFRkYyRDY3QTg2NzExRUNCNDhFQTcyQjE3RjlDRjVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QUVGRjJENjRBODY3MTFFQ0I0OEVBNzJCMTdGOUNGNUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QUVGRjJENjVBODY3MTFFQ0I0OEVBNzJCMTdGOUNGNUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5cVVSYAAAAElBMVEUAAAAFBQVQUFBOTk6AgIAAAADLjW8oAAAABnRSTlP//////wCzv6S/AAAAZ0lEQVR42uzWMQ7AIAwEQRPw/7+cAkFDx20kiM4PmALLKyKRCZIpwkwmtDmLqZ1pZi5h8gxm3pSsjAvXEDgU/2SQJ2YW7vqZub9+VESTiqjr9zWjLgqIqL+QZvyFXOv37A8aileAAQAFvhc8UR1OAgAAAABJRU5ErkJggg==" alt="menu">
+        <!-- <nb-icon icon="menu-outline" [options]="{  height: '2rem',
+          width: '3.25rem'  }"></nb-icon> -->
+      <!-- </button> -->
     </div>
 
     <div #sidebar id="mySidebar" class="sidebar shadow">
       <div class="d-flex justify-content-end">
-        <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix nbButton ghost>
+        <!-- <button status="dark" (click)="toggle()" aria-label="menu button" nbSuffix ghost>
           <nb-icon [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
+        </button> -->
+        <button (click)="toggle()" type="button" class="close m-3" aria-label="Close">
+          <span aria-hidden="true" class="text-dark">&times;</span>
         </button>
       </div>
       <a class="d-block logo text-center" (click)="toggle()" routerLink="/">
@@ -73,51 +77,51 @@
 
       <a (click)="toggle()" routerLink="/" class="mt-5 d-flex justify-content-between align-items-center">
         <span class="pr-2" routerLinkActive="linkActiveDropDown" [routerLinkActiveOptions]="{exact:true}">Home</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown" [routerLinkActiveOptions]="{exact:true}"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="pb-2 d-flex justify-content-between align-items-center"
         routerLink="/health/bmi-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Body mass index BMI calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark" >&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/body-fat-percentage-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Body fat percentage BFP calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/ideal-weight-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Ideal weight calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/body-shape-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown" >Body shape calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/bmr-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Basal metabolic rate BMR calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/health/healthy-weight-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Healthy weight calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/calculators/age-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Age calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark">&raquo;</span>
       </a>
       <a (click)="toggle()" class="py-2 d-flex justify-content-between align-items-center"
         routerLink="/calculators/date-calculator">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Date calculator</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark" >&raquo;</span>
       </a>
       <a (click)="toggle()" routerLink="/contact" class="pb-2 d-flex justify-content-between align-items-center">
         <span class="pr-2" routerLinkActive="linkActiveDropDown">Contact us</span>
-        <nb-icon icon="arrow-forward-outline" routerLinkActive="linkActiveDropDown"></nb-icon>
+        <span class="font-weight-bold text-dark" >&raquo;</span>
       </a>
       <!-- <a (click)="toggle()" routerLink="/about" class="mb-3">About</a> -->
       <!-- <a (click)="toggle()" routerLink="/blog" class="mb-3">Blog</a> -->

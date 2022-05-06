@@ -3,7 +3,7 @@ import { AnimationOptions } from 'ngx-lottie';
 import { Bmr } from './../../../models/bmr';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
+// import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import { AnimationItem } from 'lottie-web';
 import { Utils } from 'src/app/constant/utils';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
@@ -15,8 +15,8 @@ import { CanonicalService } from 'src/app/services/canonical.service';
   styleUrls: ['./body-fat-porcentage.component.scss']
 })
 export class BodyFatPorcentageComponent implements OnInit {
-  faMale = faMale;
-  faFemale = faFemale;
+  // faMale = faMale;
+  // faFemale = faFemale;
   calculeBfp!: FormGroup;
   // height!: number;
   // weight!: number;

@@ -13,10 +13,10 @@
             <nb-card-body class="example-items-col">
               <form [formGroup]="calculeIwc" (ngSubmit)="CalculateIwc(target)">
                 <div class="mb-3 d-flex justify-content-center">
-                  <div class="mr-3">
+                  <!-- <div class="mr-3">
                     <fa-icon *ngIf="checked == 'male'" class="social-icon ml-5" [icon]="faMale"></fa-icon>
                     <fa-icon *ngIf="checked == 'female'" class="social-icon ml-5" [icon]="faFemale"></fa-icon>
-                  </div>
+                  </div> -->
                   <nb-form-field class="mb-3">
                     <nb-select placeholder="gender" status="basic" shape="semi-round" fullWidth
                       (selectedChange)="checkedGender($event)" required>

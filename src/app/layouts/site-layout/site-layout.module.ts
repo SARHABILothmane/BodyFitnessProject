@@ -1,13 +1,13 @@
 import { FooterComponent } from './../../components/footer/footer.component';
 import { MenuComponent } from './../../components/menu/menu.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 
 import { SiteLayoutRoutingModule } from './site-layout-routing.module';
 import { SiteLayoutComponent } from './site-layout.component';
-import {  NbButtonModule, NbIconModule, NbLayoutModule, NbSidebarModule } from '@nebular/theme';
-import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
-import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { NbLayoutModule } from '@nebular/theme';
+// import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+// import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -17,20 +17,19 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     FooterComponent
   ],
   imports: [
-    CommonModule,
+    // CommonModule,
     SiteLayoutRoutingModule,
     // NbInputModule,
-    NbButtonModule,
-    NbIconModule,
+    // NbButtonModule,
+    // NbIconModule,
     // NbFormFieldModule,
     NbLayoutModule,
     // NbSidebarModule,
     // NbCardModule,
-    // FontAwesomeModule,
-    ShareButtonsModule.withConfig({
-      debug: true
-    }),
-    ShareIconsModule,
+    // ShareButtonsModule.withConfig({
+    //   debug: true
+    // }),
+    // ShareIconsModule,
 
 
 

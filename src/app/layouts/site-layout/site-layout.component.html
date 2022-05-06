@@ -4,27 +4,28 @@
   </nb-layout-header>
   <nb-layout-column>
     <router-outlet></router-outlet>
-    <!-- <div class="icon" id="arrow">
-      <div class="arrow"></div>
-    </div> -->
-    <div class="fixed">
-      <share-buttons aria-checked="true" [theme]="'material-dark'"
+    <!-- <div class="fixed"> -->
+      <!-- <share-buttons aria-checked="true" aria-label="share-buttons" [theme]="'material-dark'"
         [include]="['facebook','twitter','linkedin','telegram','whatsapp', 'messenger','reddit','email','copy']"
         [show]="5" [size]="0.2" [url]="'http://www.body-calculator.com/'"
         [image]="'http://www.body-calculator.com/assets/images/logo/calculator.svg'" [autoSetMeta]="false">
-      </share-buttons>
-    </div>
-    <div class="cookies " *ngIf="showCookie">
+      </share-buttons> -->
+    <!-- </div> -->
+
+    <div class="cookies" id="cookies" style="display: none;" >
       <div class="container">
       <div class="row ">
-        <div class="col-10 pr-0">
+        <div class="col-md-10 col-10 pr-0">
            <p class="text-center text-white mt-3">By clicking “Accept cookies”, you agree Body-calculator.com can store cookies on your device in accordance with our <a routerLink="/private-policy">Cookie Policy</a>.</p>
            <div class="d-flex justify-content-center mb-2">
-            <button (click)="storeCookie()" class="btn btn-outline-success">Accept cookies</button>
+             <!-- I use js pure because angular local storage do some probleme when use ssr -->
+            <button onclick="setCoookie()" class="btn btn-outline-success">Accept cookies</button>
           </div>
         </div>
-        <div class="col-2 pr-0">
-          <nb-icon (click)="storeCookie()" class=" text-white" style="cursor: pointer; " [options]="{  height: '2rem'}" icon="close-outline"></nb-icon>
+        <div class="col-md-1 col-2 pr-0">
+          <button onclick="setCoookie()" type="button" class="close m-3" aria-label="Close">
+            <span aria-hidden="true" class="text-white">&times;</span>
+          </button>
         </div>
       </div>
       

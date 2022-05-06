@@ -47,12 +47,7 @@
   }
   
   function compute(form) {
-    //if (val !== 0.0) {
-     // var percent = form.display.value;  
-     // percent = pcent.substring(percent.indexOf("%")+1);
-     // form.display.value = parseFloat(percent)/100 * val;
-      //val = 0.0;
-   // } else 
+ 
       form.display.value = eval(form.display.value);
     }
   
@@ -73,5 +68,36 @@
         }
       }
       return true
+  }
+  // setCoookie 
+
+  function setCoookie(){
+    document.getElementById("cookies").style.display = "none";
+    localStorage.setItem('cookie', true);
+  }
+
+    function checkIfCookieExicite(){
+      let cookie = localStorage.getItem('cookie');
+      console.log('cookie',cookie);
+      setTimeout(() => {
+        
+        if(!cookie){
+          document.getElementById("cookies").style.display = "block";
+        }
+      }, 3000);
+    }
+
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    // call on next available tick
+    checkIfCookieExicite();
+  } else {
+      document.addEventListener("DOMContentLoaded", checkIfCookieExicite());
+  }
+
+  function hideDropDownMenu(){
+    document.getElementById("dropDown").style.display = "none";
+    setTimeout(() => {
+    document.getElementById("dropDown").style.removeProperty("display");; 
+    }, 30);
   }
  

@@ -1,7 +1,7 @@
 import { Bmr } from './../../../models/bmr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
+// import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 
@@ -30,8 +30,8 @@ export class IdealWeightCalculatorComponent implements OnInit {
   rsltHealthyWeightMin!: string;
   rsltHealthyWeightMax!: string;
   bmi!: number;
-  faMale = faMale;
-  faFemale = faFemale;
+  // faMale = faMale;
+  // faFemale = faFemale;
   modelsIwc: Bmr = {
     age: 0,
     height: 0,

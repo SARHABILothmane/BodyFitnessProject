@@ -1,4 +1,4 @@
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NbLayoutModule, NbCardModule, NbFormFieldModule, NbSelectModule, NbButtonModule, NbInputModule } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
@@ -24,7 +24,7 @@ const routes: Routes = [
     NbInputModule,
     NbFormFieldModule,
     NbSelectModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
     OtherCalcultorModule,
     RouterModule.forChild(routes),
   ]

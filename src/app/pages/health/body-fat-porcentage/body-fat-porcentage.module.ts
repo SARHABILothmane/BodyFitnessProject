@@ -1,6 +1,6 @@
 import { LottieModule } from 'ngx-lottie';
 import { OtherCalcultorModule } from './../../other-calcultor/other-calculator.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NbCardModule, NbAlertModule, NbFormFieldModule, NbSelectModule, NbButtonModule, NbInputModule, NbLayoutModule } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -26,7 +26,7 @@ export function playerFactory() {
     NbFormFieldModule,
     NbSelectModule,
     OtherCalcultorModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
     BodyFatPorcentageRoutingModule,
     NbLayoutModule,
     LottieModule.forRoot({ player: playerFactory }),

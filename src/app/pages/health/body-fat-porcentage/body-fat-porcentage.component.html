@@ -33,8 +33,8 @@
                 </nb-alert>
                 <form [formGroup]="calculeBfp" (ngSubmit)="claculteBfp(target)">
                   <label for="">Gender</label>
-                  <fa-icon *ngIf="checked == 'male'" class="social-icon ml-5" [icon]="faMale"></fa-icon>
-                  <fa-icon *ngIf="checked == 'female'" class="social-icon ml-5" [icon]="faFemale"></fa-icon>
+                  <!-- <fa-icon *ngIf="checked == 'male'" class="social-icon ml-5" [icon]="faMale"></fa-icon>
+                  <fa-icon *ngIf="checked == 'female'" class="social-icon ml-5" [icon]="faFemale"></fa-icon> -->
                   <nb-form-field class="mb-3">
                     <nb-select formControlName="gender" placeholder="gender" status="basic" shape="semi-round" fullWidth
                       (selectedChange)="checkedGender($event)" required>
