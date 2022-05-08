@@ -84,10 +84,31 @@ export class AgeCalculatorComponent implements OnInit {
         this.error = "Date of birth needs to be earlier than the age at date.";
         return;
       }
-      this.daysDiff(this.birthday.value, this.today.value);
-      this.monthsDiff(this.birthday.value, this.today.value);
-      this.fullDateDiff(this.birthday.value, this.today.value);
-      this.weeksDiff(this.birthday.value, this.today.value)
+
+     let birthday = this.birthday.value;
+     let today = this.today.value;
+     birthday = new Date(Date.UTC(
+      birthday.getFullYear(),
+      birthday.getMonth(),
+      birthday.getDate(),
+      birthday.getHours(),
+      birthday.getMinutes(),
+      birthday.getSeconds()
+      )).toISOString();
+
+      today = new Date(Date.UTC(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate(),
+        today.getHours(),
+        today.getMinutes(),
+        today.getSeconds()
+      )).toISOString();
+
+      this.daysDiff(birthday, today);
+      this.monthsDiff(birthday, today);
+      this.fullDateDiff(birthday, today);
+      this.weeksDiff(birthday, today)
       this.checkForm = true;
       e.scrollIntoView({ behavior: "smooth" });
     }else {

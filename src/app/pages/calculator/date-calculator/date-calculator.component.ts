@@ -112,8 +112,24 @@ export class DateCalculatorComponent implements OnInit {
     if (this.calculeDate.valid) {
       let dateEnd = this.calculeDate.value.dateEnd;
       let dateStart = this.calculeDate.value.startDate;
-      console.log('dateEnd', dateEnd);
-      console.log('dateStart', dateStart);
+      dateStart = new Date(Date.UTC(
+        dateStart.getFullYear(),
+        dateStart.getMonth(),
+        dateStart.getDate(),
+        dateStart.getHours(),
+        dateStart.getMinutes(),
+        dateStart.getSeconds()
+      )).toISOString();
+
+      dateEnd = new Date(Date.UTC(
+        dateEnd.getFullYear(),
+        dateEnd.getMonth(),
+        dateEnd.getDate(),
+        dateEnd.getHours(),
+        dateEnd.getMinutes(),
+        dateEnd.getSeconds()
+      )).toISOString();
+
       
       if(dateStart > dateEnd ){
         this.error = "The start date needs to be earlier than the end date";
@@ -249,7 +265,8 @@ fullDateDiff(startingDate: any, endingDate: any) {
         return;
       }
       let addOrSubtract = new Date(this.AddOrSubtractDate.value.addSubDate.toISOString());
-      this.selectedDate = new Date(this.AddOrSubtractDate.value.addSubDate.toISOString());
+      this.selectedDate = addOrSubtract;
+      
       if(this.addOrSubtractSymbole == "+")
       {
           addOrSubtract.setFullYear(addOrSubtract.getFullYear() + this.AddOrSubtractDate.value.years);
