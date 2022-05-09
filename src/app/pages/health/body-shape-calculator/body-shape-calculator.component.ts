@@ -29,7 +29,7 @@ export class BodyShapeCalculatorComponent implements OnInit {
     highHip: 80,
     hip: 90,
   }
-
+  error: string = "";
   jsonLD!: SafeHtml;
   schema!: any;
 
@@ -46,7 +46,7 @@ export class BodyShapeCalculatorComponent implements OnInit {
     this.titleService.setTitle("Free online body shape calculator");
     this.metaService.addTags([
       { name: 'keywords', content: "body shape calculator, body figure, body type calculator, body shape calculator female,  hourglass figure measurements" },
-      { name: 'description', content: "Free online body shape calculator tool, ( body shape calculator female, body type calculator )" },
+      { name: 'description', content: "Free online body shape calculator tool ( body shape calculator female, body type calculator )" },
     ]);
     this.CanonicalService.createCanonicalLink();
     //shema
@@ -82,33 +82,37 @@ export class BodyShapeCalculatorComponent implements OnInit {
   }
 
   public CalculateBsc(e: HTMLElement): void {
-    this.bust = this.calculeBsc.value.bust;
-    this.waist = this.calculeBsc.value.waist;
-    this.highHip = this.calculeBsc.value.highHip;
-    this.hip = this.calculeBsc.value.hip;
-    this.whr = this.waist / this.hip;
-    this.whrRslt = this.whr.toFixed(2);
-    e.scrollIntoView({ behavior: "smooth" });
-    if (this.bust - this.hip <= 1 && this.hip - this.bust < 3.6 && this.bust - this.waist >= 9 || this.hip - this.waist >= 10) {
-      this.message = "Hourglass";
-    }
-    if (this.hip - this.bust >= 3.6 && this.hip - this.bust < 10 && this.hip - this.waist >= 9 && this.highHip / this.waist < 1.193) {
-      this.message = "Bottom hourglass";
-    }
-    if (this.bust - this.hip > 1 && this.bust - this.hip < 10 && this.bust - this.waist >= 9) {
-      this.message = "Top hourglass";
-    }
-    if (this.hip - this.bust > 2 && this.hip - this.waist >= 7 && this.highHip / this.waist < 1.193) {
-      this.message = "Spoon";
-    }
-    if (this.hip - this.bust >= 3.6 && this.hip - this.waist < 9) {
-      this.message = "Triangle";
-    }
-    if (this.bust - this.hip >= 3.6 && this.bust - this.waist < 9) {
-      this.message = "Inverted triangle";
-    }
-    if (this.hip - this.bust < 3.6 && this.bust - this.hip < 3.6 && this.bust - this.waist < 9 && this.hip - this.waist < 10) {
-      this.message = "Rectangle";
+    if(this.calculeBsc.valid){
+        this.bust = this.calculeBsc.value.bust;
+        this.waist = this.calculeBsc.value.waist;
+        this.highHip = this.calculeBsc.value.highHip;
+        this.hip = this.calculeBsc.value.hip;
+        this.whr = this.waist / this.hip;
+        this.whrRslt = this.whr.toFixed(2);
+        e.scrollIntoView({ behavior: "smooth" });
+        if (this.bust - this.hip <= 1 && this.hip - this.bust < 3.6 && this.bust - this.waist >= 9 || this.hip - this.waist >= 10) {
+          this.message = "Hourglass";
+        }
+        if (this.hip - this.bust >= 3.6 && this.hip - this.bust < 10 && this.hip - this.waist >= 9 && this.highHip / this.waist < 1.193) {
+          this.message = "Bottom hourglass";
+        }
+        if (this.bust - this.hip > 1 && this.bust - this.hip < 10 && this.bust - this.waist >= 9) {
+          this.message = "Top hourglass";
+        }
+        if (this.hip - this.bust > 2 && this.hip - this.waist >= 7 && this.highHip / this.waist < 1.193) {
+          this.message = "Spoon";
+        }
+        if (this.hip - this.bust >= 3.6 && this.hip - this.waist < 9) {
+          this.message = "Triangle";
+        }
+        if (this.bust - this.hip >= 3.6 && this.bust - this.waist < 9) {
+          this.message = "Inverted triangle";
+        }
+        if (this.hip - this.bust < 3.6 && this.bust - this.hip < 3.6 && this.bust - this.waist < 9 && this.hip - this.waist < 10) {
+          this.message = "Rectangle";
+        }
+    }else{
+      this.error = "Please check the fields";
     }
     //     Hourglass
     // If (bust - hips) ≤ 1" AND (hips - bust) < 3.6" AND (bust - waist) ≥ 9" OR (hips - waist) ≥ 10"

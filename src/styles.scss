@@ -2,7 +2,7 @@
 
 @import '~@nebular/theme/styles/globals';
 
-@import '~ngx-sharebuttons/themes/material/material-dark-theme';
+// @import '~ngx-sharebuttons/themes/material/material-dark-theme';
 @import 'mediaqueries.scss';
 // @import '~ngx-sharebuttons/themes/modern/modern-light-theme';
 // @import '~ngx-sharebuttons/themes/circles/circles-dark-theme';
@@ -35,7 +35,7 @@ p{
 
 
 // to set all buttonsand headers with the same color 
-.nb-theme-custom-theme [nbButton].appearance-filled.status-success,nb-card-header:not(.calendar-navigation, .headerNebular){
+.nb-theme-custom-theme [nbButton].appearance-filled.status-success, .card-header,nb-card-header:not(.calendar-navigation, .headerNebular){
   background-color:color(colorLighthouse) !important;
 }
 .btnBgPrimary{
@@ -92,9 +92,14 @@ nb-layout-header nav{
 .layout-container .content .columns nb-layout-column{
   min-width: auto !important;
 }
-.nb-theme-custom-theme .nb-select-min-width .select-button{
+// .nb-theme-custom-theme 
+.nb-select-min-width .select-button{
   min-width: auto !important;
 }
+.nb-theme-custom-theme nb-select.size-medium:not(.full-width){
+  min-width: -webkit-fill-available !important;
+}
+
 .nb-form-field-max-width{
   max-width: inherit !important;
 }

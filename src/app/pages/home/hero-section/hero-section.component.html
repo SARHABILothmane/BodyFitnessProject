@@ -1,39 +1,13 @@
-<section class="bg-white">
-  <div class="container">
-    <div class="row mt-5">
-      <div [ngClass]="{'col-md-6':!isMobile}"
-        class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center">
-        <div class="p-2">
-          <h1 class="hero-title text-secondary">Body Mass Index BMI Calculator</h1>
-          <p class="hero-subtitle ">
-            Calculate your body mass index for free with metric or imperial type, our calculator is valid for differents
-            genres for women, men, and children.
-          </p>
-          <p class="hero-subtitle">
-            Just put your info and click calculate will give you the result.
-          </p>
-        </div>
-      </div>
-      <div *ngIf="!isMobile" class="col-12 col-md-6 order-1 order-md-2 hero-responsive mt-5">
-        <ng-lottie [ngClass]="{'active':imageLoaded}" [options]="optionsF" (animationCreated)="animationCreated($event)"
-          height="300px"></ng-lottie>
-      </div>
-    </div>
+<section class="bg-white ">
+  <div class="container ">
+    <h1 class="text-secondary mt-5 pt-4 text-center">Body Mass Index BMI Calculator</h1>
+    <p class="hero-subtitle col-md-9 col-12 mx-auto">
+      It's very important to know your Body mass index BMI, this can help you to determine if you need to lose weight or you should gain more muscles, for a good health.
+      There are several ways to measure an individual' Body mass index, and one of the most used is our calculator.
+    </p>
     <div class="row d-flex justify-content-center">
-      <div *ngIf="!isMobile" class="col-md-3 hero-responsive">
-        <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
-          (animationCreated)="animationCreated($event)">
-        </ng-lottie>
-      </div>
-
       <div class="col-md-6 mt-4">
-        <app-form-bmi class=""></app-form-bmi>
-      </div>
-
-      <div *ngIf="!isMobile" class="col-md-3 hero-responsive">
-        <ng-lottie width="100%" [ngClass]="{'active':imageLoaded}" [options]="options"
-          (animationCreated)="animationCreated($event)">
-        </ng-lottie>
+        <app-form-bmi></app-form-bmi>
       </div>
       <!-- <img class="w-100 h-100" src="../../../assets/images/hero-icons.svg" alt="hero"> -->
     </div>

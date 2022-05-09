@@ -8,11 +8,16 @@
             alt="body shape calculator">
         </div>
         <div class="col-md-5">
-          <nb-card status="success">
-            <nb-card-header class=" text-center" >Calculate your body shape</nb-card-header>
-            <nb-card-body class="example-items-col">
+          <div class="card">
+            <div class="card-header text-white text-center font-weight-bold" >Calculate your body shape</div>
+            <div class="card-body example-items-col">
               <div class="d-flex justify-content-center img-shape">
                 <img height="94px" width="110px" src="assets/images/body-shape-size.png" alt="body-shape-calculator">
+              </div>
+              <div *ngIf="error" class="alert alert-danger mx-auto mt-2 text-center" role="alert">
+                <span>
+                  {{error}}
+                </span>
               </div>
               <form [formGroup]="calculeBsc" (ngSubmit)="CalculateBsc(target)">
                 <label for="Bust size">Bust Size:</label>
@@ -20,7 +25,8 @@
                 <strong *ngIf="selectedBust == 'm'"> Metres</strong>
                 <strong *ngIf="selectedBust == 'in'"> Inches</strong>
                 <strong *ngIf="selectedBust == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3 nb-form-field-max-width">
+                <!-- nb-form-field -->
+                <div class="mb-3 nb-form-field-max-width">
                   <div class="row">
                     <!-- <input type="number" nbInput formControlName="bust" shape="semi-round" fullWidth status="basic"
                       placeholder="cm" [(ngModel)]="modelsBsc.bust"> -->
@@ -45,13 +51,15 @@
                     40
                     in (100 cm)
                     !</small> -->
-                </nb-form-field>
+                  </div>
+                  <!-- nb-form-field -->
                 <label for="Waist size">Waist Size:</label>
                 <strong *ngIf="selectedWaist == 'cm'"> cm</strong>
                 <strong *ngIf="selectedWaist == 'm'"> Metres</strong>
                 <strong *ngIf="selectedWaist == 'in'"> Inches</strong>
                 <strong *ngIf="selectedWaist == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3 nb-form-field-max-width">
+                <!-- nb-form-field -->
+                <div class="mb-3 nb-form-field-max-width">
                   <div class="row">
                     <!-- <input type="number" nbInput formControlName="waist" shape="semi-round" fullWidth status="basic"
                       placeholder="cm" [(ngModel)]="modelsBsc.waist"> -->
@@ -74,13 +82,15 @@
                     40
                     in (100 cm)
                     !</small> -->
-                </nb-form-field>
+                  </div>
+                  <!-- nb-form-field -->
                 <label for="High Hip size">High Hip Size</label>
                 <strong *ngIf="selectedHighHip == 'cm'"> cm</strong>
                 <strong *ngIf="selectedHighHip == 'm'"> Metres</strong>
                 <strong *ngIf="selectedHighHip == 'in'"> Inches</strong>
                 <strong *ngIf="selectedHighHip == 'ft'"> Feet</strong>
-                <nb-form-field class="mb-3 nb-form-field-max-width">
+                <!-- nb-form-field -->
+                <div class="mb-3 nb-form-field-max-width">
                   <div class="row">
                     <div class="col-6">
                       <input type="number" formControlName="highHip" class="form-control" [(ngModel)]="modelsBsc.highHip" placeholder="Hip">
@@ -103,14 +113,15 @@
                     40
                     in (100 cm)
                     !</small> -->
-                </nb-form-field>
+                  </div>
+                  <!-- nb-form-field -->
                 <label for="Hip size">Hip Size</label>
                 <strong *ngIf="selectedHip == 'cm'"> cm</strong>
                 <strong *ngIf="selectedHip == 'm'"> Metres</strong>
                 <strong *ngIf="selectedHip == 'in'"> Inches</strong>
                 <strong *ngIf="selectedHip == 'ft'"> Feet</strong>
-
-                <nb-form-field class="mb-3 nb-form-field-max-width">
+                <!-- nb-form-field -->
+                <div class="mb-3 nb-form-field-max-width">
                   <!-- <div class="d-flex justify-content-between"> -->
                     <!-- <input type="number" nbInput formControlName="hip" shape="semi-round" fullWidth status="basic"
                       placeholder="cm" [(ngModel)]="modelsBsc.hip"> -->
@@ -139,12 +150,13 @@
                     40
                     in (100 cm)
                     !</small> -->
-                </nb-form-field>
+                  </div>
+                  <!-- nb-form-field -->
                 <!-- <button class="" type="submit" shape="semi-round" nbButton fullWidth status="success">Calculate</button> -->
                 <button type="submit" class="btn btnBgPrimary w-100">Calculate</button>
               </form>
-            </nb-card-body>
-          </nb-card>
+            </div>
+          </div>
           <div class="row my-3">
             <div class="col-12 border shadow bg-white p-4" *ngIf="message">
               <p class="text-center font-weight-bold" style="font-size: 24px;">The result of your calculator is</p>

@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import { AnimationItem } from 'lottie-web';
-import { Utils } from 'src/app/constant/utils';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 
@@ -32,22 +31,20 @@ export class BodyFatPorcentageComponent implements OnInit {
   addCataloge: boolean = false;
   selectedHeight: string = "cm";
   selectedWeight: string = "kg";
-  checked: string = "";
+  checked: string = "female";
   imageLoaded: boolean = false;
-  optionsF: AnimationOptions = {
-    path: '/assets/animations/relaxed-woman-meditating.json',
-  };
-  bfpFemale: AnimationOptions = {
-    path: '/assets/animations/bfpFemale.json',
-  };
+  // optionsF: AnimationOptions = {
+  //   path: '/assets/animations/relaxed-woman-meditating.json',
+  // };
+  // bfpFemale: AnimationOptions = {
+  //   path: '/assets/animations/bfpFemale.json',
+  // };
 
   modelsBmi: Bmr = {
     age: 0,
     height: 0,
     weight: 0,
   };
-  utils = new Utils();
-  isMobile: boolean = true;
   jsonLD!: SafeHtml;
   schema!: any;
 
@@ -93,10 +90,9 @@ export class BodyFatPorcentageComponent implements OnInit {
       height: new FormControl("", [Validators.required]),
       // height: new FormControl("", [Validators.required, Validators.min(100), Validators.max(400)]),
       weight: new FormControl("", [Validators.required]),
-      gender: new FormControl("", [Validators.required]),
+      gender: new FormControl("female", [Validators.required]),
     });
 
-    this.isMobile = this.utils.isMobile();
 
   }
 
@@ -282,19 +278,19 @@ export class BodyFatPorcentageComponent implements OnInit {
           this.selectedWeight = "oz";
         }
         //rslt 
-        if (this.bfp >= 2 && this.bfp <= 5) {
+        if (Math.floor(this.bfp) >= 2 && Math.floor(this.bfp) <= 5) {
           this.message = "Essential fat";
         }
-        if (this.bfp >= 6 && this.bfp <= 13) {
+        if (Math.floor(this.bfp) >= 6 && Math.floor(this.bfp) <= 13) {
           this.message = "Athletes";
         }
-        if (this.bfp >= 14 && this.bfp <= 17) {
+        if (Math.floor(this.bfp) >= 14 && Math.floor(this.bfp) <= 17) {
           this.message = "Fitness";
         }
-        if (this.bfp >= 18 && this.bfp <= 24) {
+        if (Math.floor(this.bfp) >= 18 && Math.floor(this.bfp) <= 24) {
           this.message = "Average";
         }
-        if (this.bfp >= 25) {
+        if (Math.floor(this.bfp) >= 25) {
           this.message = "Obese";
         }
       }
@@ -453,19 +449,20 @@ export class BodyFatPorcentageComponent implements OnInit {
           this.selectedWeight = "oz";
         }
         //rslt female 
-        if (this.bfp >= 10 && this.bfp <= 13) {
+        // I add mathFloor beacuse the condition do not take care about some numbers like 31.658
+        if (Math.floor(this.bfp) >= 10 && Math.floor(this.bfp) <= 13) {
           this.message = "Essential fat";
         }
-        if (this.bfp >= 14 && this.bfp <= 20) {
+        if (Math.floor(this.bfp) >= 14 && Math.floor(this.bfp) <= 20) {
           this.message = "Athletes";
         }
-        if (this.bfp >= 21 && this.bfp <= 24) {
+        if (Math.floor(this.bfp) >= 21 && Math.floor(this.bfp) <= 24) {
           this.message = "Fitness";
         }
-        if (this.bfp >= 25 && this.bfp <= 31) {
+        if (Math.floor(this.bfp) >= 25 && Math.floor(this.bfp) <= 31) {
           this.message = "Average";
         }
-        if (this.bfp >= 32) {
+        if (Math.floor(this.bfp) >= 32) {
           this.message = "Obese";
         }
       }

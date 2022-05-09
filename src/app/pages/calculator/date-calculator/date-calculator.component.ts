@@ -265,7 +265,7 @@ fullDateDiff(startingDate: any, endingDate: any) {
         return;
       }
       let addOrSubtract = new Date(this.AddOrSubtractDate.value.addSubDate.toISOString());
-      this.selectedDate = addOrSubtract;
+      this.selectedDate = new Date(this.AddOrSubtractDate.value.addSubDate.toISOString());
       
       if(this.addOrSubtractSymbole == "+")
       {

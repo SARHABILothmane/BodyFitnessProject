@@ -39,7 +39,7 @@ export class HealthyWeightCalculatorComponent implements OnInit {
     this.titleService.setTitle("Free online healthy weight calculator");
     this.metaService.addTags([
       { name: 'keywords', content: "Healthy weight calculator" },
-      { name: 'description', content: "Free online Healthy weight calculator (healthy weight range calculator, )" },
+      { name: 'description', content: "Free online Healthy weight calculator (healthy weight range calculator)" },
     ]);
     this.canonical.createCanonicalLink();
     //shema
