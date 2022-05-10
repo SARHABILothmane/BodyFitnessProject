@@ -1,8 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Bmr } from 'src/app/models/bmr';
 import { Bsc } from 'src/app/models/bsc';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
@@ -30,10 +29,9 @@ export class BodyShapeCalculatorComponent implements OnInit {
     hip: 90,
   }
   error: string = "";
-  jsonLD!: SafeHtml;
   schema!: any;
 
-  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) {
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService) {
     this.calculeBsc = new FormGroup({
       bust: new FormControl("", [Validators.required]),
       waist: new FormControl("", [Validators.required]),
@@ -68,17 +66,18 @@ export class BodyShapeCalculatorComponent implements OnInit {
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
-      "softwareVersion": "1"
+      "softwareVersion": "1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "8864"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD"
+      }
     }
-    this.jsonLD = this.getSafeHTML(this.schema);
-  }
-  getSafeHTML(value: {}) {
-    // If value convert to JSON and escape / to prevent script tag in JSON
-    const json = value
-      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
-      : '';
-    const html = `${json}`;
-    return this.DomSanitizer.bypassSecurityTrustHtml(html);
   }
 
   public CalculateBsc(e: HTMLElement): void {

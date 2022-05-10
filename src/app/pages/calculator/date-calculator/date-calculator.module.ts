@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { DateCalculatorComponent } from './date-calculator.component';
 import { RouterModule, Routes } from '@angular/router';
 import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 const routes: Routes = [
   { path: "", component: DateCalculatorComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
     NbCalendarModule,
     NbDatepickerModule.forRoot(),
     OtherCalcultorModule,
+    NgxJsonLdModule,
     RouterModule.forChild(routes),
 
   ]

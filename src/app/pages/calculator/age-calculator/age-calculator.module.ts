@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 import { AgeCalculatorComponent } from './age-calculator.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     NbInputModule,
     NbDatepickerModule.forRoot(),
     OtherCalcultorModule,
+    NgxJsonLdModule,
     RouterModule.forChild(routes)
   ]
 })

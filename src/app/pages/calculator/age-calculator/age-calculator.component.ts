@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
@@ -27,11 +27,10 @@ export class AgeCalculatorComponent implements OnInit {
   minute: number | string = 0;
   second: number | string = 0;
   public age!: number;
-  jsonLD!: SafeHtml;
   schema!: any;
   checkForm: boolean = false;
   error: string = "";
-  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) {
+  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService) {
     this.calculeAge = new FormGroup({
       birthday: new FormControl("", [Validators.required]),
       today: new FormControl(new Date(), [Validators.required]),
@@ -50,7 +49,7 @@ export class AgeCalculatorComponent implements OnInit {
       "@type": "SoftwareApplication",
       "name": "Age calculator",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
-      "url": "https://body-calculator.com/calculator/age-calculator",
+      "url": "https://body-calculator.com/calculators/age-calculator",
       "author": {
         "@type": "Person",
         "name": "SARHABIL"
@@ -62,18 +61,19 @@ export class AgeCalculatorComponent implements OnInit {
       },
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
-      "softwareVersion": "1"
+      "softwareVersion": "1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "8864"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD"
+      }
     }
-    this.jsonLD = this.getSafeHTML(this.schema);
-  }
 
-  getSafeHTML(value: {}) {
-    // If value convert to JSON and escape / to prevent script tag in JSON
-    const json = value
-      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
-      : '';
-    const html = `${json}`;
-    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
 

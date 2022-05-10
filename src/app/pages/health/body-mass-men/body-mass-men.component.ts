@@ -1,5 +1,5 @@
 import { CanonicalService } from 'src/app/services/canonical.service';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,10 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyMassMenComponent implements OnInit {
   //href: string = "";
-  jsonLD!: SafeHtml;
   schema!: any;
 
-  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) { }
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService) { }
   ngOnInit(): void {
     //this.href = this.router.url;
     this.titleService.setTitle("Body-calculator - free online body mass index BMI calculator men");
@@ -40,16 +39,17 @@ export class BodyMassMenComponent implements OnInit {
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
-      "softwareVersion": "1"
+      "softwareVersion": "1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "8864"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD"
+      }
     }
-    this.jsonLD = this.getSafeHTML(this.schema);
-  }
-  getSafeHTML(value: {}) {
-    // If value convert to JSON and escape / to prevent script tag in JSON
-    const json = value
-      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
-      : '';
-    const html = `${json}`;
-    return this.DomSanitizer.bypassSecurityTrustHtml(html);
   }
 }

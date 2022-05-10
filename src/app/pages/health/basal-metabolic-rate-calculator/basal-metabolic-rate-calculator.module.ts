@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { BasalMetabolicRateCalculatorRoutingModule } from './basal-metabolic-rate-calculator-routing.module';
 import { BasalMetabolicRateCalculatorComponent } from './basal-metabolic-rate-calculator.component';
 import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 const routes: Routes = [
   { path: "", component: BasalMetabolicRateCalculatorComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
     NbSelectModule,
     BasalMetabolicRateCalculatorRoutingModule,
     OtherCalcultorModule,
+    NgxJsonLdModule,
     RouterModule.forChild(routes),
   ]
 })

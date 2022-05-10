@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 @Component({
   selector: 'app-date-calculator',
@@ -39,7 +39,6 @@ export class DateCalculatorComponent implements OnInit {
   checkForm: boolean =  false;
   public age!: number;
   checked: string = "";
-  jsonLD!: SafeHtml;
   schema!: any;
   showResultAddOrSubtract: boolean = false;
   selectedDate: Date | undefined;
@@ -53,7 +52,7 @@ export class DateCalculatorComponent implements OnInit {
   filterDate = new Date();
   filterDateResult = (filterDate: any) => filterDate.setHours(0, 0, 0, 0) == this.resultAddOrSubtract?.setHours(0, 0, 0, 0);
   filterSelectedDate = (filterDate: any) => filterDate.setHours(0, 0, 0, 0) == this.selectedDate?.setHours(0, 0, 0, 0);
-  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer) {
+  constructor(private titleService: Title, private metaService: Meta, private canonical: CanonicalService) {
     this.calculeDate = new FormGroup({
       startDate: new FormControl("", [Validators.required]),
       dateEnd: new FormControl("", [Validators.required]),
@@ -80,7 +79,7 @@ export class DateCalculatorComponent implements OnInit {
       "@type": "SoftwareApplication",
       "name": "Age calculator",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
-      "url": "https://body-calculator.com/calculator/date-calculator",
+      "url": "https://body-calculator.com/calculators/date-calculator",
       "author": {
         "@type": "Person",
         "name": "SARHABIL"
@@ -92,19 +91,20 @@ export class DateCalculatorComponent implements OnInit {
       },
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
-      "softwareVersion": "1"
+      "softwareVersion": "1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "8864"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD"
+      }
     }
-    this.jsonLD = this.getSafeHTML(this.schema);
   }
 
-  getSafeHTML(value: {}) {
-    // If value convert to JSON and escape / to prevent script tag in JSON
-    const json = value
-      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
-      : '';
-    const html = `${json}`;
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
 
   CalculateDate(e: HTMLElement){ 
 

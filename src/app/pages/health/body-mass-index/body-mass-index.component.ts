@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
@@ -8,15 +8,15 @@ import { CanonicalService } from 'src/app/services/canonical.service';
   styleUrls: ['./body-mass-index.component.scss']
 })
 export class BodyMassIndexComponent implements OnInit {
-  jsonLD!: SafeHtml;
+  // jsonLD!: SafeHtml;
   schema!: any;
-  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService, private DomSanitizer: DomSanitizer) { }
+  constructor(private titleService: Title, private metaService: Meta, private CanonicalService: CanonicalService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("Free online body mass index BMI calculator");
     this.metaService.addTags([
       { name: 'keywords', content: "bmi calculator, bmi calculator women, bmi calculator men, bmi calculator female, bmi calculator by age, children's bmi calculator, cdc bmi calculator, bmi calculator for women, bmi calculator children, bmi calculator women age, bmi calculator kg, child bmi calculator, bmi chart calculator, bmi calculator kids, bmi calculator for men, womens bmi calculator, bmi calculator adults, bmi calculator male, female bmi calculator, male bmi calculator" },
-      { name: 'description', content: "Free online body mass index BMI calculator tool, (BMI calculator female, BMI calculator men, BMI calculator children, BMI calculator by age)" },
+      { name: 'description', content: "Free online body mass index BMI calculator tool (BMI calculator female, BMI calculator men, BMI calculator children, BMI calculator by age)" },
     ]);
     this.CanonicalService.createCanonicalLink();
     //shema
@@ -38,17 +38,18 @@ export class BodyMassIndexComponent implements OnInit {
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
-      "softwareVersion": "1"
+      "softwareVersion": "1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "8864"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD"
+      }
     }
-    this.jsonLD = this.getSafeHTML(this.schema);
-  }
-  getSafeHTML(value: {}) {
-    // If value convert to JSON and escape / to prevent script tag in JSON
-    const json = value
-      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
-      : '';
-    const html = `${json}`;
-    return this.DomSanitizer.bypassSecurityTrustHtml(html);
   }
 
 }

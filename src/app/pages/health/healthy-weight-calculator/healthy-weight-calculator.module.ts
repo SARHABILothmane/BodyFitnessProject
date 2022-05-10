@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HealthyWeightCalculatorComponent } from './healthy-weight-calculator.component';
 import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 const routes: Routes = [
   { path: "", component: HealthyWeightCalculatorComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
     NbFormFieldModule,
     NbSelectModule,
     OtherCalcultorModule,
+    NgxJsonLdModule,
     RouterModule.forChild(routes),
   ]
 })

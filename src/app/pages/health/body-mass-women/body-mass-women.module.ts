@@ -1,9 +1,10 @@
 import { FormBmiModule } from './../../home/form-bmi/form-bmi.module';
 import { NbLayoutModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import { BodyMassWomenComponent } from './body-mass-women.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 const routes: Routes = [
   { path: "", component: BodyMassWomenComponent },
@@ -14,9 +15,9 @@ const routes: Routes = [
     BodyMassWomenComponent,
   ],
   imports: [
-    CommonModule,
     NbLayoutModule,
     FormBmiModule,
+    NgxJsonLdModule,
     RouterModule.forChild(routes),
   ]
 })

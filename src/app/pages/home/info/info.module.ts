@@ -1,6 +1,6 @@
 import { NbAccordionModule, NbTabsetModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import { InfoComponent } from './info.component';
 
 
@@ -10,7 +10,7 @@ import { InfoComponent } from './info.component';
     InfoComponent,
   ],
   imports: [
-    CommonModule,
+    // CommonModule,
     NbAccordionModule,
     NbTabsetModule,
   ],

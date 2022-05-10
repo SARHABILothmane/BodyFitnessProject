@@ -1,9 +1,9 @@
 import { FormBmiModule } from './../form-bmi/form-bmi.module';
 // import { LottieModule } from 'ngx-lottie';
-import { NbIconModule, NbButtonModule } from '@nebular/theme';
+// import { NbIconModule, NbButtonModule } from '@nebular/theme';
 import { HeroSectionComponent } from './hero-section.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 
 import { HeroSectionRoutingModule } from './hero-section-routing.module';
 import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
@@ -15,11 +15,11 @@ import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.mod
 @NgModule({
   declarations: [HeroSectionComponent],
   imports: [
-    CommonModule,
+    // CommonModule,
     HeroSectionRoutingModule,
-    NbIconModule,
+    // NbIconModule,
     FormBmiModule,
-    NbButtonModule,
+    // NbButtonModule,
     OtherCalcultorModule,
     // LottieModule.forRoot({ player: playerFactory }),
   ],

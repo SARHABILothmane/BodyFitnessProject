@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IdealWeightCalculatorComponent } from './ideal-weight-calculator.component';
 import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
     NbSelectModule,
     // FontAwesomeModule,
     OtherCalcultorModule,
+    NgxJsonLdModule,
     RouterModule.forChild(routes),
   ]
 })

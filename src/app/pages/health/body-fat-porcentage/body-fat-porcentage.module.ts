@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 
 import { BodyFatPorcentageRoutingModule } from './body-fat-porcentage-routing.module';
 import { BodyFatPorcentageComponent } from './body-fat-porcentage.component';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 // export function playerFactory() {
 //   return import('lottie-web/build/player/lottie_svg');
@@ -29,6 +30,7 @@ import { BodyFatPorcentageComponent } from './body-fat-porcentage.component';
     // FontAwesomeModule,
     BodyFatPorcentageRoutingModule,
     NbLayoutModule,
+    NgxJsonLdModule,
     // LottieModule.forRoot({ player: playerFactory }),
   ]
 })

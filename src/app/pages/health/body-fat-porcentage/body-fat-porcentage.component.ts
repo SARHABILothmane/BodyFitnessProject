@@ -1,11 +1,11 @@
-import { AnimationOptions } from 'ngx-lottie';
+// import { AnimationOptions } from 'ngx-lottie';
 // import { NbToastrService } from '@nebular/theme';
 import { Bmr } from './../../../models/bmr';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
-import { AnimationItem } from 'lottie-web';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+// import { AnimationItem } from 'lottie-web';
+import { Meta,Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
@@ -45,12 +45,12 @@ export class BodyFatPorcentageComponent implements OnInit {
     height: 0,
     weight: 0,
   };
-  jsonLD!: SafeHtml;
+ 
   schema!: any;
 
   constructor(
     // private toastrService: NbToastrService
-    private titleService: Title, private metaService: Meta, private canonical: CanonicalService, private sanitizer: DomSanitizer
+    private titleService: Title, private metaService: Meta, private canonical: CanonicalService
   ) { }
 
 
@@ -80,9 +80,18 @@ export class BodyFatPorcentageComponent implements OnInit {
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Linux",
       "screenshot": "https://body-calculator.com/assets/images/logo/Screenshot-body-calculator.png",
-      "softwareVersion": "1"
+      "softwareVersion": "1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "8864"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD"
+      }
     }
-    this.jsonLD = this.getSafeHTML(this.schema);
 
     this.calculeBfp = new FormGroup({
       // gender: new FormControl("", [Validators.required]),
@@ -96,20 +105,10 @@ export class BodyFatPorcentageComponent implements OnInit {
 
   }
 
-  getSafeHTML(value: {}) {
-    // If value convert to JSON and escape / to prevent script tag in JSON
-    const json = value
-      ? JSON.stringify(value, null, 2).replace(/\//g, '\\/')
-      : '';
-    const html = `${json}`;
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-
-
-  animationCreated(animationItem: AnimationItem): void {
-    this.imageLoaded = !this.imageLoaded
-    // animationItem.show();
-  }
+  // animationCreated(animationItem: AnimationItem): void {
+  //   this.imageLoaded = !this.imageLoaded
+  //   // animationItem.show();
+  // }
   checkedGender(v: any) {
     this.checked = v;
   }
