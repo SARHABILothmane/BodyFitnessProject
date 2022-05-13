@@ -37,7 +37,7 @@ export class AgeCalculatorComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.titleService.setTitle("Free online age calculator by date of birth - (chronological age calculator)");
+    this.titleService.setTitle("Free online age calculator by date of birth");
     this.metaService.addTags([
       { name: 'keywords', content: "age calculator, date of birth calculator, birthday calculator, chronological age calculator, life expectancy calculator, calculate age from date of birth, age calculator by date of birth, age calculator pearson" },
       { name: 'description', content: "Free online age calculator (chronological age calculator, calculate age from date of birth, age calculator by date of birth, date of birth calculator)" },
