@@ -1,3 +1,4 @@
+import { BannerModule } from './../../../shared/banner/banner.module';
 import { LottieModule } from 'ngx-lottie';
 import { OtherCalcultorModule } from './../../other-calcultor/other-calculator.module';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -31,6 +32,7 @@ import { NgxJsonLdModule } from '@ngx-lite/json-ld';
     BodyFatPorcentageRoutingModule,
     NbLayoutModule,
     NgxJsonLdModule,
+    BannerModule,
     // LottieModule.forRoot({ player: playerFactory }),
   ]
 })

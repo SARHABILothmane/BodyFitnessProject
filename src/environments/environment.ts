@@ -3,6 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  adsense: {
+    adClient: 'ca-pub-2374538044388820',
+    show: true
+  },
   production: false
 };
 

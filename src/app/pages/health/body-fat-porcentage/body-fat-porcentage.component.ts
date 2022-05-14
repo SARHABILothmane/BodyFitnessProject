@@ -5,8 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 // import { AnimationItem } from 'lottie-web';
-import { Meta,Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { CanonicalService } from 'src/app/services/canonical.service';
+import { Banner } from 'src/app/models/banner';
 
 @Component({
   selector: 'app-body-fat-porcentage',
@@ -45,13 +46,20 @@ export class BodyFatPorcentageComponent implements OnInit {
     height: 0,
     weight: 0,
   };
- 
-  schema!: any;
 
+  schema!: any;
+  banner: Banner;
   constructor(
     // private toastrService: NbToastrService
     private titleService: Title, private metaService: Meta, private canonical: CanonicalService
-  ) { }
+  ) {
+    this.banner = new Banner(
+      'ca-pub-2374538044388820',
+      7784325323,
+      'auto',
+      true
+    )
+  }
 
 
   ngOnInit(): void {

@@ -3,10 +3,10 @@
     <section class="bg-white">
       <div class="container">
         <div class="row mt-5">
-          <div 
-            class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center mt-3">
+          <div class="col-12 order-2 order-md-1 d-flex justify-content-center align-items-center mt-3">
             <div class="p-2">
               <h1 class="text-secondary text-center">Body fat percentage BFP calculator</h1>
+              <app-banner [banner]="banner"></app-banner>
               <p class="hero-subtitle col-md-9 col-12 mx-auto">
                 Body fat percentage is the percentage of your body weight that is made up of fat. Knowing your body fat
                 percentage can help you determine if you need to lose weight or gain muscle.
@@ -30,8 +30,8 @@
                   <fa-icon *ngIf="checked == 'female'" class="social-icon ml-5" [icon]="faFemale"></fa-icon> -->
                   <!-- nb-form-field -->
                   <div class="mb-3">
-                    <nb-select formControlName="gender" placeholder="gender" selected="female" status="basic" shape="semi-round" fullWidth
-                      (selectedChange)="checkedGender($event)" required>
+                    <nb-select formControlName="gender" placeholder="gender" selected="female" status="basic"
+                      shape="semi-round" fullWidth (selectedChange)="checkedGender($event)" required>
                       <nb-option value="male">Male</nb-option>
                       <nb-option value="female">Female</nb-option>
                     </nb-select>
@@ -56,12 +56,12 @@
                   <div class="mb-3 nb-form-field-max-width">
                     <div class="row">
                       <div class="col-6">
-                         <input type="number" formControlName="height"
-                         placeholder="cm" [(ngModel)]="modelsBmi.height" class="form-control">
-                      </div> 
+                        <input type="number" formControlName="height" placeholder="cm" [(ngModel)]="modelsBmi.height"
+                          class="form-control">
+                      </div>
                       <div class="col-6 pl-0">
-                        <nb-select class="nb-select-min-width" placeholder="cm" selected="cm" status="basic" shape="semi-round" fullWidth
-                          (selectedChange)="heightSelect($event)" required>
+                        <nb-select class="nb-select-min-width" placeholder="cm" selected="cm" status="basic"
+                          shape="semi-round" fullWidth (selectedChange)="heightSelect($event)" required>
                           <!-- <nb-option value="cm" *ngIf="selectedItem == 'cm'">cm</nb-option> -->
                           <nb-option value="cm">cm</nb-option>
                           <nb-option value="m">Metres (m)</nb-option>
@@ -84,12 +84,12 @@
                   <div class="mb-3">
                     <div class="row">
                       <div class="col-6">
-                          <input type="number" formControlName="weight"
-                          placeholder="kg" [(ngModel)]="modelsBmi.weight" class="form-control">
+                        <input type="number" formControlName="weight" placeholder="kg" [(ngModel)]="modelsBmi.weight"
+                          class="form-control">
                       </div>
                       <div class="col-6 pl-0">
-                        <nb-select class="nb-select-min-width" placeholder="kg" selected="kg" status="basic" shape="semi-round" fullWidth
-                          (selectedChange)="weightSelect($event)" required>
+                        <nb-select class="nb-select-min-width" placeholder="kg" selected="kg" status="basic"
+                          shape="semi-round" fullWidth (selectedChange)="weightSelect($event)" required>
                           <nb-option value="kg">kg</nb-option>
                           <nb-option value="dag">Decagrams (dag)</nb-option>
                           <nb-option value="lb">Pounds (lb)</nb-option>
@@ -104,7 +104,7 @@
                   <!-- nb-form-field -->
                   <!-- <button nbSpinnerStatus="danger" type="submit" shape="semi-round" nbButton class="mb-3" fullWidth
                     status="success">Calculate</button> -->
-                    <button type="submit" class="btn btnBgPrimary w-100">Calculate</button>
+                  <button type="submit" class="btn btnBgPrimary w-100">Calculate</button>
                 </form>
               </div>
             </div>
@@ -198,7 +198,7 @@
                 <tr [class.msg]="message === 'Obese'">
                   <td scope="row">Obese</td>
                   <td>
-                     >25%
+                    >25%
                   </td>
                 </tr>
               </tbody>
