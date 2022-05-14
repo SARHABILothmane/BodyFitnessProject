@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { BodyMassWomenComponent } from './body-mass-women.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.module';
 
 const routes: Routes = [
   { path: "", component: BodyMassWomenComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
     NbLayoutModule,
     FormBmiModule,
     NgxJsonLdModule,
+    OtherCalcultorModule,
     RouterModule.forChild(routes),
   ]
 })
