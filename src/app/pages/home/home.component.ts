@@ -54,14 +54,14 @@ export class HomeComponent implements OnInit {
       { name: 'keywords', content: "bmi calculator, bmi calculator women, body fat percentage calculator, basal metabolic rate calculator, body shape calculator, healthy weight calculator, ideal weight calculator, age calculator, data calculator" },
       { name: 'description', content: "Free online calculators for different types fitness, time and more" },
     ]);
-    this.canonical.createCanonicalLink();
+    this.canonical.createCanonicalLink("https://body-calculator.com/");
     //shema
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
       "name": "free online calculators",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
-      "url": "https://www.body-calculator.com/",
+      "url": "https://body-calculator.com/",
       "author": {
         "@type": "Person",
         "name": "SARHABIL"

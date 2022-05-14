@@ -42,7 +42,7 @@ export class AgeCalculatorComponent implements OnInit {
       { name: 'keywords', content: "age calculator, date of birth calculator, birthday calculator, chronological age calculator, life expectancy calculator, calculate age from date of birth, age calculator by date of birth, age calculator pearson" },
       { name: 'description', content: "Free online age calculator (chronological age calculator, calculate age from date of birth, age calculator by date of birth, date of birth calculator)" },
     ]);
-    this.canonical.createCanonicalLink();
+    this.canonical.createCanonicalLink("https://body-calculator.com/calculators/age-calculator");
     //shema
     this.schema = {
       "@context": "http://schema.org",

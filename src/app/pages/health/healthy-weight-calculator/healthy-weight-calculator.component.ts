@@ -41,7 +41,7 @@ export class HealthyWeightCalculatorComponent implements OnInit {
       { name: 'keywords', content: "Healthy weight calculator" },
       { name: 'description', content: "Free online Healthy weight calculator (healthy weight range calculator)" },
     ]);
-    this.canonical.createCanonicalLink();
+    this.canonical.createCanonicalLink("https://body-calculator.com/health/healthy-weight-calculator");
     //shema
     this.schema = {
       "@context": "http://schema.org",

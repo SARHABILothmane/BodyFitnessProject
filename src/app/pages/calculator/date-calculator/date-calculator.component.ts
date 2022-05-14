@@ -72,7 +72,7 @@ export class DateCalculatorComponent implements OnInit {
       { name: 'keywords', content: "date calculator, days calculator, days between dates, time and date calculator" },
       { name: 'description', content: "Free online date calculator (days calculator, days between dates, time and date calculator)" },
     ]);
-    this.canonical.createCanonicalLink();
+    this.canonical.createCanonicalLink("https://body-calculator.com/calculators/date-calculator");
     //shema
     this.schema = {
       "@context": "http://schema.org",

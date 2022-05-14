@@ -52,7 +52,7 @@ export class IdealWeightCalculatorComponent implements OnInit {
       { name: 'keywords', content: "average weight calculator, ideal weight calculator, ideal body weight calculator, body weight ideal" },
       { name: 'description', content: "Free online ideal weight calculator (ideal body weight calculator, body weight ideal, average weight calculator)" },
     ]);
-    this.CanonicalService.createCanonicalLink();
+    this.CanonicalService.createCanonicalLink("https://body-calculator.com/health/ideal-weight-calculator");
     //shema
     this.schema = {
       "@context": "http://schema.org",

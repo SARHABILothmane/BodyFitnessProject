@@ -19,7 +19,7 @@ export class BodyMassMenComponent implements OnInit {
       { name: 'keywords', content: "bmi calculator, bmi calculator men, bmi calculator by age, children's bmi calculator, cdc bmi calculator, bmi calculator for women, bmi calculator children, bmi calculator women age, bmi calculator kg, child bmi calculator, bmi chart calculator, bmi calculator kids, bmi calculator for men, womens bmi calculator, bmi calculator adults, bmi calculator male male bmi calculator" },
       { name: 'description', content: "Free tool that allows you to use body mass index BMI calculator men (bmi calculator for men)" },
     ]);
-    this.CanonicalService.createCanonicalLink();
+    this.CanonicalService.createCanonicalLink("https://body-calculator.com/health/bmi-calculator-men");
     //shema
     this.schema = {
       "@context": "http://schema.org",

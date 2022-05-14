@@ -21,7 +21,7 @@ export class BodyMassWomenComponent implements OnInit {
       { name: 'keywords', content: "bmi calculator, bmi calculator women, bmi calculator by age, children's bmi calculator, cdc bmi calculator, bmi calculator for women, bmi calculator children, bmi calculator women age, bmi calculator kg, child bmi calculator, bmi chart calculator, bmi calculator kids, bmi calculator for women, womens bmi calculator, bmi calculator adults" },
       { name: 'description', content: "Free tool allows you to use bmi calculator men, bmi calculator men, bmi calculator children all this options and more (bmi calculator female, bmi calculator by age)" },
     ]);
-    this.CanonicalService.createCanonicalLink();
+    this.CanonicalService.createCanonicalLink("https://body-calculator.com/health/bmi-calculator-women");
     //shema
     this.schema = {
       "@context": "http://schema.org",

@@ -46,7 +46,7 @@ export class BodyShapeCalculatorComponent implements OnInit {
       { name: 'keywords', content: "body shape calculator, body figure, body type calculator, body shape calculator female,  hourglass figure measurements" },
       { name: 'description', content: "Free online body shape calculator tool ( body shape calculator female, body type calculator, what body shape calculator )" },
     ]);
-    this.CanonicalService.createCanonicalLink();
+    this.CanonicalService.createCanonicalLink("https://body-calculator.com/health/body-shape-calculator");
     //shema
     this.schema = {
       "@context": "http://schema.org",

@@ -38,14 +38,14 @@ export class BasalMetabolicRateCalculatorComponent implements OnInit {
       { name: 'keywords', content: "BMR calculator, basal metabolic rate calculator" },
       { name: 'description', content: "Free online tool that allow you to calculate your basal metabolic rate BMR (basal metabolic rate calculator, BMR calculator)" },
     ]);
-    this.CanonicalService.createCanonicalLink();
+    this.CanonicalService.createCanonicalLink("https://body-calculator.com/health/bmr-calculator");
     //shema
     this.schema = {
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
       "name": "basal metabolic rate BMR calculator",
       "image": "https://body-calculator.com/assets/images/logo/calculator.svg",
-      "url": "https://www.body-calculator.com/health/bmr-calculator",
+      "url": "https://body-calculator.com/health/bmr-calculator",
       "author": {
         "@type": "Person",
         "name": "SARHABIL"
