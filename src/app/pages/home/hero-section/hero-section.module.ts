@@ -1,3 +1,4 @@
+import { AdsenseModule } from 'ng2-adsense';
 import { FormBmiModule } from './../form-bmi/form-bmi.module';
 // import { LottieModule } from 'ngx-lottie';
 // import { NbIconModule, NbButtonModule } from '@nebular/theme';
@@ -21,6 +22,10 @@ import { OtherCalcultorModule } from '../../other-calcultor/other-calculator.mod
     FormBmiModule,
     // NbButtonModule,
     OtherCalcultorModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-2374538044388820',
+      adSlot: 7784325323,
+    }),
     // LottieModule.forRoot({ player: playerFactory }),
   ],
   exports: [HeroSectionComponent]

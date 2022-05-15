@@ -16,6 +16,22 @@
   <!-- - Google ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2374538044388820"
     crossorigin="anonymous"></script>
+  <!-- Measure Application Performance with FCP : First Contentful Paint. -->
+  <script>
+    // Log the value of FCP to the console | https://web.dev/fcp/#measure-fcp-in-javascript 
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntriesByName('first-contentful-paint')) {
+        console.log('FCP: ', entry.startTime);
+        observer.disconnect();
+      }
+    })
+    observer.observe({
+      type: 'paint',
+      buffered: true
+    });
+
+  </script>
+  <!--  -->
   <script>
     window.dataLayer = window.dataLayer || [];
 

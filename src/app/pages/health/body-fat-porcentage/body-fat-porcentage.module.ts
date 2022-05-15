@@ -38,7 +38,7 @@ import { AdsenseModule } from 'ng2-adsense';
     BodyFatPorcentageRoutingModule,
     NbLayoutModule,
     NgxJsonLdModule,
-    BannerModule,
+    // BannerModule,
     // LottieModule.forRoot({ player: playerFactory }),
   ]
 })
