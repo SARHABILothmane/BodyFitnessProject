@@ -12,6 +12,19 @@ import { Banner } from 'src/app/models/banner';
 @Component({
   selector: 'app-body-fat-porcentage',
   templateUrl: './body-fat-porcentage.component.html',
+  template: `
+  <p class="text-center">
+    <strong>Current View: {{ title }}</strong>
+  </p>
+  <ng2-adsense
+    [adClient]="'ca-pub-2374538044388820'"
+    [adSlot]="7784325323" [width]="320" [height]="108" [className]="'swag'">
+  </ng2-adsense>
+  <ng2-adsense
+    [display]="'inline-block'"
+    [width]="320" [height]="108">
+  </ng2-adsense>
+  `,
   styleUrls: ['./body-fat-porcentage.component.scss']
 })
 export class BodyFatPorcentageComponent implements OnInit {

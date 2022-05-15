@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { BodyFatPorcentageRoutingModule } from './body-fat-porcentage-routing.module';
 import { BodyFatPorcentageComponent } from './body-fat-porcentage.component';
 import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+import { AdsenseModule } from 'ng2-adsense';
 
 // export function playerFactory() {
 //   return import('lottie-web/build/player/lottie_svg');
@@ -29,6 +30,11 @@ import { NgxJsonLdModule } from '@ngx-lite/json-ld';
     NbSelectModule,
     OtherCalcultorModule,
     // FontAwesomeModule,
+    // RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' }),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-2374538044388820',
+      adSlot: 7784325323,
+    }),
     BodyFatPorcentageRoutingModule,
     NbLayoutModule,
     NgxJsonLdModule,
