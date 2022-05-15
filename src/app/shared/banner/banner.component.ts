@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BannerComponent implements AfterViewInit {
 
   @Input() banner!: Banner;
-  showAd = environment.adsense.show;
+  // showAd = environment.adsense.show;
   constructor() { }
 
   // ngOnInit(): void {

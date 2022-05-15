@@ -48,17 +48,17 @@ export class BodyFatPorcentageComponent implements OnInit {
   };
 
   schema!: any;
-  banner: Banner;
+  // banner: Banner;
   constructor(
     // private toastrService: NbToastrService
     private titleService: Title, private metaService: Meta, private canonical: CanonicalService
   ) {
-    this.banner = new Banner(
-      'ca-pub-2374538044388820',
-      7784325323,
-      'auto',
-      true
-    )
+    // this.banner = new Banner(
+    //   'ca-pub-2374538044388820',
+    //   7784325323,
+    //   'auto',
+    //   true
+    // )
   }
 
 
