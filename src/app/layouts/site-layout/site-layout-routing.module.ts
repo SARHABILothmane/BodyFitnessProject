@@ -6,6 +6,7 @@ const routes: Routes = [
   {
     path: "", component: SiteLayoutComponent, children: [
       // { path: "", loadChildren: () => import("./pages/home/home.module").then(mod => mod.HomeModule) },
+      { path: '', redirectTo: '', pathMatch: 'full' },
       { path: "", loadChildren: () => import("src/app/pages/home/home.module").then(mod => mod.HomeModule) },
       // { path: "about", loadChildren: () => import("src/app/pages/about/about.module").then(mod => mod.AboutModule) },
       { path: "calculators", loadChildren: () => import("src/app/pages/calculator/calculator.module").then(mod => mod.CalcultorModule) },
