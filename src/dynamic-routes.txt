@@ -7,6 +7,7 @@
 /health/body-fat-percentage-calculator
 /health/ideal-weight-calculator
 /health/body-shape-calculator
+health/healthy-weight-calculator
 /health/bmr-calculator
 /health/date-calculator
 /health/age-calculator

@@ -180,7 +180,8 @@
               "/health/body-fat-percentage-calculator",
               "/health/ideal-weight-calculator",
               "/health/body-shape-calculator",
-              "/health/bmr-calculator"
+              "/health/bmr-calculator",
+              "health/healthy-weight-calculator"
             ]
           },
           "configurations": {
