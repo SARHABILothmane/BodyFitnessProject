@@ -181,7 +181,10 @@
               "/health/ideal-weight-calculator",
               "/health/body-shape-calculator",
               "/health/bmr-calculator",
-              "health/healthy-weight-calculator"
+              "health/healthy-weight-calculator",
+              "/contact",
+              "/private-policy",
+              "/terms"
             ]
           },
           "configurations": {
